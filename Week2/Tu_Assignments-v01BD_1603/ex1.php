@@ -2,50 +2,16 @@
 <?php
 
 /**
- * adds to the search the specific options the user input
- * @param $options
- */
-function search_for($options)
-{
-    $search = 'Search result by ';
-    foreach ($options as $key) {
-        switch ($key) {
-            case 'a':
-                $search .= "Author (\"$options[$key]\"), ";
-                break;
-            case 'e':
-                $search .= "Email address(\"$options[$key]\"), ";
-                break;
-            case 't':
-                $search .= "Time (\"$options[$key]\"), ";
-                break;
-            case 'd':
-                $search .= "Date (\"$options[$key]\"), ";
-                break;
-            case 's':
-                $search .= "Epoch timestamp (\"$options[$key]\"), ";
-                break;
-            case 'm':
-                $search .= "Commit message (\"$options[$key]\"), ";
-                break;
-        }
-    }
-    print("$search") . PHP_EOL;
-}
-
-/**
  *get options from user, check all inputs and create the command accordingly
  *and execute the command
  */
 function get_options()
 {
 
-
     $options = getopt('a:e:t:d:s:m:');
     $command = 'git log --format="%H - %an - %aD - %s"';
 
     if (!empty($options)) {
-        search_for($options);
         if (array_key_exists('a', $options)) {
             $command .= ' --author=' . $options['a'];
         }
