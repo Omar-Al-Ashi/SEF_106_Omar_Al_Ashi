@@ -1,6 +1,10 @@
 #!/usr/bin/php
 <?php
 
+/**
+ * adds to the search the specific options the user input
+ * @param $options
+ */
 function search_for($options)
 {
     $search = 'Search result by ';
@@ -29,8 +33,13 @@ function search_for($options)
     print("$search") . PHP_EOL;
 }
 
+/**
+ *get options from user, check all inputs and create the command accordingly
+ *and execute the command
+ */
 function get_options()
 {
+
 
     $options = getopt('a:e:t:d:s:m:');
     $command = 'git log --format="%H - %an - %aD - %s"';
