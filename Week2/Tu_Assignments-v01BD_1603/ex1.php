@@ -20,8 +20,8 @@ function get_options()
         }
         if (array_key_exists('d', $options)) {
             $date = new DateTime($options['d']);
-            $command .= ' --since=\'' . $date->format('m-d-Y H:i') . '\' --until=\''
-                . $date->format('m-d-Y 23:59') . '\'';
+            $command .= ' --since=\'' . $date->format('m-d-Y H:i') .
+                '\' --until=\'' . $date->format('m-d-Y 23:59') . '\'';
         }
         if (array_key_exists('s', $options)) {
             $command .= ' --since=' . $options['s'] . ' --until=' . $options['s'];
@@ -44,5 +44,3 @@ function get_options()
 }
 
 get_options();
-
-?>
