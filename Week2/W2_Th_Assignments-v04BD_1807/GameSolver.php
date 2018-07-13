@@ -4,7 +4,7 @@ require_once "GameGenerator.php";
 class GameSolver
 {
 
-    function arrayPermutation($items, $perms = [], &$ret = [])
+    public function arrayPermutation($items, $perms = [], &$ret = [])
     {
         if (empty($items)) {
             $ret[] = $perms;
@@ -20,7 +20,7 @@ class GameSolver
         return $ret;
     }
 
-    function combinations($arrays, $i = 0)
+    public function arrayCombinations($arrays, $i = 0)
     {
         if (!isset($arrays[$i])) {
             return array();
@@ -45,6 +45,27 @@ class GameSolver
 
         return $result;
     }
+    public function getArrayNumbers(){
+        $numbers = new GameGenerator();
+        $numbers->generating_numbers();
+        print_r($numbers);
+    }
+    public function joinArithmeticOperations(){
+        $permutations_array = arrayPermutation(generating_numbers());
+        print_r($permutations_array);
+        $array_of_combinations = array();
+        for ($i = 0; $i < sizeof($permutations_array); $i++) {
+            $array_of_combinations = combinations(array($permutations_array[$i], ["+", "-", "/", "*"], $permutations_array[$i]));
+        }
+        for ($i = 0; $i< sizeof($array_of_combinations); $i++){
+            for ($j = 0 ; $j< 3 ; $j++){
+                print_r($array_of_combinations[$i][$j]);
+
+            }
+            print("\n");
+        }
+    }
+
 
 
 }
