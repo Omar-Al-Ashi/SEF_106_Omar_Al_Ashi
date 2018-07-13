@@ -62,21 +62,6 @@ class GameGenerator
         return $numbers_array;
     }
 
-    /**
-     * @return array
-     */
-    public function getNumbersArray()
-    {
-        return $this->numbers_array;
-    }
-
-    /**
-     * @param array $numbers_array
-     */
-    public function setNumbersArray($numbers_array)
-    {
-        $this->numbers_array = $numbers_array;
-    }
 
 
     /**
