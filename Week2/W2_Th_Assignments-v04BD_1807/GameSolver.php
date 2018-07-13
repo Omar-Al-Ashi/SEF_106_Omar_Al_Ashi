@@ -45,27 +45,28 @@ class GameSolver
 
         return $result;
     }
-    public function getArrayNumbers(){
+
+    public function getArrayNumbers()
+    {
         $numbers = new GameGenerator();
         $numbers->generating_numbers();
         print_r($numbers);
     }
-    public function joinArithmeticOperations(){
+
+    public function joinArithmeticOperations()
+    {
         $permutations_array = arrayPermutation(generating_numbers());
         print_r($permutations_array);
         $array_of_combinations = array();
         for ($i = 0; $i < sizeof($permutations_array); $i++) {
             $array_of_combinations = combinations(array($permutations_array[$i], ["+", "-", "/", "*"], $permutations_array[$i]));
         }
-        for ($i = 0; $i< sizeof($array_of_combinations); $i++){
-            for ($j = 0 ; $j< 3 ; $j++){
+        for ($i = 0; $i < sizeof($array_of_combinations); $i++) {
+            for ($j = 0; $j < 3; $j++) {
                 print_r($array_of_combinations[$i][$j]);
 
             }
             print("\n");
         }
     }
-
-
-
 }
