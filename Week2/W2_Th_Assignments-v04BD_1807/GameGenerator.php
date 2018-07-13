@@ -8,6 +8,10 @@
 class GameGenerator
 {
 
+    public $FOUR_NUMBERS_ARRAY = array(25, 50, 75, 100);
+    public $TWENTY_NUMBERS_ARRAY = array(1, 1, 2, 2, 3, 3, 4, 4, 5, 5,
+        6, 6, 7, 7, 8, 8, 9, 9, 10, 10);
+    public $numbers_array = array();
     /**
      * Randomly pick 6 numbers from the two arrays FOUR_NUMBERS_ARRAY, and
      * TWENTY_NUMBERS_ARRAY
@@ -15,9 +19,6 @@ class GameGenerator
      */
     function generating_numbers()
     {
-        $FOUR_NUMBERS_ARRAY = array(25, 50, 75, 100);
-        $TWENTY_NUMBERS_ARRAY = array(1, 1, 2, 2, 3, 3, 4, 4, 5, 5,
-            6, 6, 7, 7, 8, 8, 9, 9, 10, 10);
 
         $random_number_four = rand(1, 4);
         $numbers_array = array();
@@ -27,12 +28,12 @@ class GameGenerator
         for ($i = 0; $i <= $random_number_four; $i++) {
             
             $random_number = rand(0, 3);
-            
-            while (in_array($FOUR_NUMBERS_ARRAY[$random_number], $numbers_array) && count($numbers_array) <= 3) {
+
+            while (in_array($this->FOUR_NUMBERS_ARRAY[$random_number], $numbers_array) && count($numbers_array) <= 3) {
                 $random_number = rand(0, 3);
             }
             if (count($numbers_array) <= 3) {
-                array_push($numbers_array, $FOUR_NUMBERS_ARRAY[$random_number]);
+                array_push($numbers_array, $this->FOUR_NUMBERS_ARRAY[$random_number]);
             }
 
         }
@@ -46,19 +47,35 @@ class GameGenerator
             $random_number = rand(0, 19);
             if (in_array($random_number, $visited_index) == false) {
                 array_push($visited_index, $random_number);
-                array_push($numbers_array, $TWENTY_NUMBERS_ARRAY[$random_number]);
+                array_push($numbers_array, $this->TWENTY_NUMBERS_ARRAY[$random_number]);
             } else {
 
                 while (in_array($random_number, $visited_index)) {
                     $random_number = rand(0, 19);
                 }
                 array_push($visited_index, $random_number);
-                array_push($numbers_array, $TWENTY_NUMBERS_ARRAY[$random_number]);
+                array_push($numbers_array, $this->TWENTY_NUMBERS_ARRAY[$random_number]);
             }
 
 
         }
         return $numbers_array;
+    }
+
+    /**
+     * @return array
+     */
+    public function getNumbersArray()
+    {
+        return $this->numbers_array;
+    }
+
+    /**
+     * @param array $numbers_array
+     */
+    public function setNumbersArray($numbers_array)
+    {
+        $this->numbers_array = $numbers_array;
     }
 
 
