@@ -26,7 +26,7 @@ class GameSolver
 
         $result = array();
 
-        // concat each array from tmp with each element from $arrays[$i]
+        // concatenate each array from tmp with each element from $arrays[$i]
         foreach ($arrays[$i] as $v) {
             foreach ($tmp as $t) {
                 $result[] = is_array($t) ?
@@ -46,8 +46,7 @@ class GameSolver
      * @param $n1
      * @param $n2
      */
-    function alternateMerge($arr1, $arr2,
-                            $n1, $n2)
+    function alternateMerge($arr1, $arr2, $n1, $n2)
     {
         $i = 0;
         $j = 0;
@@ -61,44 +60,28 @@ class GameSolver
         }
 
         // Store remaining elements of first array
-        while ($i < $n1)
+        while ($i < $n1){
             $arr3[$k++] = $arr1[$i++];
+        }
 
         // Store remaining elements of second array
-        while ($j < $n2)
+        while ($j < $n2) {
             $arr3[$k++] = $arr2[$j++];
+        }
 
         echo "Array after merging" . "\n";
         for ($i = 0; $i < ($n1 + $n2); $i++) {
             print_r($arr3[$i]);
         }
-
-
     }
+
 
     public function joinArithmeticOperations($generated_array_number)
     {
         $string = "";
         $permutations_array = $this->arrayPermutation($generated_array_number);
-//        print_r($permutations_array);
+        print_r($permutations_array);
         $arithmetic_operation_array = $this->ARITHMETIC_OPERATION;
-
-
-
-
-
-
-
-
-
-//        for ($i = 0; $i < sizeof($permutations_array); $i++) {
-//            for ($j = 0; $j < 6; $j++) {
-//                for ($k = 0; $k < 4; $k++) {
-//                    print $string .= $permutations_array[$i][$j] . $arithmetic_operation_array[$k].PHP_EOL;
-//                    $string = "";
-//                }
-//            }
-//        }
 
         for ($i = 0 ; $i<6 ; $i++){
             for ($j = 0 ; $j<4 ; $j++){
@@ -106,51 +89,7 @@ class GameSolver
                 print $string;
             }
         }
-
-
-
-
-//        print_r( $permutations_array[0]);
-//        print_r( array_merge($permutations_array, $arithmetic_operation_array));
-
-//        for ($i=0 ; $i<count($permutations_array); $i++)
-//            $this->alternateMerge($permutations_array[$i], $arithmetic_operation_array, count($permutations_array[$i]), count($arithmetic_operation_array));
-//        print_r($this->arrayCombinations(array($permutations_array[0],
-//            $arithmetic_operation_array, $permutations_array[1],
-//            $arithmetic_operation_array, $permutations_array[2],
-//            $arithmetic_operation_array, $permutations_array[3])));
-
-
-//        print_r($permutations_array[0]);
-//        for ($i = 0; $i < sizeof($arithmetic_operation_array); $i++) {
-//            for ($j = 0; $j < sizeof($permutations_array - 1); $j++) {
-//                print($permutations_array[$j] . $arithmetic_operation_array[$i] . $permutations_array[$i + 1]);
-//                $string = $permutations_array[$j] . $arithmetic_operation_array[$i];
-//                print($string);
-//            }
-//        }
-//        print_r($string = $permutations_array[0][0] . $arithmetic_operation_array[0] . $permutations_array[0][1] . $arithmetic_operation_array[1] . $permutations_array[0][2]);
-
-
-//        $this->convertArrayToString($generated_array_number);
-//        for ($i = 0; $i < sizeof($permutations_array); $i++) {
-//            $array_of_combinations = $this->arrayCombinations(array($permutations_array[$i], ["+", "-", "/", "*"], $permutations_array[$i]));
-//            print_r($array_of_combinations);
-//        }
-//        for ($i = 0; $i < sizeof($array_of_combinations); $i++) {
-//            for ($j = 0; $j < 3; $j++) {
-//                print_r($array_of_combinations);
-//            }
-//            print("\n");
-//        }
     }
-
-//    public function getArrayNumbers()
-//    {
-//        $numbers = new GameGenerator();
-//        $numbers->generating_numbers();
-//        print_r($numbers);
-//    }
 
 
     /**

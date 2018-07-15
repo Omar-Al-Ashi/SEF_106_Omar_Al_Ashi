@@ -10,7 +10,7 @@ class GameOutput
     public static function outputPreSolver()
     {
         $game_generator = new GameGenerator();
-        $number_of_games = readline("How	many games would you like me to play today?");
+        $number_of_games = readline("How	 many games would you like me to play today?");
 
         for ($i = 0; $i < $number_of_games; $i++) {
             $generated_array = ($game_generator->generate_array_number());
@@ -34,7 +34,6 @@ class GameOutput
                 print($generated_array[$i]);
             } else
                 print($generated_array[$i] . ", ");
-
         }
         print(" }") . PHP_EOL;
     }
