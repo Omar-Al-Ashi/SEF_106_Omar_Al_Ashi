@@ -55,21 +55,27 @@ class GameSolver
 
 
 //TODO fix the call of functions of other class (generate_array_number)
-//The problem is that I'm not able to access the generate_array_number() from class GameGenerator
-    public function joinArithmeticOperations()
+    public function joinArithmeticOperations($generated_array_number)
     {
-        $permutations_array = $this->arrayPermutation(GameGenerator::generate_array_number());
+        $permutations_array = $this->arrayPermutation($generated_array_number);
         print_r($permutations_array);
-        $array_of_combinations = array();
-        for ($i = 0; $i < sizeof($permutations_array); $i++) {
-            $array_of_combinations = $this->arrayCombinations(array($permutations_array[$i], ["+", "-", "/", "*"], $permutations_array[$i]));
-        }
-        for ($i = 0; $i < sizeof($array_of_combinations); $i++) {
-            for ($j = 0; $j < 3; $j++) {
-                print_r($array_of_combinations[$i][$j]);
-            }
-            print("\n");
-        }
+
+//        $this->convertArrayToString($generated_array_number);
+//        for ($i = 0; $i < sizeof($permutations_array); $i++) {
+//            $array_of_combinations = $this->arrayCombinations(array($permutations_array[$i], ["+", "-", "/", "*"], $permutations_array[$i]));
+//            print_r($array_of_combinations);
+//        }
+//        for ($i = 0; $i < sizeof($array_of_combinations); $i++) {
+//            for ($j = 0; $j < 3; $j++) {
+//                print_r($array_of_combinations);
+//            }
+//            print("\n");
+//        }
+    }
+
+    public function convertArrayToString($numbers_array){
+            $string_value = $numbers_array[0]. $numbers_array[1]. $numbers_array[2]. $numbers_array[3]. $numbers_array[4]. $numbers_array[5];
+            print($string_value);
     }
 }
 
@@ -79,9 +85,8 @@ print_r($generated_array = ($game_generator->generate_array_number()));
 print("The Expected number is ".$game_generator->Random_3_digit()).PHP_EOL;
 
 
-
-//$game_solver = new GameSolver();
-//$game_solver->joinArithmeticOperations();
+$game_solver = new GameSolver();
+$game_solver->joinArithmeticOperations($generated_array);
 
 
 
