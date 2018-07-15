@@ -70,17 +70,33 @@ class GameSolver
 //        print_r($permutations_array);
         $arithmetic_operation_array = $this->ARITHMETIC_OPERATION;
 
-        for ($i = 0; $i < sizeof($permutations_array[0]); $i++) {
-            for ($j = 0; $j < 6; $j++) {
-                for ($k = 0; $k < 4; $k++) {
-                    print $string .= $permutations_array[$i][$j] . $arithmetic_operation_array[$k].PHP_EOL;
-                    $string = "";
-//            print_r($string);
-//            print_r($permutations_array[0][$i]);
-//            print $string = $string . $generated_array_number[$i].PHP_EOL;
-                }
+
+
+
+
+
+
+
+
+//        for ($i = 0; $i < sizeof($permutations_array); $i++) {
+//            for ($j = 0; $j < 6; $j++) {
+//                for ($k = 0; $k < 4; $k++) {
+//                    print $string .= $permutations_array[$i][$j] . $arithmetic_operation_array[$k].PHP_EOL;
+//                    $string = "";
+//                }
+//            }
+//        }
+
+        for ($i = 0 ; $i<6 ; $i++){
+            for ($j = 0 ; $j<4 ; $j++){
+                $string .= $permutations_array[0][$i] . $arithmetic_operation_array[$j];
+                print $string;
             }
         }
+
+
+
+
 //        print_r( $permutations_array[0]);
 //        print_r( array_merge($permutations_array, $arithmetic_operation_array));
 
@@ -148,15 +164,3 @@ class GameSolver
         print($string_value);
     }
 }
-
-$game_generator = new GameGenerator();
-print("The generated Array number is ");
-print_r($generated_array = ($game_generator->generate_array_number()));
-print("The Expected number is " . $game_generator->Random_3_digit()) . PHP_EOL;
-
-
-$game_solver = new GameSolver();
-$game_solver->joinArithmeticOperations($generated_array);
-
-
-
