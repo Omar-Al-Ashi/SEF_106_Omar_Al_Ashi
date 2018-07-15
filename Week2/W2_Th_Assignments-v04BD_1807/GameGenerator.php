@@ -67,6 +67,7 @@ class GameGenerator
      */
     public function Random_3_digit()
     {
+        // TODO change
         return rand(101, 999);
     }
 }

@@ -10,17 +10,21 @@ class GameOutput
     public static function outputPreSolver()
     {
         $game_generator = new GameGenerator();
-        $number_of_games = readline("How	 many games would you like me to play today?");
+        $number_of_games = readline("How	 many games would you like me to play today? ");
 
         for ($i = 0; $i < $number_of_games; $i++) {
             $generated_array = ($game_generator->generate_array_number());
-            self::arrayFormatter($generated_array);
+            GameOutput::arrayFormatter($generated_array);
             $random_number = $game_generator->Random_3_digit();
 
             print("Target: $random_number") . PHP_EOL;
         }
+        $game_solver = new GameSolver();
+        $game_generator = new GameGenerator();
 
+        $game_solver->evaluate($random_number);
     }
+
 
     /**
      * Takes an array and formats it to the specified format

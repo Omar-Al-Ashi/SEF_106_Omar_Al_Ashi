@@ -5,92 +5,57 @@ class GameSolver
 {
     public $ARITHMETIC_OPERATION = ["+", "-", "*", "/"];
 
-
-    /**
-     * function that takes an array and outputs all the combinations as an array
-     * @param $arrays
-     * @param int $i
-     * @return array
-     */
-    public function arrayCombinations($arrays, $i = 0)
+    public function evaluate($three_digit_number)
     {
-        if (!isset($arrays[$i])) {
-            return array();
-        }
-        if ($i == count($arrays) - 1) {
-            return $arrays[$i];
-        }
+        $game_generator = new GameGenerator();
 
-        // get combinations from subsequent arrays
-        $tmp = $this->arrayCombinations($arrays, $i + 1);
+        $generated_array = ($game_generator->generate_array_number());
+        $output = $this->joinArithmeticOperations($generated_array);
 
-        $result = array();
-
-        // concatenate each array from tmp with each element from $arrays[$i]
-        foreach ($arrays[$i] as $v) {
-            foreach ($tmp as $t) {
-                $result[] = is_array($t) ?
-                    array_merge(array($v), $t) :
-                    array($v, $t);
+        for ($i = 0; $i < sizeof($output); $i++) {
+            $result = eval('return ' . $output[$i] . ';');
+            if ($result == $three_digit_number) {
+                print_r("Solution [Exact]: ".$output[$i]);
+                print("= ".$result ). PHP_EOL;
+                return;
             }
         }
-
-        return $result;
     }
-
-    /**
-     * Function that takes two arrays with their sizes respectively, and returns
-     * a new array with the merge of the two arrays
-     * @param $arr1
-     * @param $arr2
-     * @param $n1
-     * @param $n2
-     */
-    function alternateMerge($arr1, $arr2, $n1, $n2)
-    {
-        $i = 0;
-        $j = 0;
-        $k = 0;
-        $arr3 = array();
-
-        // Traverse both array
-        while ($i < $n1 && $j < $n2) {
-            $arr3[$k++] = $arr1[$i++];
-            $arr3[$k++] = $arr2[$j++];
-        }
-
-        // Store remaining elements of first array
-        while ($i < $n1){
-            $arr3[$k++] = $arr1[$i++];
-        }
-
-        // Store remaining elements of second array
-        while ($j < $n2) {
-            $arr3[$k++] = $arr2[$j++];
-        }
-
-        echo "Array after merging" . "\n";
-        for ($i = 0; $i < ($n1 + $n2); $i++) {
-            print_r($arr3[$i]);
-        }
-    }
-
 
     public function joinArithmeticOperations($generated_array_number)
     {
-        $string = "";
         $permutations_array = $this->arrayPermutation($generated_array_number);
-        print_r($permutations_array);
-        $arithmetic_operation_array = $this->ARITHMETIC_OPERATION;
+        //print_r($permutations_array);
 
-        for ($i = 0 ; $i<6 ; $i++){
-            for ($j = 0 ; $j<4 ; $j++){
-                $string .= $permutations_array[0][$i] . $arithmetic_operation_array[$j];
-                print $string;
+        $returned_array = [];
+
+        for ($perm = 0; $perm < sizeof($permutations_array); $perm++) {
+            //print_r("perm is " . $perm);
+            $current_perm = $permutations_array[$perm];
+            //print_r("current perm is " . sizeof($current_perm));
+            $length = sizeof($current_perm) - 1;
+            //print_r("length is " . $length);
+
+            $operations_for_perm = $this->getOperations([], $length);
+            //print_r("operations_for_perm is " . sizeof($operations_for_perm));
+
+            for ($op = 0; $op < sizeof($operations_for_perm); $op++) {
+                //print_r("op is " . $op);
+                $equation = "";
+                for ($i = 0; $i < $length; $i++) {
+                    //print_r("    i is " . $i);
+                    $equation .= $current_perm[$i] . $operations_for_perm[$op][$i];
+                }
+                $equation .= $current_perm[sizeof($current_perm) - 1];
+                //print_r("equation is " . $equation);
+                array_push($returned_array, $equation);
+                //print_r($equation . "\n");
             }
-        }
-    }
 
+        }
+
+        return $returned_array;
+    }
 
     /**
      * Function that takes an array and outputs a new array that contains all
@@ -114,6 +79,40 @@ class GameSolver
             }
         }
         return $ret;
+    }
+
+    public function getOperations($array = array(array("+"), array("-"), array("*"), array("/")), $length)
+    {
+        // Initial case. $array should be empty when calling the function from outside
+        if (sizeof($array) == 0) {
+            // 4 is the number of available operations
+            for ($i = 0; $i < 4; $i++) {
+                // add the arithmetic operations each in a new array
+                array_push($array, array($this->ARITHMETIC_OPERATION[$i]));
+            }
+        }
+
+        // Exit condition. Check if the length of any of the internal arrays is as long as we need (we use index 0)
+        if (sizeof($array[0]) == $length) {
+            return $array;
+        }
+
+        // The array to be returned
+        $internal_array = [];
+
+        for ($i = 0; $i < sizeof($array); $i++) {
+            $sub_array = $array[$i];
+            // 4 is the number of available operations
+            for ($j = 0; $j < 4; $j++) {
+                $internal_sub_array = $sub_array;
+                array_push($internal_sub_array, $this->ARITHMETIC_OPERATION[$j]);
+
+
+                array_push($internal_array, $internal_sub_array);
+            }
+        }
+
+        return $this->getOperations($internal_array, $length);
     }
 
     /**
