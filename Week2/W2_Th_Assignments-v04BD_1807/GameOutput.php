@@ -17,8 +17,7 @@ class GameOutput
             self::arrayFormatter($generated_array);
             $random_number = $game_generator->Random_3_digit();
 
-            print("Target: $random_number").PHP_EOL;
-
+            print("Target: $random_number") . PHP_EOL;
         }
 
     }
@@ -37,7 +36,7 @@ class GameOutput
                 print($generated_array[$i] . ", ");
 
         }
-        print(" }").PHP_EOL;
+        print(" }") . PHP_EOL;
     }
 }
 

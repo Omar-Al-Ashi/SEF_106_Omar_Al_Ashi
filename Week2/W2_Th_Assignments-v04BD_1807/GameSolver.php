@@ -5,6 +5,13 @@ class GameSolver
 {
     public $ARITHMETIC_OPERATION = ["+", "-", "*", "/"];
 
+
+    /**
+     * function that takes an array and outputs all the combinations as an array
+     * @param $arrays
+     * @param int $i
+     * @return array
+     */
     public function arrayCombinations($arrays, $i = 0)
     {
         if (!isset($arrays[$i])) {
@@ -31,6 +38,14 @@ class GameSolver
         return $result;
     }
 
+    /**
+     * Function that takes two arrays with their sizes respectively, and returns
+     * a new array with the merge of the two arrays
+     * @param $arr1
+     * @param $arr2
+     * @param $n1
+     * @param $n2
+     */
     function alternateMerge($arr1, $arr2,
                             $n1, $n2)
     {
@@ -45,13 +60,11 @@ class GameSolver
             $arr3[$k++] = $arr2[$j++];
         }
 
-        // Store remaining elements
-        // of first array
+        // Store remaining elements of first array
         while ($i < $n1)
             $arr3[$k++] = $arr1[$i++];
 
-        // Store remaining elements
-        // of second array
+        // Store remaining elements of second array
         while ($j < $n2)
             $arr3[$k++] = $arr2[$j++];
 
@@ -140,8 +153,14 @@ class GameSolver
 //    }
 
 
-//TODO fix the call of functions of other class (generate_array_number)
-
+    /**
+     * Function that takes an array and outputs a new array that contains all
+     * the permutations of the array
+     * @param $items
+     * @param array $perms
+     * @param array $ret
+     * @return array
+     */
     public function arrayPermutation($items, $perms = [], &$ret = [])
     {
         if (empty($items)) {
@@ -158,6 +177,10 @@ class GameSolver
         return $ret;
     }
 
+    /**
+     * Function that converts an array to a string
+     * @param $numbers_array
+     */
     public function convertArrayToString($numbers_array)
     {
         $string_value = $numbers_array[0] . $numbers_array[1] . $numbers_array[2] . $numbers_array[3] . $numbers_array[4] . $numbers_array[5];
