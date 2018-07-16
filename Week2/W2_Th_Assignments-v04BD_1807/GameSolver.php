@@ -73,9 +73,11 @@ class GameSolver
         return $ret;
     }
 
-    public function getOperations($array = array(array("+"), array("-"), array("*"), array("/")), $length)
+    public function getOperations($array = array(array("+"), array("-"),
+        array("*"), array("/")), $length)
     {
-        // Initial case. $array should be empty when calling the function from outside
+        // Initial case. $array should be empty when calling the function from
+        // outside
         if (sizeof($array) == 0) {
             // 4 is the number of available operations
             for ($i = 0; $i < 4; $i++) {
@@ -84,7 +86,8 @@ class GameSolver
             }
         }
 
-        // Exit condition. Check if the length of any of the internal arrays is as long as we need (we use index 0)
+        // Exit condition. Check if the length of any of the internal arrays is
+        // as long as we need (we use index 0)
         if (sizeof($array[0]) == $length) {
             return $array;
         }
@@ -113,7 +116,9 @@ class GameSolver
      */
     public function convertArrayToString($numbers_array)
     {
-        $string_value = $numbers_array[0] . $numbers_array[1] . $numbers_array[2] . $numbers_array[3] . $numbers_array[4] . $numbers_array[5];
+        $string_value = $numbers_array[0] . $numbers_array[1] .
+            $numbers_array[2] . $numbers_array[3] . $numbers_array[4] .
+            $numbers_array[5];
         print($string_value);
     }
 }
