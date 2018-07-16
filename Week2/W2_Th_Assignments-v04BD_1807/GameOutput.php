@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 require_once "GameSolver.php";
 require_once "GameGenerator.php";

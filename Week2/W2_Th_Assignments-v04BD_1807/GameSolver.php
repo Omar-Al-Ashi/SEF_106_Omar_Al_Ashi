@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 require_once "GameGenerator.php";
 
@@ -25,31 +26,22 @@ class GameSolver
     public function joinArithmeticOperations($generated_array_number)
     {
         $permutations_array = $this->arrayPermutation($generated_array_number);
-        //print_r($permutations_array);
 
         $returned_array = [];
 
         for ($perm = 0; $perm < sizeof($permutations_array); $perm++) {
-            //print_r("perm is " . $perm);
             $current_perm = $permutations_array[$perm];
-            //print_r("current perm is " . sizeof($current_perm));
             $length = sizeof($current_perm) - 1;
-            //print_r("length is " . $length);
 
             $operations_for_perm = $this->getOperations([], $length);
-            //print_r("operations_for_perm is " . sizeof($operations_for_perm));
 
             for ($op = 0; $op < sizeof($operations_for_perm); $op++) {
-                //print_r("op is " . $op);
                 $equation = "";
                 for ($i = 0; $i < $length; $i++) {
-                    //print_r("    i is " . $i);
                     $equation .= $current_perm[$i] . $operations_for_perm[$op][$i];
                 }
                 $equation .= $current_perm[sizeof($current_perm) - 1];
-                //print_r("equation is " . $equation);
                 array_push($returned_array, $equation);
-                //print_r($equation . "\n");
             }
 
         }
