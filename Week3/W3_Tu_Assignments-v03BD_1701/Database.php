@@ -198,6 +198,7 @@ class Database
         }
     }
 
+//    TODO add a flag if a line is deleted
     function deleteLineInFile($string)
     {
         $i = 0;
@@ -225,10 +226,11 @@ class Database
             fclose($write);
         }
     }
-
+// TODO a problem here is it deletes all entries that contains the string and adds one time
     function updateFieldInTable($string, $json_format){
         $this->deleteLineInFile($string);
         $this->insertIntoTable($json_format);
+        print("Updated successfully").PHP_EOL;
     }
 }
 
