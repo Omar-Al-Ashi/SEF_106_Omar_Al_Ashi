@@ -168,7 +168,7 @@ class Database
      * gets as a parameter a keyword to search for, returns the lines (json line)
      * that keyword is found in
      * @param $searchfor
-     * @return string
+     * @return string as a JSON representation
      */
     function selectFromTable($searchfor)
     {
@@ -179,7 +179,7 @@ class Database
         $file_location = "./" . $database_name . "/" . $table_name . ".txt";
 
         if (!file_exists($file_location)) {
-            print("Table '$table_name' does not exist to select from it").PHP_EOL;
+            print("Table '$table_name' does not exist to select from it") . PHP_EOL;
         } else {
             // get the file contents, assuming the file to be readable (and exist)
             $contents = file_get_contents($file_location);
@@ -193,16 +193,50 @@ class Database
                 $result_found = "Result found: \n" . implode("\n", $matches[0]) . PHP_EOL;
                 return $result_found;
             } else {
-                return "No matches found".PHP_EOL;
+                return "No matches found" . PHP_EOL;
             }
         }
+    }
+
+    function deleteLineInFile($string)
+    {
+        $i = 0;
+        $array = array();
+        $table_name = $this->getLatestTableUsed();
+        $database_name = $this->getLatestDatabaseUsed();
+
+        $file_location = "./" . $database_name . "/" . $table_name . ".txt";
+        if (!file_exists($file_location)) {
+            print("Table '$table_name' doesn't exist") . PHP_EOL;
+        } else {
+            $read = fopen($file_location, "r");
+            while (!feof($read)) {
+                $array[$i] = fgets($read);
+                ++$i;
+            }
+            fclose($read);
+
+            $write = fopen($file_location, "w");
+            foreach ($array as $a) {
+                if (!strstr($a, $string)) {
+                    fwrite($write, $a);
+                }
+            }
+            fclose($write);
+        }
+    }
+
+    function updateFieldInTable($string, $json_format){
+        $this->deleteLineInFile($string);
+        $this->insertIntoTable($json_format);
     }
 }
 
 $database_instance = new Database();
-$database_instance->createDatabase("NewDatabase");
-$database_instance->createTable("student");
-$database_instance->insertIntoTable("whatever");
-$database_instance->deleteTable("student");
-$database_instance->deleteDatabase("NewDatabase");
-print($database_instance->selectFromTable("whatever"));
+//$database_instance->createDatabase("NewDatabase");
+//$database_instance->createTable("student");
+//$database_instance->insertIntoTable("whatever");
+//$database_instance->deleteTable("student");
+//$database_instance->deleteDatabase("NewDatabase");
+//print($database_instance->selectFromTable("whatever"));
+$database_instance->updateFieldInTable("Omar", "added :)");
