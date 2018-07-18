@@ -29,6 +29,7 @@ class CommandInterpreter
 //  if CREATE doesn't include 2 following fields (DATABASE or TABLE, and then
 ////  the table or database name), reject it
 /// ____________________________________________________________________________
+///
 //  if SELECT doesn't have exactly one following word (item to search for), reject
 //  ____________________________________________________________________________
 
@@ -38,8 +39,12 @@ class CommandInterpreter
 /// ____________________________________________________________________________
 ///
 ///
-//  if DELETE includes more than 1 following field (Table or database) reject it
+//  if DELETE doesn't include 2 following fields (Table or database and then table name or database name) reject it
+/// ____________________________________________________________________________
+///
 //  if INSERT doesn't include following fields (json representation) reject it
+
+// TODO check for if statements
     public function checkValidity($user_input_array)
     {
         $valid = false;
@@ -50,11 +55,15 @@ class CommandInterpreter
                     if (strtoupper($user_input_array[1]) == "TABLE" || (strtoupper($user_input_array[1]) == "DATABASE")) {
                         $valid = true;
                         print("Valid CREATE statement") . PHP_EOL;
+                    } else {
+                        $valid = false;
                     }
-                } else {
-                    print("not valid CREATE statement") . PHP_EOL;
+                }
+                if (!$valid){
+                    print("not valid CREATE statement").PHP_EOL;
                 }
                 break;
+
             case (strtoupper($user_input_array[0]) == "SELECT"):
                 if (sizeof($user_input_array) == 2) {
                     $valid = true;
@@ -62,24 +71,53 @@ class CommandInterpreter
                 } else {
                     print("not valid SELECT statement") . PHP_EOL;
                 }
+                break;
+
             case (strtoupper($user_input_array[0]) == "UPDATE"):
                 if (sizeof($user_input_array) == 3) {
                     if ($this->isJson($user_input_array[2])) {
                         $valid = true;
                         print("Valid UPDATE statement").PHP_EOL;
+                    }else {
+                        $valid = false;
                     }
-                } else {
+                }
+                if (!$valid){
                     print("not valid UPDATE statement").PHP_EOL;
                 }
                 break;
 
+            case(strtoupper($user_input_array[0]) == "DELETE"):
+                if (sizeof($user_input_array) == 3) {
+                    if (strtoupper($user_input_array[1]) == "TABLE" || (strtoupper($user_input_array[1]) == "DATABASE")) {
+                        $valid = true;
+                        print("Valid DELETE statement") . PHP_EOL;
+                    } else {
+                        $valid = false;
+                    }
+                }
+                if (!$valid){
+                    print("not valid DELETE statement").PHP_EOL;
+                }
+                break;
+            case(strtoupper($user_input_array[0]) == "INSERT"):
+                if (sizeof($user_input_array == 2)){
+                    if ($this->isJson($user_input_array[1])){
+                        $valid = true;
+                        print("Valid INSERT statement") . PHP_EOL;
+                    }
+                    else{
+                        $valid = false;
+                    }
+                }
+                if (!$valid){
+                    print("not valid INSERT statement").PHP_EOL;
+                }
+                break;
 
             default:
                 print("The command you entered is not valid") . PHP_EOL;
-
         }
-
-
         return $valid;
     }
 
