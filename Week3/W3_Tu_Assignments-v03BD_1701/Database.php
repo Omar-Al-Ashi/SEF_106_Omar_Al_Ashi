@@ -202,6 +202,7 @@ class Database
     function deleteLineInFile($string)
     {
         $i = 0;
+        $found = false;
         $array = array();
         $table_name = $this->getLatestTableUsed();
         $database_name = $this->getLatestDatabaseUsed();
@@ -218,9 +219,11 @@ class Database
             fclose($read);
 
             $write = fopen($file_location, "w");
+
             foreach ($array as $a) {
                 if (!strstr($a, $string)) {
                     fwrite($write, $a);
+
                 }
             }
             fclose($write);
@@ -241,4 +244,4 @@ $database_instance = new Database();
 //$database_instance->deleteTable("student");
 //$database_instance->deleteDatabase("NewDatabase");
 //print($database_instance->selectFromTable("whatever"));
-$database_instance->updateFieldInTable("Omar", "added :)");
+$database_instance->updateFieldInTable("omar", "ahmad");
