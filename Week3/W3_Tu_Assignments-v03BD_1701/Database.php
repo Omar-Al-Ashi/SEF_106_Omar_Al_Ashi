@@ -244,4 +244,4 @@ $database_instance = new Database();
 //$database_instance->deleteTable("student");
 //$database_instance->deleteDatabase("NewDatabase");
 //print($database_instance->selectFromTable("whatever"));
-$database_instance->updateFieldInTable("omar", "ahmad");
+//$database_instance->updateFieldInTable("omar", "ahmad");
