@@ -212,6 +212,7 @@ class Database
             print("Table '$table_name' doesn't exist") . PHP_EOL;
         } else {
             $read = fopen($file_location, "r");
+            $read = fopen($file_location, "r");
             while (!feof($read)) {
                 $array[$i] = fgets($read);
                 ++$i;
