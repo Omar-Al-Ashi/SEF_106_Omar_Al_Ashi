@@ -238,7 +238,7 @@ class Database
     }
 }
 
-$database_instance = new Database();
+//$database_instance = new Database();
 //$database_instance->createDatabase("NewDatabase");
 //$database_instance->createTable("student");
 //$database_instance->insertIntoTable("whatever");

@@ -21,7 +21,10 @@ class CommandInterpreter
     {
         $this->user_input = $user_input;
         $user_input_in_array = explode('#', $user_input);
-        $this->checkValidity($user_input_in_array);
+        $validity = $this->checkValidity($user_input_in_array);
+        if ($validity) {
+            $this->sendToDatabase($user_input_in_array);
+        }
     }
 
 //  If it doesn't have CREATE, SELECT, UPDATE, DELETE, INSERT as first word,
@@ -44,75 +47,28 @@ class CommandInterpreter
 ///
 //  if INSERT doesn't include following fields (json representation) reject it
 
-// TODO check for if statements
     public function checkValidity($user_input_array)
     {
         $valid = false;
         switch ($user_input_array) {
 //            check if the first word is CREATE, and following is "TABLE" or "DATABASE"
             case (strtoupper($user_input_array[0]) == "CREATE"):
-                if (sizeof($user_input_array) == 3) {
-                    if (strtoupper($user_input_array[1]) == "TABLE" || (strtoupper($user_input_array[1]) == "DATABASE")) {
-                        $valid = true;
-                        print("Valid CREATE statement") . PHP_EOL;
-                    } else {
-                        $valid = false;
-                    }
-                }
-                if (!$valid){
-                    print("not valid CREATE statement").PHP_EOL;
-                }
+                $valid = $this->checkCREATEValidity($user_input_array);
                 break;
 
             case (strtoupper($user_input_array[0]) == "SELECT"):
-                if (sizeof($user_input_array) == 2) {
-                    $valid = true;
-                    print("Valid SELECT statement") . PHP_EOL;
-                } else {
-                    print("not valid SELECT statement") . PHP_EOL;
-                }
+                $valid = $this->checkSELECTValidity($user_input_array);
                 break;
 
             case (strtoupper($user_input_array[0]) == "UPDATE"):
-                if (sizeof($user_input_array) == 3) {
-                    if ($this->isJson($user_input_array[2])) {
-                        $valid = true;
-                        print("Valid UPDATE statement").PHP_EOL;
-                    }else {
-                        $valid = false;
-                    }
-                }
-                if (!$valid){
-                    print("not valid UPDATE statement").PHP_EOL;
-                }
+                $valid = $this->checkUPDATEValidity($user_input_array);
                 break;
 
             case(strtoupper($user_input_array[0]) == "DELETE"):
-                if (sizeof($user_input_array) == 3) {
-                    if (strtoupper($user_input_array[1]) == "TABLE" || (strtoupper($user_input_array[1]) == "DATABASE")) {
-                        $valid = true;
-                        print("Valid DELETE statement") . PHP_EOL;
-                    } else {
-                        $valid = false;
-                    }
-                }
-                if (!$valid){
-                    print("not valid DELETE statement").PHP_EOL;
-                }
+                $valid = $this->checkDELETEValidity($user_input_array);
                 break;
             case(strtoupper($user_input_array[0]) == "INSERT"):
-                if (sizeof($user_input_array == 2)){
-                    if ($this->isJson($user_input_array[1])){
-                        $valid = true;
-                        print("Valid INSERT statement") . PHP_EOL;
-                    }
-                    else{
-                        $valid = false;
-                    }
-                }
-                if (!$valid){
-                    print("not valid INSERT statement").PHP_EOL;
-                }
+                $valid = $this->checkINSERTValidity($user_input_array);
                 break;
 
             default:
@@ -121,11 +77,124 @@ class CommandInterpreter
         return $valid;
     }
 
+    public function checkCREATEValidity($user_input_command_array)
+    {
+        $valid = false;
+        if (sizeof($user_input_command_array) == 3) {
+            if (strtoupper($user_input_command_array[1]) == "TABLE" || (strtoupper($user_input_command_array[1]) == "DATABASE")) {
+                $valid = true;
+//                print("Valid CREATE statement") . PHP_EOL;
+            } else {
+                $valid = false;
+            }
+        }
+        if (!$valid) {
+            print("not valid CREATE statement") . PHP_EOL;
+        }
+        return $valid;
+    }
+
+    public function checkSELECTValidity($user_input_command_array)
+    {
+        $valid = false;
+        if (sizeof($user_input_command_array) == 2) {
+            $valid = true;
+//            print("Valid SELECT statement") . PHP_EOL;
+        } else {
+            print("not valid SELECT statement") . PHP_EOL;
+        }
+        return $valid;
+    }
+
+    public function checkUPDATEValidity($user_input_command_array)
+    {
+        $valid = false;
+        if (sizeof($user_input_command_array) == 3) {
+            if ($this->isJson($user_input_command_array[2])) {
+                $valid = true;
+//                print("Valid UPDATE statement") . PHP_EOL;
+            } else {
+                $valid = false;
+            }
+        }
+        if (!$valid) {
+            print("not valid UPDATE statement") . PHP_EOL;
+        }
+        return $valid;
+    }
 
     public function isJson($string)
     {
         json_decode($string);
         return (json_last_error() == JSON_ERROR_NONE);
+    }
+
+    public function checkDELETEValidity($user_input_command_array)
+    {
+        $valid = false;
+        if (sizeof($user_input_command_array) == 3) {
+            if (strtoupper($user_input_command_array[1]) == "TABLE" || (strtoupper($user_input_command_array[1]) == "DATABASE")) {
+                $valid = true;
+//                print("Valid DELETE statement") . PHP_EOL;
+            } else {
+                $valid = false;
+            }
+        }
+        if (!$valid) {
+            print("not valid DELETE statement") . PHP_EOL;
+        }
+        return $valid;
+    }
+
+    public function checkINSERTValidity($user_input_command_array)
+    {
+        $valid = false;
+        if (sizeof($user_input_command_array )== 2) {
+            if ($this->isJson($user_input_command_array[1])) {
+                $valid = true;
+//                print("Valid INSERT statement") . PHP_EOL;
+            } else {
+                $valid = false;
+            }
+        }
+        if (!$valid) {
+            print("not valid INSERT statement") . PHP_EOL;
+        }
+        return $valid;
+    }
+
+    public function sendToDatabase($user_input_array)
+    {
+        $database_instance = new Database();
+
+        switch ($user_input_array) {
+            case (strtoupper($user_input_array[0]) == "CREATE"):
+                if (strtoupper($user_input_array[1]) == "DATABASE")
+                    $database_instance->createDatabase($user_input_array[2]);
+                else $database_instance->createTable($user_input_array[2]);
+                break;
+
+            case (strtoupper($user_input_array[0]) == "SELECT"):
+                print($database_instance->selectFromTable($user_input_array[1]));
+                break;
+
+            case (strtoupper($user_input_array[0]) == "UPDATE"):
+                $database_instance->updateFieldInTable($user_input_array[1], $user_input_array[2]);
+                break;
+
+            case (strtoupper($user_input_array[0]) == "DELETE"):
+                if (strtoupper($user_input_array[1]) == "DATABASE")
+                    $database_instance->deleteDatabase($user_input_array[2]);
+                else $database_instance->deleteTable($user_input_array[2]);
+                break;
+
+            case(strtoupper($user_input_array[1]) == "INSERT"):
+                $database_instance->insertIntoTable($user_input_array[1]);
+                break;
+
+            default:
+                print("Not send to database for some reason");
+        }
     }
 
 
