@@ -1,6 +1,9 @@
 <?php
 require_once "Database.php";
 
+/**
+ * Class CommandInterpreter
+ */
 class CommandInterpreter
 {
 
@@ -27,34 +30,15 @@ class CommandInterpreter
         }
     }
 
-//  If it doesn't have CREATE, SELECT, UPDATE, DELETE, INSERT as first word,
-////  output(NOT accepted command)
-//  if CREATE doesn't include 2 following fields (DATABASE or TABLE, and then
-////  the table or database name), reject it
-/// ____________________________________________________________________________
-///
-//  if SELECT doesn't have exactly one following word (item to search for),
-// reject
-//  ____________________________________________________________________________
-
-
-//  if UPDATE doesn't include exactly 2 following fields (keyword to search for
-////  and the new json representation) reject it
-/// ____________________________________________________________________________
-///
-///
-//  if DELETE doesn't include 2 following fields (Table or database and then
-// table name or database name) reject it
-/// ____________________________________________________________________________
-///
-//  if INSERT doesn't include following fields (json representation) reject it
-
+    /**
+     * @param $user_input_array
+     * @return bool
+     */
     private function checkValidity($user_input_array)
     {
         $valid = false;
         switch ($user_input_array) {
-//            check if the first word is CREATE, and following is "TABLE" or
-//            "DATABASE"
+
             case (strtoupper($user_input_array[0]) == "CREATE"):
                 $valid = $this->checkCREATEValidity($user_input_array);
                 break;
@@ -80,6 +64,11 @@ class CommandInterpreter
         return $valid;
     }
 
+    /**
+     * checks if the create command is of correct format
+     * @param $user_input_command_array
+     * @return bool
+     */
     private function checkCREATEValidity($user_input_command_array)
     {
         $valid = false;
@@ -97,6 +86,11 @@ class CommandInterpreter
         return $valid;
     }
 
+    /**
+     * checks if the select command is of correct format
+     * @param $user_input_command_array
+     * @return bool
+     */
     private function checkSELECTValidity($user_input_command_array)
     {
         $valid = false;
@@ -109,6 +103,11 @@ class CommandInterpreter
         return $valid;
     }
 
+    /**
+     * checks if the update command is of correct format
+     * @param $user_input_command_array
+     * @return bool
+     */
     private function checkUPDATEValidity($user_input_command_array)
     {
         $valid = false;
@@ -126,12 +125,22 @@ class CommandInterpreter
         return $valid;
     }
 
+    /**
+     * checks if a string of json format
+     * @param $string
+     * @return bool
+     */
     private function isJson($string)
     {
         json_decode($string);
         return (json_last_error() == JSON_ERROR_NONE);
     }
 
+    /**
+     * checks if the delete command is of correct format
+     * @param $user_input_command_array
+     * @return bool
+     */
     private function checkDELETEValidity($user_input_command_array)
     {
         $valid = false;
@@ -150,6 +159,11 @@ class CommandInterpreter
         return $valid;
     }
 
+    /**
+     * checks if the insert command is of correct format
+     * @param $user_input_command_array
+     * @return bool
+     */
     private function checkINSERTValidity($user_input_command_array)
     {
         $valid = false;
@@ -167,6 +181,10 @@ class CommandInterpreter
         return $valid;
     }
 
+    /**
+     * checks the command and sends the command to the right database method
+     * @param $user_input_array
+     */
     private function sendToDatabase($user_input_array)
     {
         $database_instance = new Database();

@@ -48,7 +48,8 @@ class Database
             $file = fopen("./database_table_latest.txt", "w");
             fclose($file);
         }
-        file_put_contents("./database_table_latest.txt", $latest_database_used.PHP_EOL);
+        file_put_contents("./database_table_latest.txt",
+            $latest_database_used.PHP_EOL);
     }
 
     /**
@@ -71,7 +72,8 @@ class Database
         if (!file_exists("./database_table_latest.txt")){
             mkdir("./database_table_latest.txt", 0777);
         }
-        file_put_contents("./database_table_latest.txt", $latest_table_used.PHP_EOL, FILE_APPEND);
+        file_put_contents("./database_table_latest.txt",
+            $latest_table_used.PHP_EOL, FILE_APPEND);
     }
 
     /**
@@ -85,7 +87,8 @@ class Database
             print("Database '$database_name' already exists") . PHP_EOL;
             $this->setLatestDatabaseUsed( $database_name);
         } else {
-            mkdir($this->DATABASE_LOCATION . $database_name, 0777);
+            mkdir($this->DATABASE_LOCATION . $database_name,
+                0777);
             print("Database $database_name is created") . PHP_EOL;
 //            Assigning the latest used database to that whenever we make a new
 //            operation, it is done on this database
@@ -134,16 +137,16 @@ class Database
     {
         $latest_database_used = $this->getLatestDatabaseUsed();
 
-        print($latest_database_used);
+        print("The database being used is ". $latest_database_used);
 
 
         if ((!file_exists("./$latest_database_used/"))) {
-            mkdir($this->DATABASE_LOCATION . $latest_database_used
+            mkdir("./" . $latest_database_used
                 , 0777);
         }
         if (file_exists("./$latest_database_used/$table_name.txt")) {
             print("Table '$table_name' already exists") . PHP_EOL;
-        } else {
+        } elseif(file_exists("./$latest_database_used/")) {
             fopen("./$latest_database_used/$table_name.txt"
                 , "w");
             print("Table '$table_name' is created") . PHP_EOL;
@@ -162,7 +165,8 @@ class Database
         if ($table_name == "") {
             $table_name = $this->getLatestTableUsed();
         }
-        if (file_exists("./$this->latest_database_used/$table_name.txt")) {
+        if (file_exists("./$this->latest_database_used/$table_name.txt"
+        )) {
             unlink("./$this->latest_database_used/$table_name.txt");
             print("Table '$table_name' is deleted") . PHP_EOL;
         } else {
@@ -200,7 +204,8 @@ class Database
         $file_location = "./" . $database_name . "/" . $table_name . ".txt";
 
         if (!file_exists($file_location)) {
-            print("Table '$table_name' does not exist to select from it") . PHP_EOL;
+            print("Table '$table_name' does not exist to select from it")
+                . PHP_EOL;
         } else {
             $contents = file_get_contents($file_location);
             $pattern = preg_quote($searchfor, '/');
@@ -215,6 +220,10 @@ class Database
         }
     }
 
+    /**
+     * searches for a keyword in the file, if found, deletes the whole line
+     * @param $string
+     */
     public function deleteLineInFile($string)
     {
         $i = 0;
@@ -247,8 +256,11 @@ class Database
         }
     }
 
-// TODO a problem here is it deletes all entries that contains the string and
-// adds one time
+    /**
+     * calls the deleteLineInFile method and the insertIntoTable method
+     * @param $string
+     * @param $json_format
+     */
     public function updateFieldInTable($string, $json_format)
     {
         $this->deleteLineInFile($string);
