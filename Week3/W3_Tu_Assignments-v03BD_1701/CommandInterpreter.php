@@ -4,12 +4,12 @@ require_once "Database.php";
 class CommandInterpreter
 {
 
-    public $user_input = "";
+    private $user_input = "";
 
     /**
      * @return string
      */
-    public function getUserInput()
+    private function getUserInput()
     {
         return $this->user_input;
     }
@@ -33,7 +33,8 @@ class CommandInterpreter
 ////  the table or database name), reject it
 /// ____________________________________________________________________________
 ///
-//  if SELECT doesn't have exactly one following word (item to search for), reject
+//  if SELECT doesn't have exactly one following word (item to search for),
+// reject
 //  ____________________________________________________________________________
 
 
@@ -42,21 +43,23 @@ class CommandInterpreter
 /// ____________________________________________________________________________
 ///
 ///
-//  if DELETE doesn't include 2 following fields (Table or database and then table name or database name) reject it
+//  if DELETE doesn't include 2 following fields (Table or database and then
+// table name or database name) reject it
 /// ____________________________________________________________________________
 ///
 //  if INSERT doesn't include following fields (json representation) reject it
 
-    public function checkValidity($user_input_array)
+    private function checkValidity($user_input_array)
     {
         $valid = false;
         switch ($user_input_array) {
-//            check if the first word is CREATE, and following is "TABLE" or "DATABASE"
+//            check if the first word is CREATE, and following is "TABLE" or
+//            "DATABASE"
             case (strtoupper($user_input_array[0]) == "CREATE"):
                 $valid = $this->checkCREATEValidity($user_input_array);
                 break;
 
-            case (strtoupper($user_input_array[0]) == "SELECT"):
+            case (strtoupper($user_input_array[0]) == "GET"):
                 $valid = $this->checkSELECTValidity($user_input_array);
                 break;
 
@@ -77,13 +80,13 @@ class CommandInterpreter
         return $valid;
     }
 
-    public function checkCREATEValidity($user_input_command_array)
+    private function checkCREATEValidity($user_input_command_array)
     {
         $valid = false;
         if (sizeof($user_input_command_array) == 3) {
-            if (strtoupper($user_input_command_array[1]) == "TABLE" || (strtoupper($user_input_command_array[1]) == "DATABASE")) {
+            if (strtoupper($user_input_command_array[1]) == "TABLE" ||
+                (strtoupper($user_input_command_array[1]) == "DATABASE")) {
                 $valid = true;
-//                print("Valid CREATE statement") . PHP_EOL;
             } else {
                 $valid = false;
             }
@@ -94,7 +97,7 @@ class CommandInterpreter
         return $valid;
     }
 
-    public function checkSELECTValidity($user_input_command_array)
+    private function checkSELECTValidity($user_input_command_array)
     {
         $valid = false;
         if (sizeof($user_input_command_array) == 2) {
@@ -106,7 +109,7 @@ class CommandInterpreter
         return $valid;
     }
 
-    public function checkUPDATEValidity($user_input_command_array)
+    private function checkUPDATEValidity($user_input_command_array)
     {
         $valid = false;
         if (sizeof($user_input_command_array) == 3) {
@@ -123,17 +126,18 @@ class CommandInterpreter
         return $valid;
     }
 
-    public function isJson($string)
+    private function isJson($string)
     {
         json_decode($string);
         return (json_last_error() == JSON_ERROR_NONE);
     }
 
-    public function checkDELETEValidity($user_input_command_array)
+    private function checkDELETEValidity($user_input_command_array)
     {
         $valid = false;
         if (sizeof($user_input_command_array) == 3) {
-            if (strtoupper($user_input_command_array[1]) == "TABLE" || (strtoupper($user_input_command_array[1]) == "DATABASE")) {
+            if (strtoupper($user_input_command_array[1]) == "TABLE" ||
+                (strtoupper($user_input_command_array[1]) == "DATABASE")) {
                 $valid = true;
 //                print("Valid DELETE statement") . PHP_EOL;
             } else {
@@ -146,10 +150,10 @@ class CommandInterpreter
         return $valid;
     }
 
-    public function checkINSERTValidity($user_input_command_array)
+    private function checkINSERTValidity($user_input_command_array)
     {
         $valid = false;
-        if (sizeof($user_input_command_array )== 2) {
+        if (sizeof($user_input_command_array) == 2) {
             if ($this->isJson($user_input_command_array[1])) {
                 $valid = true;
 //                print("Valid INSERT statement") . PHP_EOL;
@@ -163,7 +167,7 @@ class CommandInterpreter
         return $valid;
     }
 
-    public function sendToDatabase($user_input_array)
+    private function sendToDatabase($user_input_array)
     {
         $database_instance = new Database();
 
@@ -174,12 +178,13 @@ class CommandInterpreter
                 else $database_instance->createTable($user_input_array[2]);
                 break;
 
-            case (strtoupper($user_input_array[0]) == "SELECT"):
-                print($database_instance->selectFromTable($user_input_array[1]));
+            case (strtoupper($user_input_array[0]) == "GET"):
+                print($database_instance->GET($user_input_array[1]));
                 break;
 
             case (strtoupper($user_input_array[0]) == "UPDATE"):
-                $database_instance->updateFieldInTable($user_input_array[1], $user_input_array[2]);
+                $database_instance->updateFieldInTable($user_input_array[1],
+                    $user_input_array[2]);
                 break;
 
             case (strtoupper($user_input_array[0]) == "DELETE"):
@@ -188,12 +193,13 @@ class CommandInterpreter
                 else $database_instance->deleteTable($user_input_array[2]);
                 break;
 
-            case(strtoupper($user_input_array[1]) == "INSERT"):
+            case (strtoupper($user_input_array[0]) == "INSERT"):
                 $database_instance->insertIntoTable($user_input_array[1]);
                 break;
 
+
             default:
-                print("Not send to database for some reason");
+                print("Not sent to database for some reason") . PHP_EOL;
         }
     }
 
