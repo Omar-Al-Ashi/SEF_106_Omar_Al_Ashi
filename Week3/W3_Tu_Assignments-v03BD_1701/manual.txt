@@ -1,0 +1,11 @@
+CREATE -> DATABASE -> <name_of_the_database>
+       -> TABLE -> <name_of_the_table>
+
+GET -> <key_word_to_search_for>
+
+UPDATE -> <key_word_to_search_for> -> <json_representation>
+
+DELETE -> DATABASE -> <name_of_the_database>
+       -> TABLE -> <name_of_the_table>
+
+INSERT -> <json_representation>
