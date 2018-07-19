@@ -27,7 +27,7 @@ class UserInterface
      */
     private function userInputPrompt()
     {
-        $this->setUserInput(readline("Command: "));
+        $this->setUserInput(readline("Command >> "));
     }
 
 

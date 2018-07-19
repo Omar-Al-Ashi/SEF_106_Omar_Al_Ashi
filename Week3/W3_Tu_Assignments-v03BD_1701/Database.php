@@ -150,7 +150,6 @@ class Database
             fopen("./$latest_database_used/$table_name.txt"
                 , "w");
             print("Table '$table_name' is created") . PHP_EOL;
-//            fclose($file);
         }
 
         $this->setLatestTableUsed($table_name);
