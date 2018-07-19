@@ -35,7 +35,6 @@ class Database
         $myFile = "./database_table_latest.txt";
         $lines = file($myFile);//file in to an array
         return $lines[0]; //line 2
-//        return $this->latest_database_used;
     }
 
     /**
@@ -226,7 +225,6 @@ class Database
     public function deleteLineInFile($string)
     {
         $i = 0;
-        $found = false;
         $array = array();
         $table_name = $this->getLatestTableUsed();
         $database_name = $this->getLatestDatabaseUsed();
@@ -235,7 +233,6 @@ class Database
         if (!file_exists($file_location)) {
             print("Table '$table_name' doesn't exist") . PHP_EOL;
         } else {
-            $read = fopen($file_location, "r");
             $read = fopen($file_location, "r");
             while (!feof($read)) {
                 $array[$i] = fgets($read);
@@ -248,7 +245,6 @@ class Database
             foreach ($array as $a) {
                 if (!strstr($a, $string)) {
                     fwrite($write, $a);
-
                 }
             }
             fclose($write);
