@@ -77,3 +77,16 @@ fabric.properties
 
 # End of https://www.gitignore.io/api/phpstorm
 
+.idea/misc.xml
+.idea/modules.xml
+.idea/projects.iml
+.idea/vcs.xml
+
+Week1/Th_Assignments-v02BD_1607/Th_Assignments-v02BD_1607.pdf
+Week1/Tu_Assignments-v02BD_1603/Tu_Assignments-v02BD_1603.pdf
+Week1/W1_Th_Extra-v02BD_1607/W1_Th_Extra-v02BD_1607.pdf
+Week2/Tu_Assignments-v01BD_1603/Tu_Assignments-v01BD_1603.pdf
+Week2/W2_Th_Assignments-v04BD_1807/W2_Th_Assignments-v04BD_1807.pdf
+Week3/W3_Tu_Assignments-v03BD_1701/W3_Tu_Assignments-v03BD_1701.pdf
+
+
