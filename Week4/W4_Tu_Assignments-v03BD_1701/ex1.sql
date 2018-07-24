@@ -1,6 +1,5 @@
 DROP DATABASE if exists FinanceDB;
 
-
 CREATE DATABASE FinanceDB;
 USE FinanceDB;
 CREATE TABLE FiscalYearTable (
@@ -52,12 +51,12 @@ CREATE TRIGGER FiscalYearTableBeforeInsert
     -- check for overlapping entries
     IF EXISTS
     (
-        SELECT *
-        FROM FinanceDB.FiscalYearTable
-        WHERE (NEW.start_date >= start_date
-               AND NEW.end_date >= start_date)
-              OR (NEW.start_date <= start_date
-                  AND NEW.end_date <= end_date)
+      SELECT *
+      FROM FinanceDB.FiscalYearTable
+      WHERE (NEW.start_date >= start_date
+             AND NEW.end_date >= start_date)
+            OR (NEW.start_date <= start_date
+                AND NEW.end_date <= end_date)
     )
     THEN
       SIGNAL SQLSTATE '45000'
@@ -71,10 +70,10 @@ DELIMITER ;
 INSERT INTO FinanceDB.FiscalYearTable
 VALUES ('1999', '1999-09-1', '2000-08-30');
 
-# Test when end date is before start date:
+-- Test when end date is before start date:
 INSERT INTO FinanceDB.FiscalYearTable
 VALUES ('1997', '1997-08-17', '1998-08-17');
 
-# To check for if start_date is before end_date
+-- To check for if start_date is before end_date
 INSERT INTO FinanceDB.FiscalYearTable
 VALUES ('1999', '1999-08-17', '1998-08-17');
