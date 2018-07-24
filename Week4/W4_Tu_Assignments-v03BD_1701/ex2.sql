@@ -13,8 +13,8 @@ CREATE TABLE AnestProcedures (
 
 INSERT INTO HospitalRecords.AnestProcedures (anest_name, start_time, end_time)
 VALUES
-  ("Albert", "8:00", "11:00"),
-  ("Albert", "9:00", "13:00"),
+  ("Kamil", "8:00", "11:00"),
+  ("Kamil", "9:00", "13:00"),
   ("Albert", "8:00", "13:30"),
   ("Albert", "9:00", "15:30"),
   ("Albert", "10:00", "11:30"),
