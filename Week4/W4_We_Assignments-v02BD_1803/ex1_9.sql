@@ -1,0 +1,2 @@
+-- Get the top 3 customers who rented the highest number of movies within a
+-- given year
