@@ -60,3 +60,22 @@ VALUES (1, "Jean Skaff", "AP", "2016-01-01"),
   (2, "Radwan Sameh", "OR", "2016-02-01"),
   (2, "Paul Syoufi", "AP", "2016-01-01"),
   (3, "Issam Awwad", "AP", "2016-01-01");
+
+
+-- Query
+SELECT
+  C1.claim_id,
+  C1.patient_name,
+  S1.claim_status
+FROM Claims AS C1, ClaimStatusCodes AS S1
+WHERE S1.claim_seq
+      IN (SELECT MIN(S2.claim_seq)
+          FROM ClaimStatusCodes AS S2
+          WHERE S2.claim_seq
+                IN (SELECT MAX(S3.claim_seq)
+                    FROM LegalEvents AS E1,
+                      ClaimStatusCodes AS S3
+                    WHERE E1.claim_status = S3.claim_status
+                          AND E1.claim_id = C1.claim_id
+                    GROUP BY E1.defendant_name))
+ORDER BY claim_id;
