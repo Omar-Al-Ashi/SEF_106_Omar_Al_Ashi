@@ -5,39 +5,44 @@ $configs = require_once('config.php');
 $dbCon = new mysqli($configs['host'], $configs['username'], $configs['password'], $configs['db_name']);
 
 
-if ($dbCon->connect_error)
-    echo "Connection to the db error";
-else
-    echo "We're connected to the database";
-
-// check if user is already registered
-$query = "SELECT email FROM login";
-$result = $dbCon->query($query);
-
-if (!$result){
-    $insert_query = "INSERT INTO ";
-}
-
-else {
-    $rows = $result->num_rows;
-
-}
-$result->close();
-$dbCon->close();
-
-
+// register form
+$register_first_name = htmlspecialchars($_POST['register_first_name']);
+$register_last_name = htmlspecialchars($_POST['register_last_name']);
+$register_email = htmlspecialchars($_POST['register_email']);
+$register_password = htmlspecialchars($_POST['register_password']);
 $register_address = htmlspecialchars($_POST['register_address']);
 $register_district = htmlspecialchars($_POST['register_district']);
 $register_postal_code = htmlspecialchars($_POST['register_postal_code']);
 $register_phone_number = htmlspecialchars($_POST['register_phone_number']);
-$register_first_name = htmlspecialchars($_POST['register_first_name']);
-$register_last_name = htmlspecialchars($_POST['register_last_name']);
-$register_password = htmlspecialchars($_POST['register_password']);
-$register_country = htmlspecialchars($_POST['register_country']);
-$register_city = htmlspecialchars($_POST['register_city']);
+$register_country = $_POST['register_country'];
+$register_city = $_POST['register_city'];
 
 
-$email = htmlspecialchars($_POST['login_email']);
-$password = htmlspecialchars($_POST['login_password']);
+// login form
+$login_email = htmlspecialchars($_POST['login_email']);
+$first_name = htmlspecialchars($_POST['first_name']);
+$last_name = htmlspecialchars($_POST['last_name']);
 
-print(" email is " . $email . ", password " . $password);
+
+// rental
+$store_address = $_POST['store_address'];
+$films = $_POST['films'];
+
+
+if (!$dbCon->connect_error) {
+
+    $check_user_availability_query = "SELECT * from customer where first_name = '" .  $first_name . "' AND last_name = '". $last_name . "' AND email = '" . $login_email ."' ";
+//     TODO check if it contains values
+    $result = $dbCon->query($check_user_availability_query);
+
+    if ($result != NULL)
+        echo "The user is not available";
+    else {
+            echo "The user is available";
+        }
+
+
+// TODO think of the insert statements for registration
+//    $insert_into_customer = "INSERT INTO customer";
+
+}
