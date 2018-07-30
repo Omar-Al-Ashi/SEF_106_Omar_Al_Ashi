@@ -6,7 +6,7 @@
 <div class="login" id="login"
      style="border-style: solid;border-width: 3px;width: 400px">
     <h1>Login</h1>
-    <form action="/new_assignment/OrderProcess.php" method="post">
+    <form action="/new_assignment/LoginProcess.php" method="post">
 
         <strong><label>Email Address:</label></strong><br><input type="email"
                                                                  name="login_email"
@@ -23,5 +23,4 @@
 </div>
 </body>
 </html>
-<?php
 

@@ -31,18 +31,6 @@ $films = $_POST['films'];
 
 if (!$dbCon->connect_error) {
 
-    $check_user_availability_query = "SELECT * from customer where first_name = '" .  $first_name . "' AND last_name = '". $last_name . "' AND email = '" . $login_email ."' ";
-//     TODO check if it contains values
-    $result = $dbCon->query($check_user_availability_query);
-
-    if ($result != NULL)
-        echo "The user is not available";
-    else {
-            echo "The user is available";
-        }
-
-
-// TODO think of the insert statements for registration
-//    $insert_into_customer = "INSERT INTO customer";
+//   TODO add rent DVD
 
 }
