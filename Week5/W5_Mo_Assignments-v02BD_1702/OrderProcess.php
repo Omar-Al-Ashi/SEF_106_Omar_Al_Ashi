@@ -31,6 +31,7 @@ $films = $_POST['films'];
 
 if (!$dbCon->connect_error) {
 
+    print("no errors");
 //   TODO add rent DVD
 
 }

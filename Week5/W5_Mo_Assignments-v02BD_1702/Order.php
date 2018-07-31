@@ -5,18 +5,29 @@
 </head>
 <body>
 
+<?php
+require_once("config.php");
+$configs = new config();
+session_start();
+print('Hello ') . "<strong>" . $_SESSION["first_name"] . " " . $_SESSION["last_name"] . "</strong><br><br>";
+?>
+
 <!--rental-->
 <div class="rental" id="rental"
      style="border-style: solid; border-width: 3px; width: 400px">
     <h1>Rental</h1>
-    <!--    <form action="/new_assignment/OrderProcess.php" method="post">-->
-    <form action="/new_assignment/OrderProcess.php" method="post" name="rental">
+    <form action="/new_assignment/neww/OrderProcess.php" method="post"
+          name="rental">
 
         <?php
 
-        $configs = require_once('config.php');
 
-        $dbCon = new mysqli($configs['host'], $configs['username'], $configs['password'], $configs['db_name']);
+        //        if ($_SESSION["email"]) {
+
+        //            $configs = require_once('config.php');
+
+        //            $dbCon = new mysqli($configs['host'], $configs['username'], $configs['password'], $configs['db_name']);
+        $dbCon = new mysqli('localhost', 'phpuser', 'toor', 'sakila');
         $result = $dbCon->query("select address from address inner join store s on address.address_id = s.address_id;");
 
         if (!$dbCon->connect_error) {
@@ -36,7 +47,8 @@
         }
 
         //        TODO edit the query to get the store_address
-        $result = $dbCon->query("select distinct title from film inner join inventory i on film.film_id = i.film_id where i.store_id  =  1");
+        //            $result = $dbCon->query("select distinct title from film inner join inventory i on film.film_id = i.film_id where i.store_id  =  1 OR i.store_id = 2");
+        $result = $dbCon->query("select distinct title from film inner join inventory i on film.film_id = i.film_id where i.store_id  =  1;");
 
         if (!$dbCon->connect_error) {
             echo "<strong><label>Film</label></strong><br>";
@@ -53,6 +65,7 @@
             }
             echo "</select><br>";
         }
+        //        }
 
         ?>
 
