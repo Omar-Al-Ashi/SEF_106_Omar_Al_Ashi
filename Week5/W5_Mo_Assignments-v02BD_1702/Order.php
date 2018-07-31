@@ -10,8 +10,8 @@ require_once("config.php");
 require_once ("MySQLWrap.php");
 $configs = new config();
 session_start();
-print('Welcome ') . "<strong>" . $_SESSION["first_name"] . " " .
-    $_SESSION["last_name"] . "</strong><br><br>";
+print('<p class="welcome">Welcome ') . "<strong>" . $_SESSION["first_name"] . " " .
+    $_SESSION["last_name"] . "</strong></p><br><br>";
 ?>
 
 <!--rental-->

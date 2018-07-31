@@ -72,13 +72,20 @@ class MySQLWrap
         $dbCon = new mysqli($config->config['host'], $config->config['username'],
             $config->config['password'], $config->config['db_name']);
         if (!$dbCon->connect_error) {
+//            $result = $dbCon->query("select F.title, min(I.inventory_id) as inventory_id
+//                from inventory as I
+//                inner join film as F on F.film_id = I.film_id
+//                where inventory_in_stock(I.inventory_id)
+//                group by F.title;");
+
             $result = $dbCon->query("select F.title
                 from inventory as I 
                 inner join film as F on F.film_id = I.film_id 
                 where inventory_in_stock(I.inventory_id) 
                 group by F.title;");
             echo "<strong><label>Film</label></strong><br>";
-            echo "<select name='films' style='width: 200px'>";
+            echo "<select name='films' class='Films'>";
+echo "<option value= '' selected disabled hidden>Select a film</option>";
 
             $rows = $result->num_rows;
 
@@ -89,11 +96,13 @@ class MySQLWrap
                     echo '<option value="' . $value . '">' . $value . '</option>';
                 }
             }
-            echo "</select><br>";
+            echo "</select><br><br>";
         }
     }
 
-    public function rentAMovie(){
+
+    public function rentAMovie()
+    {
 
     }
 }

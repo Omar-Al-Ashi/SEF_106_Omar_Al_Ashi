@@ -1,23 +1,31 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Order Page</title>
+</head>
+
 <?php
 
 require_once('config.php');
 require_once ('MySQLWrap.php');
 
 $MySqlInstance = new MySQLWrap();
-//
-//$config = new config();
-//$dbCon = new mysqli($config->config['host'], $config->config['username'], $config->config['password'], $config->config['db_name']);
-
 
 // rental
-$store_address = $_POST['store_address'];
 $films = $_POST['films'];
 
 
 if (!$dbCon->connect_error) {
 
     $MySqlInstance->rentAMovie();
-    print("no errors");
-//   TODO add rent DVD
+
+    session_start();
+    $first_name = $_SESSION["first_name"] ;
+    $films = $_POST['films'];
+    $last_name = $_SESSION["last_name"] ;
+    print("<p class='done'>The order is done, thanks $first_name $last_name for using our service, you have ordered $films </p><br>");
+    print('<p class="done"><a href="Order.php">Go to rental page</a></p>');
 
 }
+?>
+</html>
