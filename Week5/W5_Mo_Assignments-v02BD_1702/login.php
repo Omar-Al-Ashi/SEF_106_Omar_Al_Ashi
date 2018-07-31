@@ -1,10 +1,10 @@
 <html>
 <head>
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-<div class="login" id="login"
-     style="border-style: solid;border-width: 3px;width: 400px">
+<div class="login" id="login">
     <h1>Login</h1>
     <form action="LoginProcess.php" method="post">
 
@@ -12,11 +12,11 @@
                                                                  name="login_email"
                                                                  placeholder="email address"><br>
         <strong><label>first name</label></strong><br><input type="text"
-                                                           name="first_name"
-                                                           placeholder="first name"><br>
+                                                             name="first_name"
+                                                             placeholder="first name"><br>
         <strong><label>last name</label></strong><br><input type="text"
-                                                             name="last_name"
-                                                             placeholder="last name"><br>
+                                                            name="last_name"
+                                                            placeholder="last name"><br>
         <input type="submit" value="login">
 
     </form>
