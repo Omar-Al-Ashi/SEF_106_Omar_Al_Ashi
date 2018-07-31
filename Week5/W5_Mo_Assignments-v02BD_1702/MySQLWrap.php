@@ -11,6 +11,13 @@ class MySQLWrap
         $dbCon = new mysqli($config->config['host'], $config->config['username'], $config->config['password'], $config->config['db_name']);
     }
 
+    /**
+     * function that checks if the user is available in the db
+     * @param $first_name
+     * @param $last_name
+     * @param $email
+     * @return bool
+     */
     public function checkUserLogin($first_name, $last_name, $email)
     {
         $config = new config();
@@ -36,6 +43,9 @@ class MySQLWrap
         }
     }
 
+    /**
+     * function to get the addresses from the db
+     */
     public function getAddresses()
     {
         $config = new config();
@@ -65,6 +75,9 @@ class MySQLWrap
 
     }
 
+    /**
+     * function to get all the available movies and not rented from the db
+     */
     public function getMovies()
     {
         $config = new config();
@@ -100,9 +113,13 @@ echo "<option value= '' selected disabled hidden>Select a film</option>";
         }
     }
 
-
+    /**
+     * function to add a new row in the rental
+     */
     public function rentAMovie()
     {
-
+//        $inventory_id
+        $rental_query = "INSERT INTO rental(rental_date, inventory_id, customer_id, staff_id) 
+    VALUES(NOW(), 10, 3, 1);";
     }
 }

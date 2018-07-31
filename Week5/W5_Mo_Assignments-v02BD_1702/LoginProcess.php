@@ -1,3 +1,9 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Login Process</title>
+</head>
+
 <?php
 require_once('MySQLWrap.php');
 require_once("config.php");
@@ -20,6 +26,6 @@ if ($user_login_result){
     header('Location: Order.php');
 }
 else{
-    print("The user is not available<br>");
-    print('<a href="login.php">Go to login</a>');
+    print("<div class='welcome'>The user $first_name $last_name is not available<br>");
+    print('<a href="login.php">Go to login</a></div>');
 }
