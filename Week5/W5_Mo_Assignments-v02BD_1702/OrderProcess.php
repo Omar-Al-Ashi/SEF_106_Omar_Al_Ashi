@@ -17,7 +17,7 @@ $films = $_POST['films'];
 
 if (!$dbCon->connect_error) {
 
-    $MySqlInstance->rentAMovie();
+    $MySqlInstance->rentAMovie(10,3,1);
 
     session_start();
     $first_name = $_SESSION["first_name"] ;

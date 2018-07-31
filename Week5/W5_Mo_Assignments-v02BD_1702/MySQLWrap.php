@@ -98,7 +98,7 @@ class MySQLWrap
                 group by F.title;");
             echo "<strong><label>Film</label></strong><br>";
             echo "<select name='films' class='Films'>";
-echo "<option value= '' selected disabled hidden>Select a film</option>";
+            echo "<option value= '' selected disabled hidden>Select a film</option>";
 
             $rows = $result->num_rows;
 
@@ -116,10 +116,26 @@ echo "<option value= '' selected disabled hidden>Select a film</option>";
     /**
      * function to add a new row in the rental
      */
-    public function rentAMovie()
+    public function rentAMovie($inventory_id, $customer_id, $staff_id)
     {
-//        $inventory_id
-        $rental_query = "INSERT INTO rental(rental_date, inventory_id, customer_id, staff_id) 
-    VALUES(NOW(), 10, 3, 1);";
+        $config = new config();
+
+        $dbCon = new mysqli($config->config['host'], $config->config['username'],
+            $config->config['password'], $config->config['db_name']);
+        if (!$dbCon->connect_error) {
+
+            $rental_query = "INSERT INTO rental(rental_date, inventory_id, customer_id, staff_id) 
+            VALUES(NOW(), $inventory_id, $customer_id, $staff_id);";
+
+            if ($dbCon->query($rental_query) === TRUE) {
+                echo "<p class='done'>New order created successfully</p>";
+            } else {
+                echo "Error: " . $rental_query . "<br>" . $dbCon->error;
+            }
+
+        }
+        else{
+            print("an error has occurred");
+        }
     }
 }
