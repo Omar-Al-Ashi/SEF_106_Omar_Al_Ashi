@@ -94,6 +94,6 @@ class MySQLWrap
     }
 
     public function rentAMovie(){
-        
+
     }
 }
