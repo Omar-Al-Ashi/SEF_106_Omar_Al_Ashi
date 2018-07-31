@@ -133,8 +133,7 @@ class MySQLWrap
                 echo "Error: " . $rental_query . "<br>" . $dbCon->error;
             }
 
-        }
-        else{
+        } else {
             print("an error has occurred");
         }
     }
