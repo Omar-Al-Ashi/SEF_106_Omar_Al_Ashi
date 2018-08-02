@@ -263,32 +263,12 @@ textarea {
     z-index: 2;
 }
 
-/*.video_container{*/
-    /*width: 160px;*/
-    /*height: 100px;*/
-    /*!*display: block;*!*/
-    /*margin: 200px auto;*/
-/*}*/
-
-/*.story_container{*/
-    /*background-color: yellow;*/
-    /*width: 200px;*/
-    /*margin: 0 auto;*/
-/*}*/
-
-
-/*.story_text{*/
-    /*color: white;*/
-    /*text-align: center;*/
-/*}*/
-
-.container_third{
+.container__third{
     height: 550px;
     width: 100%;
     background: transparent url('../img/video_background.jpg') no-repeat;
     background-size: cover;
 }
-
 
 .our_story_main_container{
     width: 160px;
@@ -301,6 +281,38 @@ textarea {
     color: white;
     text-decoration: none;
 }
+
+.forth_container{
+    height: 753px;
+    background-color: green;
+}
+
+.remove{
+    background-color: yellow;
+}
+
+.container__forth{
+
+}
+
+.text_area{
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+.expertise_text{
+    height: 16px;
+    width: 130px;
+    background-color: silver;
+    margin-top: 70px;
+}
+
+.expertise_description{
+    margin-top: 20px;
+}
+
+
 
 
 
