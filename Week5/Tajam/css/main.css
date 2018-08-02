@@ -243,7 +243,43 @@ textarea {
     border: 1px solid black;
 }
 
+.third_container{
+    background: transparent url('../img/video_background.jpg') no-repeat;
+    width: 100%;
+    height: 550px;
+    background-size: cover;
+}
 
+.container--third{
+
+    height: 550px;
+    width: 100%;
+}
+
+.blue_overlay{
+    background: rgba(50, 42, 82, 0.85);
+    overflow: hidden;
+    height: 100%;
+    z-index: 2;
+}
+
+.video_container{
+    width: 100px;
+    height: 100px;
+    margin: 200px auto;
+    float: top;
+}
+
+.story_container{
+    background-color: yellow;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.story_text{
+    color: white;
+    text-align: center;
+}
 
 
 
