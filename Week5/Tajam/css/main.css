@@ -263,22 +263,43 @@ textarea {
     z-index: 2;
 }
 
-.video_container{
-    width: 100px;
-    height: 100px;
-    margin: 200px auto;
-    float: top;
+/*.video_container{*/
+    /*width: 160px;*/
+    /*height: 100px;*/
+    /*!*display: block;*!*/
+    /*margin: 200px auto;*/
+/*}*/
+
+/*.story_container{*/
+    /*background-color: yellow;*/
+    /*width: 200px;*/
+    /*margin: 0 auto;*/
+/*}*/
+
+
+/*.story_text{*/
+    /*color: white;*/
+    /*text-align: center;*/
+/*}*/
+
+.container_third{
+    height: 550px;
+    width: 100%;
+    background: transparent url('../img/video_background.jpg') no-repeat;
+    background-size: cover;
 }
 
-.story_container{
-    background-color: yellow;
-    width: 200px;
-    margin: 0 auto;
-}
 
-.story_text{
-    color: white;
+.our_story_main_container{
+    width: 160px;
     text-align: center;
+    margin: 200px auto;
+
+}
+
+.our_story_text{
+    color: white;
+    text-decoration: none;
 }
 
 
