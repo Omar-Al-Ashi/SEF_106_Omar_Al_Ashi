@@ -274,7 +274,10 @@ textarea {
     width: 160px;
     text-align: center;
     margin: 200px auto;
+}
 
+.reference{
+    text-decoration: none;
 }
 
 .our_story_text{
@@ -284,16 +287,14 @@ textarea {
 
 .forth_container{
     height: 753px;
-    background-color: green;
+    width: 100%;
+    /*background-color: green;*/
 }
 
 .remove{
     background-color: yellow;
 }
 
-.container__forth{
-
-}
 
 .text_area{
     text-align: center;
@@ -301,10 +302,7 @@ textarea {
 }
 
 
-.expertise_text{
-    height: 20px;
-    width: 130px;
-    background-color: silver;
+.title_text{
     margin-top: 70px;
 }
 
@@ -314,28 +312,57 @@ textarea {
 
 .expertise_seperator{
     border-top: 1px solid #c6c5c9;
+    margin-bottom: 85px;
 }
 
 .expertise_box_container{
-    height: 177px;
+    height: 370px;
     width: 100%;
-    background-color: #00e0d0;
+    /*background-color: #00e0d0;*/
 }
 
 .expertise_box{
     height: 177px;
     width: 255px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 32.5px;
+    margin-right: 32.5px;
     float: left;
-    background-color: #b3d4fc;
+    /*background-color: #b3d4fc;*/
 }
 
 .expertise_box_image{
     margin: 0 auto;
-    background-color: yellow;
+    /*background-color: yellow;*/
 }
 
+.expertise_title_container{
+    text-align: center;
+}
+
+.expertise_title{
+    font-size: 12px;
+    margin-top: 33px;
+}
+
+.expertise_box_description{
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.expertise_image{
+    display:block;
+    margin:auto;
+}
+
+.expertise_box_bottom{
+    margin-top: 16px;
+}
+
+.fifth_container{
+    height: 710px;
+    width: 100%;
+    background-color: green;
+}
 
 
 /* ==========================================================================
