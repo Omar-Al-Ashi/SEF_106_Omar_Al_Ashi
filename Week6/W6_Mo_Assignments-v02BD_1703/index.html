@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tower of Hanoi</title>
+    <script type="text/javascript" src="javascript/HanoiSolver.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<h1 class="center">This is the solver</h1>
+<!--<div class="GUI">-->
+    <!--<div class="vertical_rod"></div>-->
+    <!--<div class="vertical_rod"></div>-->
+    <!--<div class="vertical_rod"></div>-->
+    <!--<div class="horizontal_base"></div>-->
+<!--</div>-->
+
+<canvas id="myCanvasVertical1" class="vertical_rod"></canvas>
+<!--<div class="disk"></div>-->
+<canvas id="myCanvasVertical2" class="vertical_rod"></canvas>
+<canvas id="myCanvasVertical3" class="vertical_rod"></canvas>
+
+<canvas id="myCanvas" class="horizontal_base"></canvas>
+<p id="text"></p>
+<p id="process"></p>
+
+
+<div class="btn_container">
+    <button onclick="stepsToSolveHanoiT(3, 'A', 'C', 'B');" class="Button">Play</button>
+</div>
+</body>
+</html>
