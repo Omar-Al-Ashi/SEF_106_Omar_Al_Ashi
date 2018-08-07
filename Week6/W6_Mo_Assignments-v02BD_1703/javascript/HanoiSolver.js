@@ -1,11 +1,11 @@
-var towerAX = 5;
-var towerAY = 160;
+var towerAX = 5,
+    towerAY = 160,
+    towerBX = 540,
+    towerBY = 560,
+    towerCX = 1050,
+    towerCY = 260;
 
-var towerBX = 540;
-var towerBY = 560;
-
-var towerBX = 1050;
-var towerBY = 260;
+var disks = ['disk1', 'disk2', 'disk2'];
 
 
 function stepsToSolveHanoi(num_of_disks, source_rod, destination_rod, auxiliary_rod) {
@@ -17,7 +17,12 @@ function stepsToSolveHanoi(num_of_disks, source_rod, destination_rod, auxiliary_
         // Move the remaining disk to the destination peg.
         console.log('Move disk from ', source_rod, ' to ', destination_rod);
 
-        var text = 'Move disk from ' + source_rod + ' to ' + destination_rod
+
+        move()
+
+
+
+        var text = 'Move disk from ' + source_rod + ' to ' + destination_rod;
         addText(text);
         // document.getElementById("process").innerHTML = ('Move disk from Tower ', source_rod, ' to Tower ' , destination_rod);
 
@@ -27,9 +32,10 @@ function stepsToSolveHanoi(num_of_disks, source_rod, destination_rod, auxiliary_
     document.getElementById("text").innerHTML = "started playing";
     document.getElementById("text").style.color = "green";
     document.getElementById("text").style.textAlign = "center";
-    move("disk1", 600, 560);
-    // move("disk2", 5, 160);
-    // move("disk3", 1050, 260)
+    // move("disk1", 450, 360);
+    move("disk1", 900, 200);
+    move("disk2", 900, 120);
+    move("disk3", 900, 50)
 
 }
 
@@ -40,9 +46,6 @@ function addText(text) {
     var t = document.createTextNode(text);
     paragraph.appendChild(t);
     document.body.appendChild(paragraph);
-    //
-    // var disk = document.createElement("div");
-    // document.getElementById("disk").style.color= "black";
 }
 
 function move(disk_number, x_position, y_position) {
@@ -50,56 +53,89 @@ function move(disk_number, x_position, y_position) {
     var disk = document.getElementById(disk_number);
 
     if (disk) {
-        // var pos = 0;
-        // var id = setInterval(frame, 5);
-        // function frame() {
-        //     if (pos == position) {
-        //         clearInterval(id);
-        //     } else {
-        //         pos++;
-        //         disk.style.top = pos + 'px';
-        //         disk.style.left = pos + 'px';
-        //     }
-        // }
 
+        var x_pos = 0;
+        var y_pos = 0;
+        var id = setInterval(frame, 5);
 
-        disk.style.position = "absolute";
-        disk.style.left = x_position + 'px';
-        disk.style.top = y_position + 'px';
-
+        function frame() {
+            if (x_pos == x_position && y_pos == y_position) {
+                clearInterval(id);
+            } else {
+                x_pos++;
+                y_pos++;
+                disk.style.left = x_position + 'px';
+                disk.style.top = y_position + 'px';
+            }
+        }
     }
 }
-//
-// function animateTo(settings) {
-//     var elem = settings.element;
-//     var ease = settings.ease;
-//
-//     var start = { left: elem.offsetLeft, top: elem.offsetTop };
-//
-//     var lastTime = new Date().getTime();
-//     var timeLeft = settings.totalTime;
-//
-//     function update() {
-//         var currentTime = new Date().getTime();
-//         var elapsed = currentTime - lastTime;
-//         timeLeft -= elapsed;
-//         lastTime = currentTime;
-//
-//         var percentDone = 1 - timeLeft/settings.totalTime;
-//
-//         elem.style.top = ease(start.top, settings.top, percentDone) + "px" ;
-//         elem.style.left = ease(start.left, settings.left, percentDone) + "px" ;
-//
-//         if(timeLeft > 0) {
-//             setTimeout(update, 33);
-//         }
-//     }
-//
-//     update();
-// }
-//
-// function linearEase(start, end, percent) {
-//     return start + ((end - start) * percent);
-// }
+
+// Stack class
+class Stack {
+
+    // Array is used to implement stack
+    constructor()
+    {
+        this.items = [];
+    }
+
+    // push function
+    push(element)
+    {
+        // push element into the items
+        this.items.push(element);
+    }
+
+    // pop function
+    pop()
+    {
+        // return top most element in the stack
+        // and removes it from the stack
+        // Underflow if stack is empty
+        if (this.items.length == 0)
+            return "Underflow";
+        return this.items.pop();
+    }
+
+    // peek function
+    peek()
+    {
+        // return the top most element from the stack
+        // but does'nt delete it.
+        return this.items[this.items.length - 1];
+    }
+
+    // isEmpty function
+    isEmpty()
+    {
+        // return true if stack is empty
+        return this.items.length == 0;
+    }
+
+    // printStack function
+    printStack()
+    {
+        var str = "";
+        for (var i = 0; i < this.items.length; i++)
+            str += this.items[i] + " ";
+        return str;
+    }
+}
+
+function initializer() {
+    var stackSource = new Stack();
+    var stackAuxiliary = new Stack();
+    var stackDestination = new Stack();
+
+    stackSource.push("disk3");
+    stackSource.push("disk2");
+    stackSource.push("disk1");
+
+    console.log(stackSource.printStack());
+}
+
+initializer();
+
 
 // stepsToSolveHanoiT(3, "A", "C", "B");

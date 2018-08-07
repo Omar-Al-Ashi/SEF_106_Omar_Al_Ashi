@@ -56,29 +56,28 @@
     width: 150px;
     height: 20px;
     background-color: yellow;
-    /*margin-top: 600px;*/
-    margin-left: 240px;
+    top: 200px;
+    left: 240px;
     z-index: 2;
     position: absolute;
 }
 
-
 #disk2{
-    width: 190px;
+    width: 200px;
     height: 20px;
-    background-color: yellow;
-    margin-top: 400px;
-    margin-left: 240px;
+    background-color: green;
+    margin-top: 300px;
+    margin-left: 220px;
     z-index: 2;
     position: absolute;
 }
 
 #disk3{
-    width: 200px;
+    width: 220px;
     height: 20px;
-    background-color: yellow;
-    margin-top: 300px;
-    margin-left: 240px;
+    background-color: yellowgreen;
+    margin-top: 400px;
+    margin-left: 200px;
     z-index: 2;
     position: absolute;
 }
