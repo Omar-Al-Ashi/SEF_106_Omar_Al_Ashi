@@ -7,26 +7,50 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<h1 class="center">This is the solver</h1>
-<!--<div class="GUI">-->
+<div class="main_container">
+    <h1 class="center">This is the solver</h1>
+    <!--<div class="GUI">-->
     <!--<div class="vertical_rod"></div>-->
     <!--<div class="vertical_rod"></div>-->
     <!--<div class="vertical_rod"></div>-->
     <!--<div class="horizontal_base"></div>-->
-<!--</div>-->
+    <!--</div>-->
 
-<canvas id="myCanvasVertical1" class="vertical_rod"></canvas>
-<!--<div class="disk"></div>-->
-<canvas id="myCanvasVertical2" class="vertical_rod"></canvas>
-<canvas id="myCanvasVertical3" class="vertical_rod"></canvas>
+    <div class="rod left_rod_container">
+        <div id="disk1"></div>
+        <div id="disk2"></div>
+        <div id="disk3"></div>
+        <div id="disk4"></div>
+        <div id="disk5"></div>
+        <canvas id="myCanvasVertical1" class="vertical_rod"></canvas>
+    </div>
 
-<canvas id="myCanvas" class="horizontal_base"></canvas>
-<p id="text"></p>
-<p id="process"></p>
+    <div class="rod middle_rod_container">
+        <canvas id="myCanvasVertical2" class="vertical_rod"></canvas>
+    </div>
+
+    <div class="rod right_rod_container">
+        <canvas id="myCanvasVertical3" class="vertical_rod"></canvas>
+    </div>
+
+    <div class="base">
+        <canvas id="myCanvas" class="horizontal_base"></canvas>
+    </div>
 
 
-<div class="btn_container">
-    <button onclick="stepsToSolveHanoiT(3, 'A', 'C', 'B');" class="Button">Play</button>
+    <div class="btn_container">
+        <button onclick="stepsToSolveHanoi(3, 'A', 'C', 'B');" class="Button">
+            Play
+        </button>
+    </div>
+
+    <div class="steps_text">
+        <p id="text"></p>
+    </div>
+
+    <div id="steps">
+
+    </div>
 </div>
 </body>
 </html>
