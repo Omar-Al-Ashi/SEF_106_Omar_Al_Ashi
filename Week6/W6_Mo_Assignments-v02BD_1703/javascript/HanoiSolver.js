@@ -5,6 +5,10 @@ var towerAX = 5,
     towerCX = 1050,
     towerCY = 260;
 
+var stackSource = new Stack();
+var stackAuxiliary = new Stack();
+var stackDestination = new Stack();
+
 var disks = ['disk1', 'disk2', 'disk2'];
 
 
@@ -14,29 +18,28 @@ function stepsToSolveHanoi(num_of_disks, source_rod, destination_rod, auxiliary_
         // Move a tower of num_of_disks-1 to the buffer peg, using the destination peg.
         stepsToSolveHanoi(num_of_disks - 1, source_rod, auxiliary_rod, destination_rod);
 
-        // Move the remaining disk to the destination peg.
-        console.log('Move disk from ', source_rod, ' to ', destination_rod);
+        // move(stackSource.pop(), stackDestination.push(stackSource.pop()));
+        // console.log("source " + stackSource.printStack());
+        // console.log("destination " + stackDestination.printStack());
 
-
-        move()
-
-
-
-        var text = 'Move disk from ' + source_rod + ' to ' + destination_rod;
-        addText(text);
-        // document.getElementById("process").innerHTML = ('Move disk from Tower ', source_rod, ' to Tower ' , destination_rod);
+        addText('Move disk from ' + source_rod + ' to ' + destination_rod);
 
         // Move the tower of `num_of_disks-1` from the `buffer peg` to the `destination peg` using the `source peg`.
         stepsToSolveHanoi(num_of_disks - 1, auxiliary_rod, destination_rod, source_rod);
     }
+
+    startedPlayingText();
+
+    // move("disk1", 450, 360);
+    move("disk1", 1500, 240);
+    move("disk2", 1500, 220);
+    move("disk3", 1500, 200)
+}
+
+function startedPlayingText(){
     document.getElementById("text").innerHTML = "started playing";
     document.getElementById("text").style.color = "green";
     document.getElementById("text").style.textAlign = "center";
-    // move("disk1", 450, 360);
-    move("disk1", 900, 200);
-    move("disk2", 900, 120);
-    move("disk3", 900, 50)
-
 }
 
 function addText(text) {
@@ -46,6 +49,10 @@ function addText(text) {
     var t = document.createTextNode(text);
     paragraph.appendChild(t);
     document.body.appendChild(paragraph);
+}
+
+function insertAfter(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
 function move(disk_number, x_position, y_position) {
@@ -123,10 +130,7 @@ class Stack {
     }
 }
 
-function initializer() {
-    var stackSource = new Stack();
-    var stackAuxiliary = new Stack();
-    var stackDestination = new Stack();
+function initializer(){
 
     stackSource.push("disk3");
     stackSource.push("disk2");
@@ -137,5 +141,14 @@ function initializer() {
 
 initializer();
 
+function draw_disks() {
+    for (var i = 0; i < 10; i++) {
+        disks.fillStyle = "green";
+        disks.fillRect(x, y, width, 50);
+        x += 2.5;
+        y -= 6;
+        width -= 5;
+    }
+}
 
-// stepsToSolveHanoiT(3, "A", "C", "B");
+

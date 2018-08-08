@@ -52,6 +52,10 @@
     height: 50px;
 }
 
+.disk{
+    border-radius: 20px;
+}
+
 #disk1{
     width: 150px;
     height: 20px;
@@ -66,8 +70,8 @@
     width: 200px;
     height: 20px;
     background-color: green;
-    margin-top: 300px;
-    margin-left: 220px;
+    top: 300px;
+    left: 220px;
     z-index: 2;
     position: absolute;
 }
@@ -76,8 +80,8 @@
     width: 220px;
     height: 20px;
     background-color: yellowgreen;
-    margin-top: 400px;
-    margin-left: 200px;
+    top: 400px;
+    left: 200px;
     z-index: 2;
     position: absolute;
 }
