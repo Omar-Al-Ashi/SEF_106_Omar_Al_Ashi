@@ -5,12 +5,14 @@ var towerAX = 5,
     towerCX = 1050,
     towerCY = 260;
 
-var stackSource = new Stack();
-var stackAuxiliary = new Stack();
-var stackDestination = new Stack();
+// var stackSource = new Stack();
+// var stackAuxiliary = new Stack();
+// var stackDestination = new Stack();
 
-var disks = ['disk1', 'disk2', 'disk2'];
-
+function solver(source_rod, destination_rod, auxiliary_rod) {
+    var number_of_disks = document.getElementById('input').value;
+    stepsToSolveHanoi(number_of_disks, source_rod, destination_rod, auxiliary_rod);
+}   
 
 function stepsToSolveHanoi(num_of_disks, source_rod, destination_rod, auxiliary_rod) {
     if (num_of_disks >= 1) {
@@ -31,9 +33,11 @@ function stepsToSolveHanoi(num_of_disks, source_rod, destination_rod, auxiliary_
     startedPlayingText();
 
     // move("disk1", 450, 360);
-    move("disk1", 1500, 240);
-    move("disk2", 1500, 220);
-    move("disk3", 1500, 200)
+    // move("disk1", 1500, 240);
+    // move("disk2", 1500, 220);
+    // move("disk3", 1500, 200);
+    //
+    // drawDisk();
 }
 
 function startedPlayingText(){
@@ -78,7 +82,6 @@ function move(disk_number, x_position, y_position) {
     }
 }
 
-// Stack class
 class Stack {
 
     // Array is used to implement stack
@@ -139,15 +142,22 @@ function initializer(){
     console.log(stackSource.printStack());
 }
 
-initializer();
-
-function draw_disks() {
-    for (var i = 0; i < 10; i++) {
-        disks.fillStyle = "green";
-        disks.fillRect(x, y, width, 50);
-        x += 2.5;
-        y -= 6;
-        width -= 5;
+function drawDisk() {
+    var number_of_disks = document.getElementById('input').value;
+    for (var i = 0; i < number_of_disks; i++) {
+        var width = "200px";
+        var div = document.createElement('div');
+        div.style.backgroundColor = 'red';
+        div.style.width = width;
+        div.style.height = '20px';
+        div.style.borderRadius = '20px';
+        div.style.marginLeft = '220px';
+        div.style.marginTop = '20px';
+        div.style.zIndex = '2';
+        // div.style.position= 'absolute';
+        div.setAttribute('class', 'disk'+i);
+        document.getElementById("rod_left").appendChild(div);
+        // width -= 50;
     }
 }
 

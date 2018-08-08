@@ -11,27 +11,31 @@
     <h1 class="center">Tower of Hanoi</h1>
 
     <div class="rod left_rod_container" id="rod_left">
-        <div id="disk1" class="disk"></div>
-        <div id="disk2" class="disk"></div>
-        <div id="disk3" class="disk"></div>
-        <div id="myCanvasVertical1" class="vertical_rod"></div>
+        <!--<div id="disk1" class="disk"></div>-->
+        <!--<div id="disk2" class="disk"></div>-->
+        <!--<div id="disk3" class="disk"></div>-->
+        <div id="vertical_rod" class="vertical_rod"></div>
     </div>
 
     <div class="rod middle_rod_container">
-        <div id="myCanvasVertical2" class="vertical_rod"></div>
+        <div id="vertical_rod2" class="vertical_rod"></div>
     </div>
 
     <div class="rod right_rod_container">
-        <div id="myCanvasVertical3" class="vertical_rod"></div>
+        <div id="vertical_rod3" class="vertical_rod"></div>
     </div>
 
     <div class="base">
         <div id="myCanvas" class="horizontal_base"></div>
     </div>
 
+    <div class="btn_container">
+        <label class="label" >number of disks</label>
+        <input type="text" placeholder="number of disks" class="input" id="input">
+    </div>
 
     <div class="btn_container">
-        <button onclick="stepsToSolveHanoi(3, 'source', 'auxiliary', 'destination')" class="Button">
+        <button onclick="solver('source', 'auxiliary', 'destination'); drawDisk()" class="Button">
             Play
         </button>
     </div>

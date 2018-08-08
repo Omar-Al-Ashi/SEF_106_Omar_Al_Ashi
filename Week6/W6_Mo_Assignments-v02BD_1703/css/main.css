@@ -107,3 +107,11 @@
 #text{
     color: black;
 }
+
+.label{
+    margin: auto 10px;
+}
+
+.input{
+    height: 40px;
+}
