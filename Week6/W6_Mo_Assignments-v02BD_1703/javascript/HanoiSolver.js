@@ -5,24 +5,16 @@ var towerAX = 5,
     towerCX = 1050,
     towerCY = 260;
 
-// var stackSource = new Stack();
-// var stackAuxiliary = new Stack();
-// var stackDestination = new Stack();
-
 function solver(source_rod, destination_rod, auxiliary_rod) {
     var number_of_disks = document.getElementById('input').value;
     stepsToSolveHanoi(number_of_disks, source_rod, destination_rod, auxiliary_rod);
-}   
+}
 
 function stepsToSolveHanoi(num_of_disks, source_rod, destination_rod, auxiliary_rod) {
     if (num_of_disks >= 1) {
 
         // Move a tower of num_of_disks-1 to the buffer peg, using the destination peg.
         stepsToSolveHanoi(num_of_disks - 1, source_rod, auxiliary_rod, destination_rod);
-
-        // move(stackSource.pop(), stackDestination.push(stackSource.pop()));
-        // console.log("source " + stackSource.printStack());
-        // console.log("destination " + stackDestination.printStack());
 
         addText('Move disk from ' + source_rod + ' to ' + destination_rod);
 
@@ -32,15 +24,11 @@ function stepsToSolveHanoi(num_of_disks, source_rod, destination_rod, auxiliary_
 
     startedPlayingText();
 
-    // move("disk1", 450, 360);
-    // move("disk1", 1500, 240);
-    // move("disk2", 1500, 220);
-    // move("disk3", 1500, 200);
-    //
-    // drawDisk();
+    move("disk1", 450, 360);
+    move("disk2", 1500, 220);
 }
 
-function startedPlayingText(){
+function startedPlayingText() {
     document.getElementById("text").innerHTML = "started playing";
     document.getElementById("text").style.color = "green";
     document.getElementById("text").style.textAlign = "center";
@@ -85,21 +73,18 @@ function move(disk_number, x_position, y_position) {
 class Stack {
 
     // Array is used to implement stack
-    constructor()
-    {
+    constructor() {
         this.items = [];
     }
 
     // push function
-    push(element)
-    {
+    push(element) {
         // push element into the items
         this.items.push(element);
     }
 
     // pop function
-    pop()
-    {
+    pop() {
         // return top most element in the stack
         // and removes it from the stack
         // Underflow if stack is empty
@@ -109,23 +94,20 @@ class Stack {
     }
 
     // peek function
-    peek()
-    {
+    peek() {
         // return the top most element from the stack
         // but does'nt delete it.
         return this.items[this.items.length - 1];
     }
 
     // isEmpty function
-    isEmpty()
-    {
+    isEmpty() {
         // return true if stack is empty
         return this.items.length == 0;
     }
 
     // printStack function
-    printStack()
-    {
+    printStack() {
         var str = "";
         for (var i = 0; i < this.items.length; i++)
             str += this.items[i] + " ";
@@ -133,31 +115,24 @@ class Stack {
     }
 }
 
-function initializer(){
-
-    stackSource.push("disk3");
-    stackSource.push("disk2");
-    stackSource.push("disk1");
-
-    console.log(stackSource.printStack());
-}
-
 function drawDisk() {
     var number_of_disks = document.getElementById('input').value;
-    for (var i = 0; i < number_of_disks; i++) {
-        var width = "200px";
-        var div = document.createElement('div');
-        div.style.backgroundColor = 'red';
-        div.style.width = width;
-        div.style.height = '20px';
-        div.style.borderRadius = '20px';
-        div.style.marginLeft = '220px';
-        div.style.marginTop = '20px';
-        div.style.zIndex = '2';
-        // div.style.position= 'absolute';
-        div.setAttribute('class', 'disk'+i);
-        document.getElementById("rod_left").appendChild(div);
-        // width -= 50;
+    if (number_of_disks > 1 && number_of_disks < 12) {
+        for (var i = 0; i < number_of_disks; i++) {
+            var width = "200px";
+            var div = document.createElement('div');
+            div.style.backgroundColor = 'red';
+            div.style.width = width;
+            div.style.height = '20px';
+            div.style.borderRadius = '20px';
+            div.style.marginLeft = '220px';
+            div.style.marginTop = '20px';
+            div.style.zIndex = '2';
+            // div.style.position= 'absolute';
+            div.setAttribute('class', 'disk' + i);
+            document.getElementById("rod_left").appendChild(div);
+            // width -= 50;
+        }
     }
 }
 
