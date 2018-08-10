@@ -19,15 +19,33 @@
 
 <div class="main_container">
     <div class="todo_container">
+        <h2>SEF Todo List</h2>
         <div class="entry">
-            <label class="label">Item</label>
-            <input type="text" placeholder="Title" class="add_title" id="add_title">
-            <input type="text" placeholder="description" class="add_description" id="add_description">
-            <button id="add_button">Add</button>
+            <div class="label">
+                <h3 >Item</h3>
+            </div>
+            <input type="text" placeholder="Title" class="add_title"
+                   id="add_title">
+            <button id="add_button" class="add_button">Add</button>
+            <input type="text" placeholder="description" class="add_description"
+                   id="add_description">
+        </div>
+
+        <div class="h_separator"></div>
+
+        <div class="list_item_container">
+            <div class="item_title bold">
+                <p>Pickup kids from school</p>
+            </div>
+            <div class="item_time_added">
+                <p>added: Tuesday, April 19 2016 15:23</p>
+            </div>
+            <div class="item_description bold">
+                <p>Drop-off sally to her ballet class at 3:30PM</p>
+            </div>
         </div>
     </div>
 </div>
-
 
 
 <script src="js/main.js"></script>
