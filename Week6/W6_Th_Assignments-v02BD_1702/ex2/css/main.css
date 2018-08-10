@@ -167,7 +167,23 @@ nav a:hover {
     background-color: green;
 }
 
+.title{
+    width: 100px;
+    height: 50px;
+}
 
+.description{
+    width: 150px;
+    height: 50px;
+}
+
+.label{
+    display: block;
+}
+
+.list{
+
+}
 
 
 
