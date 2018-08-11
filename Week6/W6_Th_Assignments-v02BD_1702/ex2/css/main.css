@@ -155,7 +155,7 @@ nav a:hover {
    ========================================================================== */
 
 .main_container{
-    height: 100%;
+    height: 100vh;
     width: 100%;
     background-color: #00e0d0;
     text-align: center;
@@ -164,7 +164,7 @@ nav a:hover {
 
 .todo_container{
     width: 400px;
-    height: 700px;
+    height: 612px;
     /*background-color: green;*/
     margin: 0 auto;
     border: 1px solid black;
@@ -188,6 +188,7 @@ nav a:hover {
 
 .add_title{
     width: 75%;
+    height: 25px;
     float: left;
 }
 
@@ -237,7 +238,7 @@ nav a:hover {
 }
 
 p{
-    margin: 0px;
+    margin: 3px;
 }
 
 .item_text{
@@ -269,7 +270,12 @@ p{
 
 .items_container{
     overflow-y: scroll;
-    height: 700px;
+    height: 400px;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
 }
 
 
