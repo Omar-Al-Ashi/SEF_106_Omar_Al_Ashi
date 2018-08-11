@@ -155,17 +155,19 @@ nav a:hover {
    ========================================================================== */
 
 .main_container{
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: #00e0d0;
     text-align: center;
+
 }
 
 .todo_container{
     width: 400px;
-    height: 500px;
-    background-color: green;
+    height: 700px;
+    /*background-color: green;*/
     margin: 0 auto;
+    border: 1px solid black;
 }
 
 .title{
@@ -178,7 +180,6 @@ nav a:hover {
     display: block;
     width: 100%;
     text-align: left;
-
 }
 
 .list{
@@ -197,10 +198,12 @@ nav a:hover {
     height: 40px;
 }
 
+.button{
+    border-radius: 5px;
+}
 
 .add_button{
     height: 25px;
-    border-radius: 5px;
     width: 20%;
     /*text-align: center;*/
 }
@@ -209,7 +212,9 @@ nav a:hover {
     display: block;
     width: 150px;
     height: 1px;
-    margin: 70px auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
     border-top: 1px solid black;
 }
 
@@ -219,6 +224,7 @@ nav a:hover {
     border-radius: 3px;
     height: 120px;
     text-align: left;
+    width: 96%;
 }
 
 .bold{
@@ -234,6 +240,37 @@ p{
     margin: 0px;
 }
 
+.item_text{
+    width: 85%;
+    height: 120px;
+    float: left;
+}
+
+.delete_container{
+    width: 15%;
+    /*background-color: #00e0d0;*/
+    height: 120px;
+    float: left;
+    top: 50%;
+}
+
+.delete_button{
+    margin-top: 70%;
+    margin-left: 30%;
+}
+
+.v_separator{
+    height: 100px;
+    display: block;
+    width: 0.5px;
+    /*margin: 70px auto;*/
+    border-left: 1px solid black;
+}
+
+.items_container{
+    overflow-y: scroll;
+    height: 700px;
+}
 
 
 
