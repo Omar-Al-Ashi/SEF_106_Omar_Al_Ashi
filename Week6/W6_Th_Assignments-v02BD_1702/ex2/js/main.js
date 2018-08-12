@@ -129,7 +129,8 @@ function mapListToHtml() {
 
         let item_description = document.createElement("div");
         item_description.classList.add("item_description");
-        item_description.innerHTML = "<p class='todo_date'>" + description_and_date[0] + "</p>";
+        item_description.classList.add("bold");
+        item_description.innerHTML = "<p class='todo_description'>" + description_and_date[0] + "</p>";
 
         let delete_container = document.createElement("div");
         delete_container.classList.add("delete_container");

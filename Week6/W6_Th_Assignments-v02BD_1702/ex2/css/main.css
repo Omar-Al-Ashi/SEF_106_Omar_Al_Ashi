@@ -165,9 +165,9 @@ nav a:hover {
 .todo_container{
     width: 400px;
     height: 612px;
-    /*background-color: green;*/
     margin: 0 auto;
     border: 1px solid black;
+    border-radius: 3px;
 }
 
 .title{
@@ -237,8 +237,9 @@ nav a:hover {
     margin: 5px 0 0 0 ;
 }
 
-p{
+p, h3{
     margin: 3px;
+    padding-left: 3px;
 }
 
 .item_text{
@@ -261,9 +262,9 @@ p{
 }
 
 .v_separator{
-    height: 100px;
-    display: block;
-    width: 0.5px;
+    height: 90px;
+    width: 0px;
+    /*display: block;*/
     /*margin: 70px auto;*/
     border-left: 1px solid black;
 }
@@ -278,6 +279,13 @@ p{
     background: transparent;  /* optional: just make scrollbar invisible */
 }
 
+.todo_title{
+    font-size: 20px;
+}
+
+.todo_date{
+    color: #7C7F7C;
+}
 
 
 
