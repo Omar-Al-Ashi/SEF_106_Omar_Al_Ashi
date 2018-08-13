@@ -157,7 +157,7 @@ nav a:hover {
 .main_container{
     height: 100vh;
     width: 100%;
-    background-color: #00e0d0;
+    /*background-color: #00e0d0;*/
     text-align: center;
 
 }
@@ -190,13 +190,15 @@ nav a:hover {
     width: 75%;
     height: 25px;
     float: left;
+    margin-left: 6px;
 }
 
 .add_description{
     margin-top: 1px;
     float: left;
-    width: 99%;
+    width: 95.5%;
     height: 40px;
+    margin-left: 6px;
 }
 
 .button{
@@ -205,8 +207,7 @@ nav a:hover {
 
 .add_button{
     height: 25px;
-    width: 20%;
-    /*text-align: center;*/
+    width: 18%;
 }
 
 .h_separator{

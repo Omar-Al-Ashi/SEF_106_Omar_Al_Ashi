@@ -1,18 +1,29 @@
 var date = new Date();
 
+let buttons = {
+    add_button: document.getElementById("add_button"),
+};
+
+let elements = {
+    items_container: document.getElementById("items_container"),
+};
+
 //when the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
     mapListToHtml();
 });
 
 //when the add button is clicked
-document.getElementById("add_button").addEventListener("click", function () {
+buttons.add_button.addEventListener("click", function () {
     removePreviousItems();
     let add_text = getReferenceValue("add_title");
     let add_description = getReferenceValue("add_description");
 
     if (add_text.replace(/\s/g, '').length > 0 && add_description.replace(/\s/g, '').length > 0) {
         addToLocalStorage(add_text, add_description);
+    }
+    else{
+        alert("title and description should not be empty");
     }
 
     mapListToHtml();
@@ -32,7 +43,6 @@ function getReferenceValue(element_id) {
 
 //returns full date in a specific format
 function getFullDate() {
-    date = new Date();
     let day_name = getDayName();
     let month_name = getMonthName();
     let day = getDay();
@@ -92,7 +102,7 @@ function addToLocalStorage(key, value) {
     let date = getFullDate();
     let value_and_date = [value, date];
 
-    localStorage.setItem(key, JSON.stringify(value_and_date))
+    localStorage.setItem(key, JSON.stringify(value_and_date));
 }
 
 //erase the previous items from the screen
@@ -108,7 +118,8 @@ function removePreviousItems() {
 function mapListToHtml() {
     let length = localStorage.length;
     for (let i = 0; i < length; i++) {
-        let items_container = document.getElementById("items_container"); //parent
+        //parent div
+        let items_container =  elements.items_container;
 
         let description_and_date = JSON.parse(localStorage.getItem(localStorage.key(i)));
 
