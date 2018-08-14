@@ -22,9 +22,20 @@
         <![endif]-->
 
         <div class="main_container">
-            
+            <div>
+                <input type="url" placeholder="URL to crawl" class="url_input" id="url_input">
+                <button class="btn_submit" id="btn_submit">submit</button>
+            </div>
         </div>
 
         <script src="js/main.js"></script>
+        <script type="text/javascript">
+            /**
+             * Load the todoApp
+             */
+            document.addEventListener('DOMContentLoaded', () => {
+                Summarizer.init();
+            });
+        </script>
     </body>
 </html>
