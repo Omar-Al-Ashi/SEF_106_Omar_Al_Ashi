@@ -4,6 +4,10 @@ var Summarizer = {
         submitButton: document.getElementById("btn_submit"),
     },
     url: "https://cors.io/?https://medium.freecodecamp.org/the-art-of-computer-programming-by-donald-knuth-82e275c8764f",
+    // html_text contains the source code of the web page
+    html_text: "",
+    // paragraphs contains the Ps in the text
+    paragraphs: [],
 
     /*
     * Initializer
@@ -11,8 +15,16 @@ var Summarizer = {
     init: function () {
         let that = this;
         this.uiElements.submitButton.addEventListener("click", function () {
-            let document_data = that.loadDoc(that.getURLInputValue());
-            that.writeToFile("./text.html",that.searchForParagraphs(document_data));
+            that.loadDoc(that.getURLInputValue());
+
+            //TODO remove the timeout and chain the two methods
+            setTimeout(function afterSevenSeconds() {
+                // console.log(Summarizer.html_text);
+                that.getParagraphs();
+                // document.write(that.paragraphs)
+                that.sendToPHP();
+            }, 10000);
+
         });
     },
 
@@ -21,7 +33,6 @@ var Summarizer = {
     */
     loadDoc: function (url) {
         var xhttp;
-        let html;
         if (window.XMLHttpRequest) {
             // code for modern browsers
             xhttp = new XMLHttpRequest();
@@ -31,13 +42,12 @@ var Summarizer = {
         }
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                // TODO change the console log
-                console.log(html = this.responseText);
-                return this.responseText;
+                Summarizer.html_text = this.responseText;
             }
         };
         xhttp.open("GET", url, true);
         xhttp.send();
+        return this;
     },
 
     /*
@@ -57,19 +67,22 @@ var Summarizer = {
     },
 
     /*
-    * search for a <p> tag in a text
+    * returns all the elements that have the class "graf--p"
     */
-    searchForParagraphs: function (text) {
-        // this regex will get all the items inside <p>
-        let myRe = /<\s*p[^>]*>([^<]*)<\s*\/\s*p\s*>/;
-        return myArray = myRe.exec(text);
-        // return text.search(/<\s*p[^>]*>([^<]*)<\s*\/\s*p\s*>/);
+    getParagraphs: function () {
+        let el = document.createElement('html');
+        el.innerHTML = this.html_text;
+        let whatever = (el.getElementsByClassName('graf--p'));
+
+        for (let i = 0; i < whatever.length; i++) {
+            this.paragraphs[i] = whatever[i].textContent;
+        }
     },
-    
-    writeToFile: function writeTextFile(filepath, output) {
-        var txtFile = new File(filepath);
-        txtFile.open("w"); //
-        txtFile.writeln(output);
-        txtFile.close();
+
+    sendToPHP: function () {
+        let text_to_be_sent = this.paragraphs;
+
+        // window.location.href = "./php/main.php?t1=" + text_to_be_sent;
+        window.location.href = "whatever.html?t1=" + text_to_be_sent;
     }
 };
