@@ -20,7 +20,7 @@ var Summarizer = {
         this.uiElements.submitButton.addEventListener("click", function () {
             that.loadDoc(that.getURLInputValue());
 
-            //TODO remove the timeout and chain the two methods
+            //TODO remove the timeout and create a callback
             setTimeout(function afterSevenSeconds() {
                 // console.log(Summarizer.html_text);
                 that.getParagraphs();
