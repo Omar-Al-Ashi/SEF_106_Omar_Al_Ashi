@@ -1,6 +1,7 @@
 var Summarizer = {
     uiElements: {
         urlInput: document.getElementById("url_input"),
+        numberOfSentencesInput: document.getElementById("number_of_sentences"),
         submitButton: document.getElementById("btn_submit"),
     },
     url: "https://cors.io/?https://medium.freecodecamp.org/the-art-of-computer-programming-by-donald-knuth-82e275c8764f",
@@ -8,6 +9,8 @@ var Summarizer = {
     html_text: "",
     // paragraphs contains the Ps in the text
     paragraphs: [],
+
+    summerized_sentences: [],
 
     /*
     * Initializer
@@ -23,7 +26,7 @@ var Summarizer = {
                 that.getParagraphs();
                 // document.write(that.paragraphs)
                 that.sendToPHP();
-            }, 10000);
+            }, 7000);
 
         });
     },
@@ -54,9 +57,25 @@ var Summarizer = {
     * get the input from the url ui element and prepend to it the proxy
     */
     getURLInputValue: function () {
+        if (this.checkInputValidity()) {
+            let url = Summarizer.uiElements.urlInput.value;
+            let url_with_proxy = this.addProxy(url);
+            return url_with_proxy;
+        }
+        else {
+            alert("please input a url");
+            return false;
+        }
+    },
+
+    checkInputValidity: function () {
         let url = Summarizer.uiElements.urlInput.value;
-        let url_with_proxy = this.addProxy(url);
-        return url_with_proxy;
+        if (url) {
+            return true;
+        }
+        else {
+            return false;
+        }
     },
 
     /*
@@ -72,17 +91,21 @@ var Summarizer = {
     getParagraphs: function () {
         let el = document.createElement('html');
         el.innerHTML = this.html_text;
-        let whatever = (el.getElementsByClassName('graf--p'));
+        let paragraphs = (el.getElementsByClassName('graf--p'));
 
-        for (let i = 0; i < whatever.length; i++) {
-            this.paragraphs[i] = whatever[i].textContent;
+        for (let i = 0; i < paragraphs.length; i++) {
+            this.paragraphs[i] = paragraphs[i].textContent;
         }
     },
 
     sendToPHP: function () {
         let text_to_be_sent = this.paragraphs;
+        let number_of_sentences = Summarizer.uiElements.numberOfSentencesInput.value;
 
-        // window.location.href = "./php/main.php?t1=" + text_to_be_sent;
-        window.location.href = "whatever.html?t1=" + text_to_be_sent;
+        window.location.href = "php/main.php?t1=" + text_to_be_sent + "&t2=" + number_of_sentences;
+    },
+
+    receiveDataFromPHP: function ($data) {
+        document.write($data)
     }
 };
