@@ -23,16 +23,16 @@
 
         <div class="main_container">
             <div>
-                <input type="url" placeholder="URL to crawl" class="url_input" id="url_input">
+                <label>URL to summarize</label>
+                <input type="url" placeholder="URL to crawl" class="url_input" id="url_input"><br>
+                <label>Number of sentences</label>
+                <input type="number" placeholder="number of sentences to return" class="number_of_sentences" id="number_of_sentences"><br>
                 <button class="btn_submit" id="btn_submit">submit</button>
             </div>
         </div>
 
         <script src="js/main.js"></script>
         <script type="text/javascript">
-            /**
-             * Load the todoApp
-             */
             document.addEventListener('DOMContentLoaded', () => {
                 Summarizer.init();
             });
