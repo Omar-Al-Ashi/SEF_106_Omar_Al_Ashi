@@ -159,6 +159,12 @@ nav a:hover {
     width: 300px;
 }
 
+.header{
+    height: 70px;
+    width: 100%;
+    background-color: cornflowerblue;
+    text-align: center;
+}
 
 
 
