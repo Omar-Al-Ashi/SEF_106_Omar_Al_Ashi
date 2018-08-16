@@ -1,18 +1,19 @@
 <?php
+require_once ("config.php");
 require_once("../vendor/autoload.php");
-$application_id = "cd738921";
-$application_key = "826c40d0433beebc1d1988c4e36edeef";
-$textapi = new AYLIEN\TextAPI($application_id, $application_key);
-
 $summerized_sentences = array();
+$config = new config();
+$textapi = new AYLIEN\TextAPI($config->config['application_id'], $config->config['application_key']);
 
 
-function getSummery(){
+function getSummary(){
 
 // Check if we have parameters w1 and w2 being passed to the script through the URL
     if (isset($_GET["t1"])) {
 
         $paragraphs = $_GET["t1"];
+
+        echo $paragraphs;
 
         $summary = $this->textapi->Summarize(array('text' => $this->small_paragraph, 'sentences_number' => 3));
         foreach ($summary->sentences as $sentece) {
@@ -21,5 +22,5 @@ function getSummery(){
         }
     }
 }
-//
-//echo "<script language='text/javascript'>function saveToSummerizedSentences() { ; }</script>";
+
+getSummary();
