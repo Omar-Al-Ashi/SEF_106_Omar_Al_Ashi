@@ -15,7 +15,7 @@
             </a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
+            <li><a href="{{url("/")}}">Home</a></li>
             <li><a href="{{url("/about")}}">About</a></li>
             <li><a href="{{url("/services")}}">Services</a></li>
             <li><a href="{{url("/posts")}}">Blog</a></li>
