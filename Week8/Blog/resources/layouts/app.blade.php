@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -18,7 +17,7 @@
 <div id="app">
     @include('inc.navbar')
     <div class="container">
-{{--        @include('inc.messages')--}}
+        @include('inc.messages')
         @yield('content')
     </div>
 </div>
