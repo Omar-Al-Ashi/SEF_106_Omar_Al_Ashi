@@ -1,6 +1,5 @@
 @extends("layouts.app")
 @section('content')
-    <a href="{{url("/posts")}}"><button>Go Back</button> </a>
     <h1>{{$post->title}}</h1>
     <div>
         {{$post->body}}
@@ -16,5 +15,7 @@
         {{Form::hidden('_method', 'DELETE')}}
         {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
     {!! Form::close() !!}
+    <br>
+    <a href="{{url("/posts")}}"><button class="btn btn-dark">Go Back</button> </a>
 
 @endsection

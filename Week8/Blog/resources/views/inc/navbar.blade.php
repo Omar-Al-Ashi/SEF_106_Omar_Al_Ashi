@@ -1,6 +1,7 @@
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+<nav class="navbar navbar-expand-md navbar-light navbar-laravel" style="background-color: #00C5CD ">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
+            <img src="https://s3-eu-west-1.amazonaws.com/welovebeauty/brands/o-b-/logo.png?1472826568" alt="Omar's Blog" height="50" width="80">
             {{ config('app.name', 'Laravel') }}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
