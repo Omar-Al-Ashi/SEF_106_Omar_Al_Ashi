@@ -20,5 +20,8 @@
             <li><a href="{{url("/services")}}">Services</a></li>
             <li><a href="{{url("/posts")}}">Blog</a></li>
         </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{url("/posts/create")}}">Create Post</a> </li>
+        </ul>
     </div>
 </nav>

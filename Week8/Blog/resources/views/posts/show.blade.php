@@ -7,4 +7,8 @@
     </div>
     <hr>
     <small>Written on {{$post->created_at}}</small>
+    <hr>
+    <a href="{{url("/posts/$post->id/edit")}}" class="btn btn-default">
+        <button class="btn btn-default">Edit</button>
+    </a>
 @endsection
