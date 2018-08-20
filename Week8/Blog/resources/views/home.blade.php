@@ -14,7 +14,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                        You are logged in!<br>
+                        You are logged in!<br><br>
                         <a href="{{url("/posts/create")}}" class="btn btn-primary">
                             <button class="btn btn-primary">Create Post</button>
                         </a>
