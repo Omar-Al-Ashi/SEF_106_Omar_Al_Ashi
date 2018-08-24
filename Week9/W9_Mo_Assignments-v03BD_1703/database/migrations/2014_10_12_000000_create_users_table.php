@@ -18,7 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('profile_pic')->default("none");
+            $table->string('avatar')->default('user.jpg');
+            $table->bigInteger('mobile_number')->unique()->default('0775000');;
             $table->rememberToken();
             $table->timestamps();
         });

@@ -12,13 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
 Auth::routes();
 
+// For the profile dropdown menu
+Route::get('profile', 'UserController@profile');
+Route::post('profile', 'UserController@update_avatar');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
