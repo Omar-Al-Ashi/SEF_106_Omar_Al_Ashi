@@ -18,8 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 // For the profile dropdown menu
-Route::get('profile', 'UserController@profile');
-Route::post('profile', 'UserController@update_avatar');
+Route::get('/profile', 'UserController@profile');
+Route::post('/profile', 'UserController@update_avatar');
+
+Route::get('/posts', 'PostsController@returnView');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

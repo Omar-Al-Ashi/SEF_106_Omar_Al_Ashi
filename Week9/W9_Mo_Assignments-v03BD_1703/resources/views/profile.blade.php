@@ -28,9 +28,10 @@
         </div>
         <div class="row justify-content-center">
 
+            {{--Avatar--}}
             <div class="profile-header-container">
                 <div class="profile-header-img">
-                    <img class="rounded-circle" src="/storage/avatars/{{ $user->avatar }}" />
+                    <img class="rounded-circle" src="/storage/app/avatars/{{ $user->avatar }}" />
                     <!-- badge -->
                     <div class="rank-label-container">
                         <span class="label label-default rank-label">{{$user->name}}</span>
