@@ -21,7 +21,8 @@ Auth::routes();
 Route::get('/profile', 'UserController@profile');
 Route::post('/profile', 'UserController@update_avatar');
 
-Route::get('/posts', 'PostsController@returnView');
+//Route::get('posts', 'PostsController@returnView');
+Route::resource('posts', 'PostsController');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
