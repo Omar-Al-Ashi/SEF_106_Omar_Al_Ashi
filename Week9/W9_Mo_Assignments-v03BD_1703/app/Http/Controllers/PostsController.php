@@ -12,11 +12,6 @@ class PostsController extends Controller
         return view('posts');
     }
 
-//    function getPosts(){
-//        $posts = posts::orderBy("created_at", "desc")->paginate(10);
-//        return view("posts")->with('posts', $posts);
-//    }
-
     public function index()
     {
 //        $posts = Post::all();
@@ -49,7 +44,10 @@ class PostsController extends Controller
         $post->user_id = auth()->user()->id;
 
         $post->save();
-        $this->index();
+        $posts = posts::orderBy("created_at", "desc")->paginate(100);
+        return view("posts")->with('posts', $posts)->with('success', 'Post Created');
+
+
 //        return view('posts')->with('success', 'Post Created');
 //        return redirect(url("/posts"))->with('success', 'Post Created');
     }

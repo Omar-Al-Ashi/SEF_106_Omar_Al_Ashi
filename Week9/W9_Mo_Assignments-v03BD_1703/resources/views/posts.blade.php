@@ -2,6 +2,24 @@
 <head>
     <title>{{ config('app.name', 'Laravel') }}</title>
 </head>
+<link rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+      crossorigin="anonymous">
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    .fa {
+        font-size: 50px;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .fa:hover {
+        color: darkblue;
+    }
+</style>
 <body>
 @include('layouts.app')
 
@@ -27,20 +45,21 @@
                                  class="float-left card-img-top">
                             <span class="text-primary"
                                   style="font-size: 22px">{{$post->title}}</span><br>
-                            <span>{{$post->description}}</span>
+
                         </div>
                     @endforeach
 
                 @else
-                    <p>No Posts Found</p>
+                    <p class="alert alert-danger">No Posts Found</p>
                 @endif
 
-                <div class="col-sm-4" style="background-color: #0c5460;">
+                {{--<div class="col-sm-4" style="background-color: #0c5460;">--}}
 
-                </div>
+                {{--</div>--}}
 
             </div>
         </div>
-
+    </div>
+</div>
 </body>
 </html>
