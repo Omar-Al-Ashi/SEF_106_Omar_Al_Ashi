@@ -21,6 +21,8 @@ Auth::routes();
 Route::get('/profile', 'UserController@profile');
 Route::post('/profile', 'UserController@update_avatar');
 
+Route::get('/create_post', 'PostsController@create_post');
+
 //Route::get('posts', 'PostsController@returnView');
 Route::resource('posts', 'PostsController');
 

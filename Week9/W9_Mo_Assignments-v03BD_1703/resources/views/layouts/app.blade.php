@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Milligram') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -23,11 +23,11 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+    <nav class="navbar navbar-expand-md navbar-light navbar-laravel" style="background-color: #6f42c1">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/posts') }}">
                 <img src="https://avatars1.githubusercontent.com/u/16243913?s=280&v=4" alt="Milligram" height="50" width="50">
-                {{ config('app.name', 'Laravel') }}
+                {{ config('app.name', 'Milligram') }}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent"
@@ -56,7 +56,7 @@
                         </li>
                     @else
                         {{--Posts navbar item--}}
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown nav-link">
                             <a class="dropdown-item" href="{{url("/posts")}}">
                                 Posts
                             </a>

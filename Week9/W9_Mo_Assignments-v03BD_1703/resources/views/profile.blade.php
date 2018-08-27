@@ -10,7 +10,6 @@
                     <button type="button" class="close" data-dismiss="alert">×</button>
 
                     <strong>{{ $message }}</strong>
-
                 </div>
 
             @endif
@@ -30,8 +29,8 @@
 
             {{--Avatar--}}
             <div class="profile-header-container">
-                <div class="profile-header-img">
-                    <img class="rounded-circle" src="/storage/app/avatars/{{ $user->avatar }}" />
+                <div class="profile-header-img text-center">
+                    <img class="rounded-circle" height="100" width="100" src="{{ URL::to('/storage/avatars')}}/{{ $user->avatar }}" />
                     <!-- badge -->
                     <div class="rank-label-container">
                         <span class="label label-default rank-label">{{$user->name}}</span>
