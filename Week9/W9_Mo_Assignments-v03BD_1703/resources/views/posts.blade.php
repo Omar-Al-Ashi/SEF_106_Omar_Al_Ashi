@@ -6,7 +6,7 @@
 @include('layouts.app')
 
 
-<div class="container">
+<div class="container" style="background-color: mediumpurple">
     <a href="{{ url('/create_post')}}">
         <button type="button" class="btn btn-primary btn-lg float-right"
                 style="border-radius: 45px">Add Post
@@ -16,13 +16,13 @@
         <!--<div class="col-sm-2" style="background-color: #005cbf; height: 100vh;">-->
 
         <!--</div>-->
-        <div class="col-sm-8" style="background-color: #6f42c1;">
+        <div class="col-sm-8">
             <div class="container">
-                @if(count($posts) > 0)
+                @if($posts->count()>0)
                     @foreach($posts as $post)
                         <div class="well jumbotron">
                             {{--TODO figure out how to acesss images in storage/app/avatars--}}
-                            <img src="{{ URL::to('/storage/avatars')}}/{{ $post->image }}"
+                            <img src="{{ URL::to('/storage/posts')}}/{{ $post->image }}"
                                  alt="whatever"
                                  class="float-left card-img-top">
                             <span class="text-primary"

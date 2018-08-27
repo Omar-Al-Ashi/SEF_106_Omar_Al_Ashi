@@ -3,23 +3,21 @@
 
 @section('content')
     <div class="container">
-        <h1>Create Post</h1>
-        {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST']) !!}
-        <div class="form-group">
-            {{Form::label('title', "Title")}}
-            {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Title'])}}
-        </div>
+        {!! Form::open(['route' => 'posts.store', 'data-parsley-validate' => '', 'method'=>'post', 'enctype' => 'multipart/form-data']) !!}
+        {{ Form::label('caption', 'Caption:') }}
+        {{ Form::text('title', null, ['class' => 'form-control']) }}
 
         <div class="form-group">
-            {{Form::label('description', "Description")}}
-            {{Form::text('description', '', ['class' => 'form-control', 'placeholder' => 'Description'])}}
+            {{ Form::file('image')}}
         </div>
 
-        {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+        {{ Form::submit('Create Post', ['class' => 'btn btn-success btn-lg btn-block', 'style' => 'margin-top: 20px']) }}
+
         {!! Form::close() !!}
     </div>
 
-    
+
+
 
     {{--<div class="row justify-content-center">--}}
 

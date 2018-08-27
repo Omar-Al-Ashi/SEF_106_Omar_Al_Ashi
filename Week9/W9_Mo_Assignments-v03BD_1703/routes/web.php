@@ -11,19 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 // For the profile dropdown menu
 Route::get('/profile', 'UserController@profile');
+Route::get('/', 'PostsController@index');
 Route::post('/profile', 'UserController@update_avatar');
 
 Route::get('/create_post', 'PostsController@create_post');
 
-//Route::get('posts', 'PostsController@returnView');
 Route::resource('posts', 'PostsController');
 
 

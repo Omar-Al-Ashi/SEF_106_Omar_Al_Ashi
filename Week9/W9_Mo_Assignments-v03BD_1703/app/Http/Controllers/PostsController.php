@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\posts;
 
 class PostsController extends Controller
@@ -19,7 +20,7 @@ class PostsController extends Controller
     public function index()
     {
 //        $posts = Post::all();
-        $posts = posts::orderBy("created_at", "desc")->paginate(10);
+        $posts = posts::orderBy("created_at", "desc")->paginate(100);
         return view("posts")->with('posts', $posts);
     }
 
@@ -29,21 +30,27 @@ class PostsController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'title' => 'required',
-            'description' => 'required',
-            'image' => 'required'
         ]);
 
+        $user = Auth::user();
+
+        $post_name = $user->id . '_post' . time() . '.' . request()->image->getClientOriginalExtension();
+
+        $request->image->storeAs('public/posts', $post_name);
+
         //Create post
-        $post = new Posts;
-        $post->title = $request->input("title");
-        $post->description = $request->input("body");
-        $post->image = $request->input("image");
+        $post = new posts;
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->image = $post_name;
         $post->user_id = auth()->user()->id;
 
         $post->save();
-
-        return redirect(url("/posts"))->with('success', 'Post Created');
+        $this->index();
+//        return view('posts')->with('success', 'Post Created');
+//        return redirect(url("/posts"))->with('success', 'Post Created');
     }
 }
