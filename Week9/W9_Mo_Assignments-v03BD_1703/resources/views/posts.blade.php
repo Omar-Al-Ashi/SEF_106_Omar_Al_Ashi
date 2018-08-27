@@ -9,17 +9,6 @@
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<style>
-    .fa {
-        font-size: 50px;
-        cursor: pointer;
-        user-select: none;
-    }
-
-    .fa:hover {
-        color: darkblue;
-    }
-</style>
 <body>
 @include('layouts.app')
 
@@ -45,7 +34,9 @@
                                  class="float-left card-img-top">
                             <span class="text-primary"
                                   style="font-size: 22px">{{$post->title}}</span><br>
-
+                            {{--{!! Form::open(['route' => 'like.post', 'data-parsley-validate' => '', 'method'=>'post', 'enctype' => 'multipart/form-data']) !!}--}}
+                            {{--{{ Form::submit('Like', ['class' => 'btn btn-success btn-lg btn-block', 'style' => 'margin-top: 20px']) }}--}}
+                            {{--{!! Form::close() !!}--}}
                         </div>
                     @endforeach
 
