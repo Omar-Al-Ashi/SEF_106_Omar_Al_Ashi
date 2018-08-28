@@ -8,5 +8,8 @@ use App\posts;
 
 class LikeController extends Controller
 {
-
+    function store()
+    {
+        return view('home');
+    }
 }

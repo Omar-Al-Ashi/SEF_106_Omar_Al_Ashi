@@ -12,7 +12,6 @@
 <body>
 @include('layouts.app')
 
-
 <div class="container" style="background-color: mediumpurple">
     <a href="{{ url('/create_post')}}">
         <button type="button" class="btn btn-primary btn-lg float-right"
@@ -20,9 +19,6 @@
         </button>
     </a>
     <div class="row">
-        <!--<div class="col-sm-2" style="background-color: #005cbf; height: 100vh;">-->
-
-        <!--</div>-->
         <div class="col-sm-8">
             <div class="container">
                 @if($posts->count()>0)
@@ -34,19 +30,16 @@
                                  class="float-left card-img-top">
                             <span class="text-primary"
                                   style="font-size: 22px">{{$post->title}}</span><br>
-                            {{--{!! Form::open(['route' => 'like.post', 'data-parsley-validate' => '', 'method'=>'post', 'enctype' => 'multipart/form-data']) !!}--}}
-                            {{--{{ Form::submit('Like', ['class' => 'btn btn-success btn-lg btn-block', 'style' => 'margin-top: 20px']) }}--}}
-                            {{--{!! Form::close() !!}--}}
+                            {{--{!! Form::open(['route' => 'like.store', 'data-parsley-validate' => '', 'method'=>'post', 'enctype' => 'multipart/form-data']) !!}--}}
+                            {{--{!! Form::submit('Submit', ['class' => 'form-control btn btn-success']) !!}--}}
+                            <i class="far fa-heart"></i>
+                            <i class="fas fa-heart"></i>
                         </div>
                     @endforeach
 
                 @else
                     <p class="alert alert-danger">No Posts Found</p>
                 @endif
-
-                {{--<div class="col-sm-4" style="background-color: #0c5460;">--}}
-
-                {{--</div>--}}
 
             </div>
         </div>

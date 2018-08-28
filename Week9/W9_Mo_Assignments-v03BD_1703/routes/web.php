@@ -21,9 +21,12 @@ Route::post('/profile', 'UserController@update_avatar');
 Route::get('/create_post', 'PostsController@create_post');
 
 Route::resource('posts', 'PostsController');
+Route::resource('like', 'LikeController');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
 
 Auth::routes();
 
