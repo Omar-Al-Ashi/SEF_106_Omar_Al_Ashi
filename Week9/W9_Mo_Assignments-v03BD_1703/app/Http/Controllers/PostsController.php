@@ -8,6 +8,11 @@ use App\posts;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     function returnView(){
         return view('posts');
     }
