@@ -1,27 +1,5 @@
 
-# Created by https://www.gitignore.io/api/laravel,phpstorm
-
-### Laravel ###
-vendor/
-node_modules/
-npm-debug.log
-
-# Laravel 4 specific
-bootstrap/compiled.php
-app/storage/
-
-# Laravel 5 & Lumen specific
-public/storage
-public/hot
-storage/*.key
-.env.*.php
-.env.php
-.env
-Homestead.yaml
-Homestead.json
-
-# Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
-.rocketeer/
+# Created by https://www.gitignore.io/api/phpstorm
 
 ### PhpStorm ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
@@ -96,7 +74,40 @@ fabric.properties
 # Sonarlint plugin
 .idea/sonarlint
 
+
+# End of https://www.gitignore.io/api/phpstorm
+
+.idea/misc.xml
+.idea/modules.xml
+.idea/projects.iml
+.idea/vcs.xml
+.idea/dataSources.xml
+.idea/sqldialects.xml
+
+
+Week1/Th_Assignments-v02BD_1607/Th_Assignments-v02BD_1607.pdf
+Week1/Tu_Assignments-v02BD_1603/Tu_Assignments-v02BD_1603.pdf
+Week1/W1_Th_Extra-v02BD_1607/W1_Th_Extra-v02BD_1607.pdf
+Week2/Tu_Assignments-v01BD_1603/Tu_Assignments-v01BD_1603.pdf
+Week2/W2_Th_Assignments-v04BD_1807/W2_Th_Assignments-v04BD_1807.pdf
+Week3/W3_Tu_Assignments-v03BD_1701/W3_Tu_Assignments-v03BD_1701.pdf
+Week4/W4_Tu_Assignments-v03BD_1701/Ex2_Correct_Answer.sql
+Week4/W4_We_Assignments-v02BD_1803/W4_We_Assignments-v02BD_1803.pdf
+Week4/W4_Th_Assignments-v02BD_1702/W4_Th_Assignments-v02BD_1702.pdf
+Week4/W4_Tu_Assignments-v03BD_1701/W4_Tu_Assignments-v03BD_1701.pdf
+.idea/php.xml
+Week4/PHP_and_MySQL.php
+Week4/config.php
+Week5/W5_Mo_Assignments-v02BD_1702/W5_Mo_Assignments-v02BD_1702.pdf
+Week5/Tajam/PSD/tajem_master.psd
+Week6/W6_Mo_Assignments-v02BD_1703/W6_Mo_Assignments-v02BD_1703.pdf
+Week6/W6_Th_Assignments-v02BD_1702/W6_Th_Assignments-v02BD_1702.pdf
+Week7/W7_We_Assignments-v02BD_1707/W7_We_Assignments-v02BD_1707.pdf
+Week7/W7_We_Assignments-v02BD_1707/vendor/
+Week8/W8_We_Assignments-v03BD_1703/public/mix-manifest.json
+.idea/laravel-plugin.xml
+Week8/W8_We_Assignments-v03BD_1703/W8_We_Assignments-v03BD_1703.pdf
 .idea/
-
-
-# End of https://www.gitignore.io/api/laravel,phpstorm
+.gitignore.save
+Week9/W9_Mo_Assignments-v03BD_1703/W9_Mo_Assignments-v03BD_1703.pdf
+Week10/W9_Fr_Assignments-v03BD_1703/Web_Socket_Server/vendor/*
