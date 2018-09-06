@@ -18,16 +18,35 @@ class Database_Wrapper
         $this->dbCon = new mysqli($config->config['host'], $config->config['username'], $config->config['password'], $config->config['db_name']);
         if ($this->dbCon->connect_error)
             echo "Connection to the db error" . PHP_EOL;
-        else {
-            echo "We're connected to the database" . PHP_EOL;
-        }
-//        print_r($this->createCustomer("first", "last", "email", 1, 1, 1)).PHP_EOL;
+
+//        print_r($this->createCustomerHandler("first", "last", "email", 1, 1, 1)).PHP_EOL;
 //        print_r($this->createAddress("address1", "address2", "district", 1, 1, 12));
 //        print_r($this->createFilm('title', 'description', 2017, 1, 1, 1, 1, 2, 1, 'G', 'Trailers'));
-        print_r($this->createActor('first name', 'last name'));
+//        print_r($this->createActorHandler('first name', 'last name'));
     }
 
-    //    TODO createCustomerHandler
+    function returnAll($table_name)
+    {
+        $result_array = array();
+        $select_query = "SELECT * FROM $table_name";
+        $result = $this->dbCon->query($select_query);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                array_push($result_array, json_encode($row));
+            }
+            return $result_array;
+        } else {
+            return "0 results" . PHP_EOL;
+        }
+    }
+
+    function createCustomerHandler($first_name, $last_name, $email, $address_id, $active, $store_id)
+    {
+        $this->createCustomer($first_name, $last_name, $email, $address_id, $active, $store_id);
+        return $this->returnCustomer($first_name, $last_name, $email, $address_id, $active, $store_id);
+    }
 
     function createCustomer($first_name, $last_name, $email, $address_id, $active, $store_id)
     {
@@ -56,7 +75,29 @@ class Database_Wrapper
         }
     }
 
-    //    TODO createAddressHandler
+    function returnAllCustomers()
+    {
+        $customer = array();
+        $selectAllQuery = "SELECT * from customer";
+        $result = $this->dbCon->query($selectAllQuery);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                array_push($customer, json_encode($row));
+//                return (json_encode($row));
+            }
+            return $customer;
+        } else {
+            return "0 results" . PHP_EOL;
+        }
+    }
+
+    function createAddressHandler($address, $address2 = "", $district, $city_id, $postal_code, $phone, $location = 'ST_GeomFromText(\'POLYGON((0 0,10 0,10 10,0 10,0 0),(5 5,7 5,7 7,5 7, 5 5))\'')
+    {
+        $this->createAddress($address, $address2 = "", $district, $city_id, $postal_code, $phone, $location = 'ST_GeomFromText(\'POLYGON((0 0,10 0,10 10,0 10,0 0),(5 5,7 5,7 7,5 7, 5 5))\'');
+        return $this->returnAddress($address, $address2 = "", $district, $city_id, $postal_code, $phone, $location = 'ST_GeomFromText(\'POLYGON((0 0,10 0,10 10,0 10,0 0),(5 5,7 5,7 7,5 7, 5 5))\'');
+    }
 
     function createAddress($address, $address2 = "", $district, $city_id, $postal_code, $phone, $location = 'ST_GeomFromText(\'POLYGON((0 0,10 0,10 10,0 10,0 0),(5 5,7 5,7 7,5 7, 5 5))\'')
     {
@@ -85,7 +126,29 @@ class Database_Wrapper
         }
     }
 
-    //    TODO createFilmHandler
+    function returnAllAddresses()
+    {
+        $address = array();
+        $selectAllQuery = "SELECT * from address";
+        $result = $this->dbCon->query($selectAllQuery);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                array_push($address, json_encode($row));
+//                return (json_encode($row));
+            }
+            return $address;
+        } else {
+            return "0 results" . PHP_EOL;
+        }
+    }
+
+    function createFilmHandler($title, $description, $release_year, $language_id, $original_language_id, $rental_duration, $rental_rate, $length, $replacement_cost, $rating, $special_features)
+    {
+        $this->createFilm($title, $description, $release_year, $language_id, $original_language_id, $rental_duration, $rental_rate, $length, $replacement_cost, $rating, $special_features);
+        return ($this->returnFilm($title, $description, $release_year, $language_id, $original_language_id, $rental_duration, $rental_rate, $length, $replacement_cost, $rating, $special_features));
+    }
 
     function createFilm($title, $description, $release_year, $language_id, $original_language_id, $rental_duration, $rental_rate, $length, $replacement_cost, $rating, $special_features)
     {
@@ -115,7 +178,29 @@ class Database_Wrapper
         }
     }
 
-    //    TODO createActorHandler
+    function returnAllFilms()
+    {
+        $films = array();
+        $selectAllQuery = "SELECT * from film";
+        $result = $this->dbCon->query($selectAllQuery);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                array_push($films, json_encode($row));
+//                return (json_encode($row));
+            }
+            return $films;
+        } else {
+            return "0 results" . PHP_EOL;
+        }
+    }
+
+    function createActorHandler($first_name, $last_name)
+    {
+        $this->createActor($first_name, $last_name);
+        return ($this->returnActor($first_name, $last_name));
+    }
 
     function createActor($first_name, $last_name)
     {
@@ -123,7 +208,6 @@ class Database_Wrapper
 
         if ($this->dbCon->query($insert_actor_query) === TRUE) {
             echo "insert is done from actor";
-            return $this->returnActor($first_name, $last_name);
         } else {
             return "error while inserting in actor";
         }
@@ -144,8 +228,25 @@ class Database_Wrapper
             return "0 results";
         }
     }
+
+    function returnAllActors()
+    {
+        $actor = array();
+        $selectAllQuery = "SELECT * from actor";
+        $result = $this->dbCon->query($selectAllQuery);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                array_push($actor, json_encode($row));
+//                return (json_encode($row));
+            }
+            return $actor;
+        } else {
+            return "0 results" . PHP_EOL;
+        }
+    }
 }
 
-$database = new Database_Wrapper();
 
 
