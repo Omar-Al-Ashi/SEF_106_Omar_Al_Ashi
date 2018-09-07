@@ -24,29 +24,46 @@ foreach ($routes as $route) {
     if (trim($route) != '')
         array_push($routes, $route);
 }
+function getQueryString($query_string)
+{
+    parse_str($query_string, $get_array);
+    return ($get_array);
+}
 
 /*
 Now, $routes will contain all the routes. $routes[0] will correspond to first route.
 For e.g. in above example $routes[0] is search, $routes[1] is book and $routes[2] is fitzgerald
 */
-
-switch ($routes[1]) {
-    case "customers":
-        print_r($database->returnAllCustomers());
-}
-
-//TODO we should return rather than print
-//if ($routes[1] == "GET") {
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    // The request is using the POST method
-    if ($routes[1] == "customers") {
-        print_r($database->returnAll("customer"));
-    } elseif ($routes[1] == "addresses") {
-        print_r($database->returnAll("address"));
-    } elseif ($routes[1] == "films") {
-        print_r($database->returnAll("film"));
-    } elseif ($routes[1] == "actors") {
-        print_r($database->returnAll("actor"));
+    switch ($routes[1]) {
+        case "customers":
+            print_r($database->returnAll("customer"));
+            break;
+        case "addresses":
+            print_r($database->returnAll("address"));
+            break;
+        case "films":
+            print_r($database->returnAll("film"));
+            break;
+        case "actors":
+            print_r($database->returnAll("actor"));
+            break;
     }
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    switch ($routes[1]) {
+        case "customers":
+            ($database->createCustomerHandler("first name fuckers", "last name", "email", 1, 1, 1));
+            break;
+        case "addresses":
+            ($database->createAddressHandler("whatever", "blaa", 1, 12, 123));
+            break;
+        case "films":
+            ($database->createFilmHandler("title", "whatever", 2012, 1, 1, 1, 1, 1, 2, 2));
+            break;
+        case "actors":
+            print_r($database->returnAll("actor"));
+            break;
+    }
+}
