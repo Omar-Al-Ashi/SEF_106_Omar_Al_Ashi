@@ -53,8 +53,8 @@ class Database_Wrapper
         $insert_query = "INSERT INTO customer ( first_name, last_name, email, address_id, active, store_id) VALUES ('$first_name', '$last_name', '$email', $address_id, $active, $store_id)";
 
         if ($this->dbCon->query($insert_query) === TRUE) {
-            echo "insert is done";
-            return $this->returnCustomer($first_name, $last_name, $email, $address_id, $active, $store_id);
+            echo "insert is done".PHP_EOL;
+            echo $this->returnCustomer($first_name, $last_name, $email, $address_id, $active, $store_id);
         } else {
             return "error while inserting";
         }
@@ -93,7 +93,7 @@ class Database_Wrapper
         }
     }
 
-    function createAddressHandler($address, $address2 = "", $district, $city_id, $postal_code, $phone, $location = 'ST_GeomFromText(\'POLYGON((0 0,10 0,10 10,0 10,0 0),(5 5,7 5,7 7,5 7, 5 5))\'')
+    function createAddressHandler($address, $district, $city_id, $postal_code, $phone, $location = 'ST_GeomFromText(\'POLYGON((0 0,10 0,10 10,0 10,0 0),(5 5,7 5,7 7,5 7, 5 5))\'', $address2 = "")
     {
         $this->createAddress($address, $address2 = "", $district, $city_id, $postal_code, $phone, $location = 'ST_GeomFromText(\'POLYGON((0 0,10 0,10 10,0 10,0 0),(5 5,7 5,7 7,5 7, 5 5))\'');
         return $this->returnAddress($address, $address2 = "", $district, $city_id, $postal_code, $phone, $location = 'ST_GeomFromText(\'POLYGON((0 0,10 0,10 10,0 10,0 0),(5 5,7 5,7 7,5 7, 5 5))\'');
@@ -104,8 +104,8 @@ class Database_Wrapper
         $insert_address_query = "INSERT INTO address (address, address2, district, city_id, postal_code, phone, location) VALUES ('$address', '$address2', '$district', $city_id, $postal_code, $phone, $location))";
 
         if ($this->dbCon->query($insert_address_query) === TRUE) {
-            echo "insert is done from address";
-            return $this->returnAddress($address, $address2, $district, $city_id, $postal_code, $phone, $location);
+            echo "insert is done from address".PHP_EOL;
+            echo $this->returnAddress($address, $address2, $district, $city_id, $postal_code, $phone, $location);
         } else {
             return "error while inserting in address";
         }
@@ -155,8 +155,8 @@ class Database_Wrapper
         $insert_film_query = "INSERT INTO film (title, description, release_year, language_id, original_language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features) VALUES ('$title', '$description', '$release_year', '$language_id', '$original_language_id', '$rental_duration', '$rental_rate', '$length', '$replacement_cost', '$rating', '$special_features');";
 
         if ($this->dbCon->query($insert_film_query) === TRUE) {
-            echo "insert is done from Film";
-            return $this->returnFilm($title, $description, $release_year, $language_id, $original_language_id, $rental_duration, $rental_rate, $length, $replacement_cost, $rating, $special_features);
+            echo "insert is done from Film".PHP_EOL;
+            echo $this->returnFilm($title, $description, $release_year, $language_id, $original_language_id, $rental_duration, $rental_rate, $length, $replacement_cost, $rating, $special_features);
         } else {
             return "error while inserting in film";
         }
@@ -207,7 +207,8 @@ class Database_Wrapper
         $insert_actor_query = "INSERT INTO actor (first_name, last_name) VALUES ('$first_name', '$last_name')";
 
         if ($this->dbCon->query($insert_actor_query) === TRUE) {
-            echo "insert is done from actor";
+            echo "insert is done from actor">PHP;
+            echo $this->returnActor($first_name, $last_name);
         } else {
             return "error while inserting in actor";
         }
@@ -247,6 +248,5 @@ class Database_Wrapper
         }
     }
 }
-
 
 
