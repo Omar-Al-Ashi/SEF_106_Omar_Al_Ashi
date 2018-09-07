@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     switch ($routes[1]) {
         case "customers":
-            ($database->createCustomerHandler("first name fuckers", "last name", "email", 1, 1, 1));
+            ($database->createCustomerHandler("first name", "last name", "email", 1, 1, 1));
             break;
         case "addresses":
             ($database->createAddressHandler("whatever", "blaa", 1, 12, 123));
@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ($database->createFilmHandler("title", "whatever", 2012, 1, 1, 1, 1, 1, 2, 2));
             break;
         case "actors":
-            print_r($database->returnAll("actor"));
+            print_r($database->createActorHandler("first name", "last name"));
             break;
     }
 }
