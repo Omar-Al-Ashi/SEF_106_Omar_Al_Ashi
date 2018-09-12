@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSkillSetTable extends Migration
+class CreateCompanyProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateSkillSetTable extends Migration
      */
     public function up()
     {
-        Schema::create('skill_set', function (Blueprint $table) {
+        Schema::create('company_profiles', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('skill_set_name');
-            $table->string('skill_level');
+            $table->string('location');
+            $table->string('name');
             $table->timestamps();
-            $table->foreign('user_id')->references('user_id')->on('graduate_profile');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -30,6 +30,6 @@ class CreateSkillSetTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('skill_set');
+        Schema::dropIfExists('company_profiles');
     }
 }

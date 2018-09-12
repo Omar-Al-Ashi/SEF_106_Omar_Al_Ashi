@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCompanyProfileTable extends Migration
+class CreateSocialMediaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateCompanyProfileTable extends Migration
      */
     public function up()
     {
-        Schema::create('company_profile', function (Blueprint $table) {
+        Schema::create('social_media', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('location');
-            $table->string('name');
+            $table->string('linkedin');
+            $table->string('github');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('user_id')->on('graduate_profiles');
         });
     }
 
@@ -30,6 +30,6 @@ class CreateCompanyProfileTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('company_profile');
+        Schema::dropIfExists('social_media');
     }
 }

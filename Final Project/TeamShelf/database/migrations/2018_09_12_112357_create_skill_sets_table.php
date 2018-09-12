@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSocialMediaTable extends Migration
+class CreateSkillSetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateSocialMediaTable extends Migration
      */
     public function up()
     {
-        Schema::create('social_media', function (Blueprint $table) {
+        Schema::create('skill_sets', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('linkedin');
-            $table->string('github');
+            $table->string('skill_set_name');
+            $table->string('skill_level');
             $table->timestamps();
-            $table->foreign('user_id')->references('user_id')->on('graduate_profile');
+            $table->foreign('user_id')->references('user_id')->on('graduate_profiles');
         });
     }
 
@@ -30,6 +30,6 @@ class CreateSocialMediaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('social_media');
+        Schema::dropIfExists('skill_sets');
     }
 }

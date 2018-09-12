@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEducationDetailTable extends Migration
+class CreateEducationDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateEducationDetailTable extends Migration
      */
     public function up()
     {
-        Schema::create('education_detail', function (Blueprint $table) {
+        Schema::create('education_details', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('certificate_degree_name')->nullable();
@@ -22,8 +22,8 @@ class CreateEducationDetailTable extends Migration
             $table->string('starting_date')->nullable();
             $table->string('ending_date')->nullable();
             $table->string('grade_gpa')->nullable();
-            $table->string('description')->nullable();
-            $table->foreign('user_id')->references('user_id')->on('graduate_profile');
+            $table->text('description')->nullable();
+            $table->foreign('user_id')->references('user_id')->on('graduate_profiles');
             $table->timestamps();
         });
     }
@@ -35,6 +35,6 @@ class CreateEducationDetailTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('education_detail');
+        Schema::dropIfExists('education_details');
     }
 }
