@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-//    $users = DB::table('users')->get();
-//    return $users;
-    return view('welcome');
+    $users = DB::table('users')->get();
+    return $users;
+//    return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
