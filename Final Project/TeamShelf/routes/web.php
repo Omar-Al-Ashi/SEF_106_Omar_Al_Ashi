@@ -12,9 +12,7 @@
 */
 
 Route::get('/', function () {
-    $users = DB::table('users')->get();
-    return $users;
-//    return view('welcome');
+    return view('welcome');
 });
 
 Auth::routes();
