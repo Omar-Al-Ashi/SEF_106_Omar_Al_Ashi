@@ -17,4 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('experience', 'API\ExperienceDetailController');
+Route::resource('experiences', 'API\ExperienceDetailController');
+Route::resource('admins', 'API\AdminProfileController');
+Route::resource('companies', 'API\CompanyProfileController');
+Route::resource('educations', 'API\EducationDetailController');
+Route::resource('graduates', 'API\GraduateProfileController');
+Route::resource('skills', 'API\SkillSetController');
+Route::resource('social_medias', 'API\SocialMediaController');
