@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+//changed the namespace
+namespace App\Http\Controllers\API;
 
 use App\graduate_profile;
 use Illuminate\Http\Request;
+// Added this
+use App\Http\Controllers\Controller;
 
 class GraduateProfileController extends Controller
 {
@@ -14,7 +17,8 @@ class GraduateProfileController extends Controller
      */
     public function index()
     {
-        //
+        $graduates = graduate_profile::all();
+        return response()->json($graduates);
     }
 
     /**

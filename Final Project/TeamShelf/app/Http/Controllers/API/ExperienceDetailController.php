@@ -17,8 +17,8 @@ class ExperienceDetailController extends Controller
      */
     public function index()
     {
-        $experience = experience_detail::all();
-        return response()->json($experience);
+        $experiences = experience_detail::all();
+        return response()->json($experiences);
     }
 
     /**

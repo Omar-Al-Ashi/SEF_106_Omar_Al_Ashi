@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+//changed the namespace
+namespace App\Http\Controllers\API;
 
 use App\education_detail;
 use Illuminate\Http\Request;
+// Added this
+use App\Http\Controllers\Controller;
 
 class EducationDetailController extends Controller
 {
@@ -14,7 +17,8 @@ class EducationDetailController extends Controller
      */
     public function index()
     {
-        //
+        $educations = education_detail::all();
+        return response()->json($educations);
     }
 
     /**

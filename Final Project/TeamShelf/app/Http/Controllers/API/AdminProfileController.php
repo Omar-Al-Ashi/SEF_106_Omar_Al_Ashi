@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+//changed the namespace
+namespace App\Http\Controllers\API;
 
-use App\social_media;
+use App\admin_profile;
 use Illuminate\Http\Request;
+// Added this
+use App\Http\Controllers\Controller;
 
-class SocialMediaController extends Controller
+class AdminProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +17,8 @@ class SocialMediaController extends Controller
      */
     public function index()
     {
-        //
+        $admin_profile = admin_profile::all();
+        return response()->json($admin_profile);
     }
 
     /**
@@ -41,10 +45,10 @@ class SocialMediaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\social_media  $social_media
+     * @param  \App\admin_profile  $admin_profile
      * @return \Illuminate\Http\Response
      */
-    public function show(social_media $social_media)
+    public function show(admin_profile $admin_profile)
     {
         //
     }
@@ -52,10 +56,10 @@ class SocialMediaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\social_media  $social_media
+     * @param  \App\admin_profile  $admin_profile
      * @return \Illuminate\Http\Response
      */
-    public function edit(social_media $social_media)
+    public function edit(admin_profile $admin_profile)
     {
         //
     }
@@ -64,10 +68,10 @@ class SocialMediaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\social_media  $social_media
+     * @param  \App\admin_profile  $admin_profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, social_media $social_media)
+    public function update(Request $request, admin_profile $admin_profile)
     {
         //
     }
@@ -75,10 +79,10 @@ class SocialMediaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\social_media  $social_media
+     * @param  \App\admin_profile  $admin_profile
      * @return \Illuminate\Http\Response
      */
-    public function destroy(social_media $social_media)
+    public function destroy(admin_profile $admin_profile)
     {
         //
     }

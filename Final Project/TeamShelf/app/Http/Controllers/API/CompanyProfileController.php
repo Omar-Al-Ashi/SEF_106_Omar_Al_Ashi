@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+//changed the namespace
+namespace App\Http\Controllers\API;
 
-use App\skill_set;
+use App\company_profile;
 use Illuminate\Http\Request;
+// Added this
+use App\Http\Controllers\Controller;
 
-class SkillSetController extends Controller
+class CompanyProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +17,8 @@ class SkillSetController extends Controller
      */
     public function index()
     {
-        //
+        $companies = company_profile::all();
+        return response()->json($companies);
     }
 
     /**
@@ -41,10 +45,10 @@ class SkillSetController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\skill_set  $skill_set
+     * @param  \App\company_profile  $company_profile
      * @return \Illuminate\Http\Response
      */
-    public function show(skill_set $skill_set)
+    public function show(company_profile $company_profile)
     {
         //
     }
@@ -52,10 +56,10 @@ class SkillSetController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\skill_set  $skill_set
+     * @param  \App\company_profile  $company_profile
      * @return \Illuminate\Http\Response
      */
-    public function edit(skill_set $skill_set)
+    public function edit(company_profile $company_profile)
     {
         //
     }
@@ -64,10 +68,10 @@ class SkillSetController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\skill_set  $skill_set
+     * @param  \App\company_profile  $company_profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, skill_set $skill_set)
+    public function update(Request $request, company_profile $company_profile)
     {
         //
     }
@@ -75,10 +79,10 @@ class SkillSetController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\skill_set  $skill_set
+     * @param  \App\company_profile  $company_profile
      * @return \Illuminate\Http\Response
      */
-    public function destroy(skill_set $skill_set)
+    public function destroy(company_profile $company_profile)
     {
         //
     }
