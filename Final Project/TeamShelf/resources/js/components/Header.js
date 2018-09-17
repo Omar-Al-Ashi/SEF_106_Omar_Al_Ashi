@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import Home from "./Home";
 import About from "./About";
 import Example from "./Example";
+import Login from "./Login";
 
 require('../styles/styles.css');
 
@@ -18,7 +19,10 @@ export default class Header extends Component {
 
                     <nav
                         className="navbar navbar-expand-lg navbar-light  white">
-                        <Link className="navbar-brand" to='/'>TeamShelf</Link>
+                        <Link className="navbar-brand" to='/'><img
+                            // TODO need to find a way not to input relative path
+                            src={require('../../../storage/app/public/images/TeamShelf.png')}
+                            style={{height: 70, width: 100}}/></Link>
 
                         <div className="collapse navbar-collapse"
                              id="navbarSupportedContent">
@@ -47,14 +51,20 @@ export default class Header extends Component {
                                     className="btn btn-outline-success my-2 my-sm-0"
                                     type="submit">Search
                                 </button>
-
                             </form>
+
+                            <li className="nav-item btn btn-outline-success my-2 my-sm-0">
+                                <Link
+                                    to='/login'>Login
+                                </Link>
+                            </li>
                         </div>
                     </nav>
 
                     <Route exact path='/' component={Home}/>
                     <Route exact path='/about' component={About}/>
                     <Route exact path='/example' component={Example}/>
+                    <Route exact path='/login' component={Login}/>
                 </div>
             </Router>
         );

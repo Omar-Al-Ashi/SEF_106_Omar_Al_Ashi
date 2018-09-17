@@ -14,6 +14,15 @@
     color: white;
 }
 
-.alignCenter{
+.alignCenter {
     text-align: center;
+    vertical-align: center;
+}
+
+.fullPage {
+    height: 78vh;
+}
+
+.marginTop{
+    margin-top: 30px;
 }
