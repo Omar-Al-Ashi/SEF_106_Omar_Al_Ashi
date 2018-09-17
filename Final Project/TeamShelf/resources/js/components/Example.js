@@ -14,25 +14,30 @@ export default class Example extends Component {
     }
 
     componentWillMount() {
+        //    TODO The URL differs from serve to apache, the first one is for serve The second one is for apache
         axios.get('api/admins').then(response => {
+            // axios.get('http://localhost/Final%20Project/TeamShelf/public/api/admins').then(response => {
             this.setState({
                 admins: response.data
             });
+            console.log(response)
+        }).then(response => {
+            console.log(response);
         }).catch(errors => {
-            console.log(errors);
+            console.log(errors.response);
         })
     }
 
     render() {
         return (
             <div className="container">
-                This is the body
+                List of admins
                 {this.state.admins.map(admin =>
-                    <li>
+                    <li key={admin.id}>
                         <Router>
-                                <Link to={"admin/" + admin.id}>
-                                    {admin.first_name}
-                                </Link>
+                            <Link to={"admin/" + admin.id}>
+                                {admin.first_name}
+                            </Link>
                         </Router>
                     </li>
                 )}
