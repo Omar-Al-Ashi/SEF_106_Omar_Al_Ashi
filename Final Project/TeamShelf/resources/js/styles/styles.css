@@ -23,6 +23,31 @@
     height: 78vh;
 }
 
-.marginTop{
+.marginTop {
     margin-top: 30px;
 }
+
+.left {
+    width: 33.333%;
+    height: 100vh;
+    float: left;
+    background-color: rosybrown;
+    border-collapse: collapse;
+}
+
+.middle {
+    width: 33.333%;
+    height: 100vh;
+    float: left;
+    background-color: royalblue;
+    border-collapse: collapse;
+}
+
+.right {
+    width: 33.333%;
+    height: 100vh   ;
+    float: right;
+    background-color: yellow;
+    border-collapse: collapse;
+}
+

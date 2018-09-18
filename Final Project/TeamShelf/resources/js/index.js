@@ -1,19 +1,20 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Example from './components/Example';
-
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 
 
 export default class Index extends Component {
     render() {
         return (
-            <div className={"container"}>
-                <Header/>
-                <Footer/>
-            </div>
+            <ErrorBoundary>
+                <div className={"container"}>
+                    <Header/>
+                    <Footer/>
+                </div>
+            </ErrorBoundary>
         );
     }
 }
