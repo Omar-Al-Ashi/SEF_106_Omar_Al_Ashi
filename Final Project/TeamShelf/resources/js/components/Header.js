@@ -4,6 +4,7 @@ import Home from "./Home";
 import About from "./About";
 import Example from "./Example";
 import Login from "./Login";
+import Edit from "./profile/Edit";
 
 require('../styles/styles.css');
 
@@ -27,7 +28,7 @@ export default class Header extends Component {
                         <div className="collapse navbar-collapse"
                              id="navbarSupportedContent">
                             <ul className="navbar-nav mr-auto">
-                                <li className="nav-item active">
+                                <li className="nav-item">
                                     <Link
                                         className="nav-link btn-outline-success"
                                         to='/'>Home</Link>
@@ -41,6 +42,11 @@ export default class Header extends Component {
                                     <Link
                                         className="nav-link btn-outline-success"
                                         to='/example'>Admins</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link
+                                        className="nav-link btn-outline-success"
+                                        to='/edit'>Edit</Link>
                                 </li>
                             </ul>
                             <form className="form-inline my-2 my-lg-0">
@@ -65,6 +71,7 @@ export default class Header extends Component {
                     <Route exact path='/about' component={About}/>
                     <Route exact path='/example' component={Example}/>
                     <Route exact path='/login' component={Login}/>
+                    <Route exact path='/edit' component={Edit}/>
                 </div>
             </Router>
         );
