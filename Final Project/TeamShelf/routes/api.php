@@ -24,3 +24,4 @@ Route::resource('educations', 'API\EducationDetailController');
 Route::resource('graduates', 'API\GraduateProfileController');
 Route::resource('skills', 'API\SkillSetController');
 Route::resource('social_medias', 'API\SocialMediaController');
+Route::get('allGraduatesWithInfo', 'API\GraduateProfileController@returnAllGraduatesWithAllInfo');
