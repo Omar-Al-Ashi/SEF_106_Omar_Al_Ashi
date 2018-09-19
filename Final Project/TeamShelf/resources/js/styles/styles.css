@@ -77,13 +77,13 @@
     font-size: 18px;
 }
 
-.link {
+.linkk {
     text-decoration: none;
     font-size: 22px;
     color: black;
 }
 
-.contactButton:hover, .link:hover {
+.contactButton:hover, .linkk:hover {
     opacity: 0.7;
 }
 
