@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
-import Home from "./Home";
-import About from "./About";
-import Example from "./Example";
-import Login from "./Login";
-import Edit from "./profile/Edit";
+import Home from "../Pages/Home";
+import About from "../Pages/About";
+import Example from "../Pages/Example";
+import Login from "../Pages/Login";
+import Edit from "../Pages/profile/Edit";
+import ProfileBox from "./ProfileBox";
 
 require('../styles/styles.css');
 
@@ -32,6 +33,12 @@ export default class Header extends Component {
                                     <Link
                                         className="nav-link btn-outline-success"
                                         to='/'>Home</Link>
+                                </li>
+
+                                <li className="nav-item">
+                                    <Link
+                                        className="nav-link btn-outline-success"
+                                        to='/profilebox'>Profile Box</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link
@@ -72,6 +79,7 @@ export default class Header extends Component {
                     <Route exact path='/example' component={Example}/>
                     <Route exact path='/login' component={Login}/>
                     <Route exact path='/edit' component={Edit}/>
+                    <Route exact path='/profilebox' component={ProfileBox}/>
                 </div>
             </Router>
         );
