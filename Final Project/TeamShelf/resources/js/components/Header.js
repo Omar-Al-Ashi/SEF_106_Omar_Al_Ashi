@@ -6,6 +6,7 @@ import Example from "../Pages/Example";
 import Login from "../Pages/Login";
 import Edit from "../Pages/profile/Edit";
 import ProfileBox from "./ProfileBox";
+import ViewAll from "../Pages/profile/ViewAll";
 
 require('../styles/styles.css');
 
@@ -73,6 +74,7 @@ export default class Header extends Component {
                             </li>
                         </div>
                     </nav>
+                    <Link to='/viewAll'>View All</Link>
 
                     <Route exact path='/' component={Home}/>
                     <Route exact path='/about' component={About}/>
@@ -80,6 +82,7 @@ export default class Header extends Component {
                     <Route exact path='/login' component={Login}/>
                     <Route exact path='/edit' component={Edit}/>
                     <Route exact path='/profilebox' component={ProfileBox}/>
+                    <Route exact path='/viewAll' component={ViewAll}/>
                 </div>
             </Router>
         );
