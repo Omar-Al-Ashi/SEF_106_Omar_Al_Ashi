@@ -12,8 +12,8 @@ export default class Index extends Component {
             <ErrorBoundary>
                 <div className={"container"}>
                     <Header/>
-                    <Footer/>
                 </div>
+                <Footer/>
             </ErrorBoundary>
         );
     }
