@@ -100,7 +100,7 @@
 }
 
 .footer{
-    position: fixed;
+    /*position: fixed;*/
     bottom: 0;
     width: 100%;
 }
@@ -108,4 +108,8 @@
 .spaceAround{
     display: flex;
     justify-content: space-around;
+}
+
+.socialMediaIcon{
+    font-size:36px
 }
