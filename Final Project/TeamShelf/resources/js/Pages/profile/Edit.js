@@ -63,7 +63,7 @@ export default class Edit extends Component {
 
     onGenderChange(value) {
         this.setState({
-            gender: value.target.value
+            gender: value
         });
     }
 
@@ -91,7 +91,7 @@ export default class Edit extends Component {
 
     handleIsCurrentJobChange(value) {
         this.setState({
-            isCurrentJob: value.target.value
+            isCurrentJob: value
         });
     }
 
@@ -279,9 +279,9 @@ export default class Edit extends Component {
                                     <input type="file"
                                            onChange={this.onProfilePicChange}
                                            required/>
-                                    <button
-                                        onClick={this.fileUploadHandler}>Upload!
-                                    </button>
+                                    {/*<button*/}
+                                        {/*onClick={this.fileUploadHandler}>Upload!*/}
+                                    {/*</button>*/}
                                 </div>
 
                                 {/*First Name*/}
