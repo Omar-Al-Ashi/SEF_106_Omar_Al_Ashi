@@ -3,6 +3,7 @@ import {RadioGroup, RadioButton} from 'react-radio-buttons';
 import axios from 'axios';
 
 require('../../styles/styles.css');
+import 'font-awesome/css/font-awesome.min.css';
 
 
 export default class Edit extends Component {
@@ -11,28 +12,69 @@ export default class Edit extends Component {
         super();
         this.state = {
             admins: [],
-            gender: [],
+            dob: '',
+            gender: '',
+            phone: '',
             selectedFile: null,
-            isCurrentJob: null
+            first_name: '',
+            last_name: '',
+            residency_location: '',
+            major: '',
+            institute: '',
+            education_start_date: '',
+            education_end_date: '',
+            gpa: '',
+            isCurrentJob: null,
+            experience_start_date: '',
+            experience_end_date: '',
+            title: '',
+            company_name: '',
+            company_location: '',
+            description: '',
+            skills: '',
+            linkedin: '',
+            github: '',
         };
-        this.onChange = this.onChange.bind(this);
-        this.fileChangedHandler = this.fileChangedHandler.bind(this);
-        this.isCurrentJobOnChange = this.isCurrentJobOnChange.bind(this);
+        this.onGenderChange = this.onGenderChange.bind(this);
+        this.onProfilePicChange = this.onProfilePicChange.bind(this);
+        this.fileUploadHandler = this.fileUploadHandler.bind(this);
+        this.handleIsCurrentJobChange = this.handleIsCurrentJobChange.bind(this);
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
+        this.handleDOBChange = this.handleDOBChange.bind(this);
+        this.handlePhoneChange = this.handlePhoneChange.bind(this);
+        this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
+        this.handleLastNameChange = this.handleLastNameChange.bind(this);
+        this.handleResidencyLocationChange = this.handleResidencyLocationChange.bind(this);
+        this.handleMajorChange = this.handleMajorChange.bind(this);
+        this.handleInstituteChange = this.handleInstituteChange.bind(this);
+        this.handleEducationStartDateChange = this.handleEducationStartDateChange.bind(this);
+        this.handleEducationEndDateChange = this.handleEducationEndDateChange.bind(this);
+        this.handleGPAChange = this.handleGPAChange.bind(this);
+        this.handleExperienceStartDateChange = this.handleExperienceStartDateChange.bind(this);
+        this.handleExperienceEndDateChange = this.handleExperienceEndDateChange.bind(this);
+        this.handleTitleChange = this.handleTitleChange.bind(this);
+        this.handleCompanyNameChange = this.handleCompanyNameChange.bind(this);
+        this.handleCompanyLocationChange= this.handleCompanyLocationChange.bind(this);
+        this.handleDescriptionChange= this.handleDescriptionChange.bind(this);
+        this.handleSkillsChange= this.handleSkillsChange.bind(this);
+        this.handleLinkedinChange= this.handleLinkedinChange.bind(this);
+        this.handleGithubChange= this.handleGithubChange.bind(this);
     }
 
-    onChange(value) {
+    onGenderChange(value) {
         this.setState({
-            gender: value
+            gender: value.target.value
         });
     }
 
-    fileChangedHandler(event) {
+    onProfilePicChange(event) {
         this.setState({
             selectedFile: event.target.files[0]
         });
     };
 
     fileUploadHandler() {
+        //TODO I think I should set the image state
         const formData = new FormData();
         formData.append('image', this.state.selectedFile, this.state.selectedFile.name);
         // TODO change the post request URL
@@ -47,21 +89,141 @@ export default class Edit extends Component {
             })
     }
 
-    isCurrentJobOnChange(value) {
+    handleIsCurrentJobChange(value) {
         this.setState({
-            isCurrentJob: value
+            isCurrentJob: value.target.value
         });
     }
+
+    handleDOBChange(value) {
+        this.setState({
+            dob: value.target.value
+        });
+    }
+
+    handlePhoneChange(value) {
+        this.setState({
+            phone: value.target.value
+        });
+    }
+
+    handleFirstNameChange(value) {
+        this.setState({
+            first_name: value.target.value
+        });
+    }
+
+    handleLastNameChange(value) {
+        this.setState({
+            last_name: value.target.value
+        });
+    }
+
+    handleResidencyLocationChange(value) {
+        this.setState({
+            residency_location: value.target.value
+        });
+    }
+
+    handleMajorChange(value) {
+        this.setState({
+            major: value.target.value
+        });
+    }
+
+    handleInstituteChange(value) {
+        this.setState({
+            institute: value.target.value
+        });
+    }
+
+    handleEducationStartDateChange(value) {
+        this.setState({
+            education_start_date: value.target.value
+        });
+    }
+
+    handleEducationEndDateChange(value) {
+        this.setState({
+            education_end_date: value.target.value
+        });
+    }
+
+    handleGPAChange(value) {
+        this.setState({
+            gpa: value.target.value
+        });
+    }
+
+    handleExperienceStartDateChange(value) {
+        this.setState({
+            experience_start_date: value.target.value
+        });
+    }
+
+    handleExperienceEndDateChange(value) {
+        this.setState({
+            experience_end_date: value.target.value
+        });
+    }
+
+    handleTitleChange(value) {
+        this.setState({
+            title: value.target.value
+        });
+    }
+
+    handleCompanyNameChange(value) {
+        this.setState({
+            company_name: value.target.value
+        });
+    }
+
+    handleCompanyLocationChange(value) {
+        this.setState({
+            company_location: value.target.value
+        });
+    }
+
+    handleDescriptionChange(value) {
+        this.setState({
+            description: value.target.value
+        });
+    }
+
+    handleSkillsChange(value) {
+        this.setState({
+            skills: value.target.value
+        });
+    }
+
+    handleLinkedinChange(value) {
+        this.setState({
+            linkedin: value.target.value
+        });
+    }
+
+    handleGithubChange(value) {
+        this.setState({
+            github: value.target.value
+        });
+    }
+
+    handleFormSubmit(event) {
+        //TODO create a POST axios request
+        alert('A name was submitted: ');
+        event.preventDefault();
+    }
+
 
     render() {
         return (
             <div>
-                <form>
+                <form onSubmit={this.handleFormSubmit}>
                     <div className="left">
                         <h2>Basic Info</h2>
                         <div className="centered">
                             <div className='jumbotron'>
-
                                 <div className='form-group'>
 
                                     {/*Date of Birth*/}
@@ -71,13 +233,18 @@ export default class Edit extends Component {
                                         <input type='date'
                                                placeholder='Date of Birth'
                                                className='form-control'
-                                               id='date_of_birth'/>
+                                               id='date_of_birth'
+                                               value={this.state.dob}
+                                               onChange={this.handleDOBChange}
+                                               required/>
                                     </div>
 
                                     {/*Gender*/}
                                     <div className='gender'>
-                                        <RadioGroup onChange={this.onChange}
-                                                    horizontal>
+                                        <RadioGroup
+                                            onChange={this.onGenderChange}
+                                            horizontal
+                                            selectedValue={"Male"}>
                                             <RadioButton value="Male">
                                                 Male
                                             </RadioButton>
@@ -97,15 +264,21 @@ export default class Edit extends Component {
                                     <input type='phone'
                                            placeholder='Phone'
                                            className='form-control'
-                                           id='phone'/>
+                                           id='phone'
+                                           value={this.state.phone}
+                                           onChange={this.handlePhoneChange}
+                                           required/>
                                 </div>
 
                                 {/*Profile Pic*/}
                                 <div className='profile_pic'>
+
+                                    {/*TODO change the button of the upload pic*/}
                                     <label htmlFor="profile_pic">Profile
                                         Picture</label>
                                     <input type="file"
-                                           onChange={this.fileChangedHandler}/>
+                                           onChange={this.onProfilePicChange}
+                                           required/>
                                     <button
                                         onClick={this.fileUploadHandler}>Upload!
                                     </button>
@@ -118,7 +291,10 @@ export default class Edit extends Component {
                                     <input type='text'
                                            placeholder='First Name'
                                            className='form-control'
-                                           id='first_name'/>
+                                           id='first_name'
+                                           value={this.state.first_name}
+                                           onChange={this.handleFirstNameChange}
+                                           required/>
                                 </div>
 
                                 {/*Last Name*/}
@@ -127,7 +303,10 @@ export default class Edit extends Component {
                                     <input type='text'
                                            placeholder='Last Name'
                                            className='form-control'
-                                           id='last_name'/>
+                                           id='last_name'
+                                           value={this.state.last_name}
+                                           onChange={this.handleLastNameChange}
+                                           required/>
                                 </div>
 
                                 {/*Residency Location*/}
@@ -137,7 +316,10 @@ export default class Edit extends Component {
                                     <input type='text'
                                            placeholder='Residency Location'
                                            className='form-control'
-                                           id='residency_location'/>
+                                           id='residency_location'
+                                           value={this.state.residency_location}
+                                           onChange={this.handleResidencyLocationChange}
+                                           required/>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +336,10 @@ export default class Edit extends Component {
                                     <input type='text'
                                            placeholder='major'
                                            className='form-control'
-                                           id='major'/>
+                                           id='major'
+                                           value={this.state.major}
+                                           onChange={this.handleMajorChange}
+                                           required/>
                                 </div>
 
                                 {/*Institute*/}
@@ -163,7 +348,10 @@ export default class Edit extends Component {
                                     <input type='text'
                                            placeholder='Institute'
                                            className='form-control'
-                                           id='institute'/>
+                                           id='institute'
+                                           value={this.state.institute}
+                                           onChange={this.handleInstituteChange}
+                                           required/>
                                 </div>
 
                                 {/*Education Start Date*/}
@@ -173,17 +361,23 @@ export default class Edit extends Component {
                                     <input type='date'
                                            placeholder='Start Date'
                                            className='form-control'
-                                           id='education_start_date'/>
+                                           id='education_start_date'
+                                           value={this.state.education_start_date}
+                                           onChange={this.handleEducationStartDateChange}
+                                           required/>
                                 </div>
 
                                 {/*Education End Date*/}
-                                <div className='end_date'>
+                                <div className='education_end_date'>
                                     <label htmlFor="education_end_date">End
                                         Date</label>
                                     <input type='date'
                                            placeholder='End Date'
                                            className='form-control'
-                                           id='education_end_date'/>
+                                           id='education_end_date'
+                                           value={this.state.education_end_date}
+                                           onChange={this.handleEducationEndDateChange}
+                                           required/>
                                 </div>
 
                                 {/*GPA*/}
@@ -192,7 +386,10 @@ export default class Edit extends Component {
                                     <input type='number'
                                            placeholder='GPA'
                                            className='form-control'
-                                           id='gpa'/>
+                                           id='gpa'
+                                           value={this.state.gpa}
+                                           onChange={this.handleGPAChange}
+                                           required/>
                                 </div>
                             </div>
                         </div>
@@ -208,8 +405,9 @@ export default class Edit extends Component {
                                     <label htmlFor="is_current_job">Current
                                         Job</label>
                                     <RadioGroup
-                                        onChange={this.isCurrentJobOnChange}
-                                        horizontal>
+                                        onChange={this.handleIsCurrentJobChange}
+                                        horizontal
+                                        selectedValue={"1"}>
                                         <RadioButton value="1">
                                             Yes
                                         </RadioButton>
@@ -226,7 +424,10 @@ export default class Edit extends Component {
                                     <input type='date'
                                            placeholder='Start Date'
                                            className='form-control'
-                                           id='experience_start_date'/>
+                                           id='experience_start_date'
+                                           value={this.state.experience_start_date}
+                                           onChange={this.handleExperienceStartDateChange}
+                                           required/>
                                 </div>
 
                                 {/*Experience End Date*/}
@@ -236,7 +437,10 @@ export default class Edit extends Component {
                                     <input type='date'
                                            placeholder='End Date'
                                            className='form-control'
-                                           id='experience_end_date'/>
+                                           id='experience_end_date'
+                                           value={this.state.experience_end_date}
+                                           onChange={this.handleExperienceEndDateChange}
+                                           required/>
                                 </div>
 
                                 {/*Title*/}
@@ -245,7 +449,10 @@ export default class Edit extends Component {
                                     <input type='text'
                                            placeholder='Title'
                                            className='form-control'
-                                           id='title'/>
+                                           id='title'
+                                           value={this.state.title}
+                                           onChange={this.handleTitleChange}
+                                           required/>
                                 </div>
 
                                 {/*Company Name*/}
@@ -255,7 +462,10 @@ export default class Edit extends Component {
                                     <input type='text'
                                            placeholder='Company Name'
                                            className='form-control'
-                                           id='company_name'/>
+                                           id='company_name'
+                                           value={this.state.company_name}
+                                           onChange={this.handleCompanyNameChange}
+                                           required/>
                                 </div>
 
                                 {/*Company Location*/}
@@ -265,7 +475,10 @@ export default class Edit extends Component {
                                     <input type='text'
                                            placeholder='Company Location'
                                            className='form-control'
-                                           id='company_lcoation'/>
+                                           id='company_lcoation'
+                                           value={this.state.company_location}
+                                           onChange={this.handleCompanyLocationChange}
+                                           required/>
                                 </div>
 
                                 {/*Description*/}
@@ -275,7 +488,10 @@ export default class Edit extends Component {
                                     <input type='text'
                                            placeholder='Description'
                                            className='form-control'
-                                           id='description'/>
+                                           id='description'
+                                           value={this.state.description}
+                                           onChange={this.handleDescriptionChange}
+                                           required/>
                                 </div>
 
                                 {/*Skills*/}
@@ -284,36 +500,43 @@ export default class Edit extends Component {
                                     <input type='text'
                                            placeholder='Skills'
                                            className='form-control'
-                                           id='skills'/>
+                                           id='skills'
+                                           value={this.state.skills}
+                                           onChange={this.handleSkillsChange}
+                                           required/>
                                 </div>
 
                                 {/*LinkedIn*/}
                                 <div className='linkedIn'>
-                                    <img
-                                        // TODO need to find a way not to input relative path
-                                        src={require('../../../../public/images/linkedin.png')}
-                                        style={{height: 40, width: 40}}/>
+                                    <div><i
+                                        className="fa fa-linkedin socialMediaIcon"/>
+                                    </div>
                                     <input type='text'
                                            placeholder='LinkedIn'
                                            className='form-control'
-                                           id='linkedIn'/>
+                                           id='linkedIn'
+                                           value={this.state.linkedin}
+                                           onChange={this.handleLinkedinChange}
+                                           required/>
                                 </div>
 
                                 {/*GitHub*/}
                                 <div className='GitHub'>
-                                    <img
-                                        // TODO need to find a way not to input relative path
-                                        src={require('../../../../public/images/github.png')}
-                                        style={{height: 40, width: 40}}/>
+                                    <div><i
+                                        className="fa fa-github socialMediaIcon"/>
+                                    </div>
                                     <input type='text'
                                            placeholder='GitHub'
                                            className='form-control'
-                                           id='GitHub'/>
+                                           id='GitHub'
+                                           value={this.state.github}
+                                           onChange={this.handleGithubChange}
+                                           required/>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {/*<input type="submit" value="Submit" >Submit</input>*/}
+                    <button type="submit" value="Submit">Submit</button>
                 </form>
             </div>
         );
