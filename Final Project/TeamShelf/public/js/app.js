@@ -63947,7 +63947,7 @@ var Edit = function (_Component) {
         key: 'onGenderChange',
         value: function onGenderChange(value) {
             this.setState({
-                gender: value.target.value
+                gender: value
             });
         }
     }, {
@@ -63960,6 +63960,7 @@ var Edit = function (_Component) {
     }, {
         key: 'fileUploadHandler',
         value: function fileUploadHandler() {
+            //TODO I think I should set the image state
             var formData = new FormData();
             formData.append('image', this.state.selectedFile, this.state.selectedFile.name);
             // TODO change the post request URL
@@ -63976,7 +63977,7 @@ var Edit = function (_Component) {
         key: 'handleIsCurrentJobChange',
         value: function handleIsCurrentJobChange(value) {
             this.setState({
-                isCurrentJob: value.target.value
+                isCurrentJob: value
             });
         }
     }, {
@@ -64116,7 +64117,7 @@ var Edit = function (_Component) {
         key: 'handleFormSubmit',
         value: function handleFormSubmit(event) {
             //TODO create a POST axios request
-            console.log("first name" + this.state.first_name + " github" + this.state.github);
+            console.log("image is " + this.state.selectedFile);
             alert('A name was submitted: ');
             event.preventDefault();
         }
@@ -64215,13 +64216,7 @@ var Edit = function (_Component) {
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'file',
                                         onChange: this.onProfilePicChange,
-                                        required: true }),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'button',
-                                        {
-                                            onClick: this.fileUploadHandler },
-                                        'Upload!'
-                                    )
+                                        required: true })
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
