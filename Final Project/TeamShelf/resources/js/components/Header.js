@@ -5,8 +5,10 @@ import About from "../Pages/About";
 import Example from "../Pages/Example";
 import Login from "../Pages/Login";
 import Edit from "../Pages/profile/Edit";
-import ProfileBox from "./ProfileBox";
+import ProfileCard from "./ProfileCard";
 import ViewAll from "../Pages/profile/ViewAll";
+import 'font-awesome/css/font-awesome.min.css';
+
 
 require('../styles/styles.css');
 
@@ -31,27 +33,30 @@ export default class Header extends Component {
                              id="navbarSupportedContent">
                             <ul className="navbar-nav mr-auto">
                                 <li className="nav-item">
+                                    <i className='fa fa-home'/>
                                     <Link
                                         className="nav-link btn-outline-success"
                                         to='/'>Home</Link>
                                 </li>
 
                                 <li className="nav-item">
+                                    <i className='fa fa-address-card'/>
                                     <Link
                                         className="nav-link btn-outline-success"
-                                        to='/profilebox'>Profile Box</Link>
+                                        to='/viewAll'>View All</Link>
                                 </li>
+                                {/*<li className="nav-item">*/}
+                                    {/*<Link*/}
+                                        {/*className="nav-link btn-outline-success"*/}
+                                        {/*to='/about'>About</Link>*/}
+                                {/*</li>*/}
+                                {/*<li className="nav-item">*/}
+                                    {/*<Link*/}
+                                        {/*className="nav-link btn-outline-success"*/}
+                                        {/*to='/example'>Admins</Link>*/}
+                                {/*</li>*/}
                                 <li className="nav-item">
-                                    <Link
-                                        className="nav-link btn-outline-success"
-                                        to='/about'>About</Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link
-                                        className="nav-link btn-outline-success"
-                                        to='/example'>Admins</Link>
-                                </li>
-                                <li className="nav-item">
+                                    <i className='fa fa-pencil'/>
                                     <Link
                                         className="nav-link btn-outline-success"
                                         to='/edit'>Edit</Link>
@@ -74,14 +79,12 @@ export default class Header extends Component {
                             </li>
                         </div>
                     </nav>
-                    <Link to='/viewAll'>View All</Link>
 
                     <Route exact path='/' component={Home}/>
                     <Route exact path='/about' component={About}/>
                     <Route exact path='/example' component={Example}/>
                     <Route exact path='/login' component={Login}/>
                     <Route exact path='/edit' component={Edit}/>
-                    <Route exact path='/profilebox' component={ProfileBox}/>
                     <Route exact path='/viewAll' component={ViewAll}/>
                 </div>
             </Router>
