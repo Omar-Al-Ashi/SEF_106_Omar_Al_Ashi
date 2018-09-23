@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import 'font-awesome/css/font-awesome.min.css';
+import {BrowserRouter as Router, Link} from "react-router-dom";
 
 require('../styles/styles.css');
 
@@ -15,14 +16,23 @@ export default class ProfileCard extends Component {
                 <div className="card" key={this.props.id}>
                     <img
                         TODO need to find a way not to input relative path
-                        src={require('../../../storage/app/public/images/TeamShelf.png')}
-                        className='profileImage'/>
-                    <h1>
-                        {this.props.first_name} {this.props.last_name}
-                    </h1>
-                    <p className="title">
-                        {this.props.title}
-                    </p>
+                        // src={require('../../../storage/app/public/images/TeamShelf.png')}
+                        src={(this.props.user_image)}
+                        className='profileImage'
+                        alt='example'
+                    />
+                    <Router>
+                        <Link to={"graduate/" + this.props.id} className='noDecoration'>
+                            <div>
+                                <h1>
+                                    {this.props.first_name} {this.props.last_name}
+                                </h1>
+                                <p className="title">
+                                    {this.props.title}
+                                </p>
+                            </div>
+                        </Link>
+                    </Router>
                     <p>
                         {this.props.university}
                     </p>
