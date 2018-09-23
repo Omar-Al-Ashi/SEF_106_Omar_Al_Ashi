@@ -38,7 +38,9 @@ export default class ViewAll extends Component {
                         university={graduate.institute_university_name}
                         github={graduate.github}
                         linkedin={graduate.linkedin}
-                        email={graduate.email}/>
+                        email={graduate.email}
+                        user_image={graduate.user_image}
+                    />
                 )}
             </div>
         );

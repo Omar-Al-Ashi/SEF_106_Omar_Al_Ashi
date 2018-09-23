@@ -24,6 +24,8 @@ export default class Edit extends Component {
             education_start_date: '',
             education_end_date: '',
             gpa: '',
+            certificate_name: '',
+            education_description: '',
             isCurrentJob: null,
             experience_start_date: '',
             experience_end_date: '',
@@ -32,6 +34,7 @@ export default class Edit extends Component {
             company_location: '',
             description: '',
             skills: '',
+            skill_level: '',
             linkedin: '',
             github: '',
         };
@@ -50,15 +53,18 @@ export default class Edit extends Component {
         this.handleEducationStartDateChange = this.handleEducationStartDateChange.bind(this);
         this.handleEducationEndDateChange = this.handleEducationEndDateChange.bind(this);
         this.handleGPAChange = this.handleGPAChange.bind(this);
+        this.handleCertificateNameChange = this.handleCertificateNameChange.bind(this);
         this.handleExperienceStartDateChange = this.handleExperienceStartDateChange.bind(this);
         this.handleExperienceEndDateChange = this.handleExperienceEndDateChange.bind(this);
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleCompanyNameChange = this.handleCompanyNameChange.bind(this);
-        this.handleCompanyLocationChange= this.handleCompanyLocationChange.bind(this);
-        this.handleDescriptionChange= this.handleDescriptionChange.bind(this);
-        this.handleSkillsChange= this.handleSkillsChange.bind(this);
-        this.handleLinkedinChange= this.handleLinkedinChange.bind(this);
-        this.handleGithubChange= this.handleGithubChange.bind(this);
+        this.handleCompanyLocationChange = this.handleCompanyLocationChange.bind(this);
+        this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+        this.handleSkillsChange = this.handleSkillsChange.bind(this);
+        this.handleLinkedinChange = this.handleLinkedinChange.bind(this);
+        this.handleGithubChange = this.handleGithubChange.bind(this);
+        this.handleEducationDescriptionChange = this.handleEducationDescriptionChange.bind(this);
+        this.handleSkillLevelChange = this.handleSkillLevelChange.bind(this);
     }
 
     onGenderChange(value) {
@@ -155,6 +161,18 @@ export default class Edit extends Component {
         });
     }
 
+    handleCertificateNameChange(value) {
+        this.setState({
+            certificate_name: value.target.value
+        });
+    }
+
+    handleEducationDescriptionChange(value) {
+        this.setState({
+            education_description: value.target.value
+        });
+    }
+
     handleExperienceStartDateChange(value) {
         this.setState({
             experience_start_date: value.target.value
@@ -197,6 +215,12 @@ export default class Edit extends Component {
         });
     }
 
+    handleSkillLevelChange(value) {
+        this.setState({
+            skill_level: value.target.value
+        });
+    }
+
     handleLinkedinChange(value) {
         this.setState({
             linkedin: value.target.value
@@ -210,9 +234,38 @@ export default class Edit extends Component {
     }
 
     handleFormSubmit(event) {
-        //TODO create a POST axios request
-        alert('A name was submitted: ');
+        let formData = {
+            //TODO I need to dynamically send the id not statically
+            id: 12,
+            dob: this.state.dob,
+            gender: this.state.gender,
+            phone: this.state.phone,
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
+            residency_location: this.state.residency_location,
+            major: this.state.major,
+            institute: this.state.institute,
+            education_start_date: this.state.education_start_date,
+            education_end_date: this.state.education_end_date,
+            gpa: this.state.gpa,
+            certificate_name: this.state.certificate_name,
+            education_description: this.state.education_description,
+            isCurrentJob: this.state.isCurrentJob,
+            experience_start_date: this.state.experience_start_date,
+            experience_end_date: this.state.experience_end_date,
+            title: this.state.title,
+            company_name: this.state.company_name,
+            company_location: this.state.company_location,
+            description: this.state.description,
+            skills: this.state.skills,
+            skill_level: this.state.skill_level,
+            linkedin: this.state.linkedin,
+            github: this.state.github,
+        };
+
         event.preventDefault();
+        axios.post('/api/graduate/store', formData)
+            .then(res => res.data.response_code === 1 ? 'It worked' : 'something went wrong');
     }
 
 
@@ -244,7 +297,7 @@ export default class Edit extends Component {
                                         <RadioGroup
                                             onChange={this.onGenderChange}
                                             horizontal
-                                            selectedValue={"Male"}>
+                                            selectedvalue={"Male"}>
                                             <RadioButton value="Male">
                                                 Male
                                             </RadioButton>
@@ -280,7 +333,7 @@ export default class Edit extends Component {
                                            onChange={this.onProfilePicChange}
                                            required/>
                                     {/*<button*/}
-                                        {/*onClick={this.fileUploadHandler}>Upload!*/}
+                                    {/*onClick={this.fileUploadHandler}>Upload!*/}
                                     {/*</button>*/}
                                 </div>
 
@@ -391,6 +444,32 @@ export default class Edit extends Component {
                                            onChange={this.handleGPAChange}
                                            required/>
                                 </div>
+
+                                {/*Certificate Name*/}
+                                <div className='certificate_name'>
+                                    <label htmlFor="certificate_name">Certificate
+                                        Name</label>
+                                    <input type='text'
+                                           placeholder='Certificate Name'
+                                           className='form-control'
+                                           id='certificate_name'
+                                           value={this.state.certificate_name}
+                                           onChange={this.handleCertificateNameChange}
+                                           required/>
+                                </div>
+
+                                {/*Education Description*/}
+                                <div className='education_description'>
+                                    <label
+                                        htmlFor="education_description">Description</label>
+                                    <input type='text'
+                                           placeholder='Education Description'
+                                           className='form-control'
+                                           id='education_description'
+                                           value={this.state.education_description}
+                                           onChange={this.handleEducationDescriptionChange}
+                                           required/>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -407,7 +486,7 @@ export default class Edit extends Component {
                                     <RadioGroup
                                         onChange={this.handleIsCurrentJobChange}
                                         horizontal
-                                        selectedValue={"1"}>
+                                        selectedvalue={"1"}>
                                         <RadioButton value="1">
                                             Yes
                                         </RadioButton>
@@ -503,6 +582,19 @@ export default class Edit extends Component {
                                            id='skills'
                                            value={this.state.skills}
                                            onChange={this.handleSkillsChange}
+                                           required/>
+                                </div>
+
+                                {/*Skill Level*/}
+                                <div className='skill_level'>
+                                    <label htmlFor="skill_level">Skill
+                                        Level</label>
+                                    <input type='text'
+                                           placeholder='Skill Level'
+                                           className='form-control'
+                                           id='skill_level'
+                                           value={this.state.skill_level}
+                                           onChange={this.handleSkillLevelChange}
                                            required/>
                                 </div>
 
