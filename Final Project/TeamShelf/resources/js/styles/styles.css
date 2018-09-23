@@ -95,21 +95,25 @@
 }
 
 .profileImage {
-    height: 70%;
-    width: 100%
+    height: 200px;
+    width: 100%;
 }
 
-.footer{
+.footer {
     /*position: fixed;*/
     bottom: 0;
     width: 100%;
 }
 
-.spaceAround{
+.spaceAround {
     display: flex;
     justify-content: space-around;
 }
 
-.socialMediaIcon{
-    font-size:36px
+.socialMediaIcon {
+    font-size: 36px
+}
+
+.noDecoration {
+    text-decoration: none;
 }
