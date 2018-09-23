@@ -1,9 +1,15 @@
-<?php
+<?php /** @noinspection SqlDialectInspection */
 
 //changed the namespace
 namespace App\Http\Controllers\API;
 
 use App\graduate_profile;
+// Added the bellow usages to add the data to the tables
+use App\education_detail;
+use App\experience_detail;
+use App\skill_set;
+use App\social_media;
+use App\user;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 // Added this
@@ -24,19 +30,18 @@ class GraduateProfileController extends Controller
 
     public function returnAllGraduatesWithAllInfo()
     {
-//        $allGraduates = graduate_profile::all();
         $allGraduates = DB::select('SELECT *
-FROM graduate_profiles,
-              experience_details,
-              education_details,
-              skill_sets,
-              social_media,
-              users
-WHERE graduate_profiles.user_id = experience_details.user_id
-AND graduate_profiles.user_id =  education_details.user_id
-AND graduate_profiles.user_id =  skill_sets.user_id
-AND graduate_profiles.user_id =  social_media.user_id
-AND graduate_profiles.user_id =  users.id;');
+                            FROM graduate_profiles,
+                                          experience_details,
+                                          education_details,
+                                          skill_sets,
+                                          social_media,
+                                          users
+                            WHERE graduate_profiles.user_id = experience_details.user_id
+                            AND graduate_profiles.user_id =  education_details.user_id
+                            AND graduate_profiles.user_id =  skill_sets.user_id
+                            AND graduate_profiles.user_id =  social_media.user_id
+                            AND graduate_profiles.user_id =  users.id;');
 
         return response()->json($allGraduates);
     }
@@ -56,7 +61,7 @@ AND graduate_profiles.user_id =  users.id;');
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public function store(Request $request)
     {
