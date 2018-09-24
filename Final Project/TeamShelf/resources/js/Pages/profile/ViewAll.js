@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import ProfileCard from "../../components/ProfileCard";
 import axios from "axios";
+import {BrowserRouter as Router, Link, Route} from "react-router-dom";
+import GraduateInfo from "./GraduateInfo";
+
 
 export default class ViewAll extends Component {
 
@@ -26,9 +29,7 @@ export default class ViewAll extends Component {
 
     render() {
         return (
-            <div
-                // className='spaceAround'
-            >
+            <div>
                 {this.state.graduates.map(graduate =>
                     <ProfileCard
                         id={graduate.user_id}
