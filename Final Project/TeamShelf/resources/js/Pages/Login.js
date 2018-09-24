@@ -6,6 +6,6 @@ export default class Login extends Component {
             <div>
                 This is the Login page
             </div>
-    );
+        );
     }
-    }
+}
