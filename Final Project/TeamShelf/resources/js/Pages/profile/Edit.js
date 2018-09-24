@@ -9,6 +9,35 @@ import 'font-awesome/css/font-awesome.min.css';
 export default class Edit extends Component {
 
     constructor() {
+        //TODO change the id dynamically not statically according to the logedin user
+        axios.get('api/graduate/11').then(response => {
+            // axios.get('http://localhost/Final%20Project/TeamShelf/public/api/admins').then(response => {
+            this.setState({
+                dob: response.data[0].DOB,
+                certificate_name: response.data[0].certificate_degree_name,
+                company_name: response.data[0].company_name,
+                phone: response.data[0].contact_number,
+                description: response.data[0].description,
+                first_name: response.data[0].first_name,
+                gender: response.data[0].gender,
+                github: response.data[0].github,
+                gpa: response.data[0].grade_gpa,
+                institute: response.data[0].institute_university_name,
+                company_location: response.data[0].job_location,
+                title: response.data[0].job_title,
+                last_name: response.data[0].last_name,
+                linkedin: response.data[0].linkedin,
+                major: response.data[0].major,
+                skill_level: response.data[0].skill_level,
+                skill_set_name: response.data[0].skill_set_name,
+                selectedFile: response.data[0].user_image,
+            });
+            console.log(response)
+        }).then(response => {
+            console.log(response);
+        }).catch(errors => {
+            console.log(errors.response);
+        })
         super();
         this.state = {
             admins: [],
@@ -65,6 +94,10 @@ export default class Edit extends Component {
         this.handleGithubChange = this.handleGithubChange.bind(this);
         this.handleEducationDescriptionChange = this.handleEducationDescriptionChange.bind(this);
         this.handleSkillLevelChange = this.handleSkillLevelChange.bind(this);
+    }
+
+    componentWillMount(){
+
     }
 
     onGenderChange(value) {
@@ -265,9 +298,8 @@ export default class Edit extends Component {
 
         event.preventDefault();
         axios.post('/api/graduate/store', formData)
-            .then(res => res.data.response_code === 1 ? 'It worked' : 'something went wrong');
+            .then(res => res.data.response_code === 1 ? console.log('It worked') : console.log('something went wrong    z'));
     }
-
 
     render() {
         return (
