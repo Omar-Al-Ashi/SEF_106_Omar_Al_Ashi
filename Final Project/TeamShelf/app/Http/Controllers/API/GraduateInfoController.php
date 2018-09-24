@@ -55,6 +55,7 @@ class GraduateInfoController extends Controller
             $request->github => 'required',
         ];
 
+
 //        $validator = Validator::make($request->all(), $validationArray);
 //        if ($validator->fails()) {
 //            $response = ['errors' => $validator->messages()->all()];

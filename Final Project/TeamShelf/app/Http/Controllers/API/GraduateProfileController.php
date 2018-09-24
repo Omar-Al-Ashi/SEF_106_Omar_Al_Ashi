@@ -46,6 +46,25 @@ class GraduateProfileController extends Controller
         return response()->json($allGraduates);
     }
 
+    public function returnSpecificGraduateInfo($id)
+    {
+        $allGraduates = DB::select("SELECT *
+                            FROM graduate_profiles,
+                                          experience_details,
+                                          education_details,
+                                          skill_sets,
+                                          social_media,
+                                          users
+                            WHERE graduate_profiles.user_id = experience_details.user_id
+                            AND graduate_profiles.user_id =  education_details.user_id
+                            AND graduate_profiles.user_id =  skill_sets.user_id
+                            AND graduate_profiles.user_id =  social_media.user_id
+                            AND graduate_profiles.user_id =  users.id
+                            AND graduate_profiles.user_id = $id;");
+
+        return response()->json($allGraduates);
+    }
+
 
     /**
      * Show the form for creating a new resource.
