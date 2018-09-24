@@ -8,6 +8,7 @@ import Edit from "../Pages/profile/Edit";
 import ProfileCard from "./ProfileCard";
 import ViewAll from "../Pages/profile/ViewAll";
 import 'font-awesome/css/font-awesome.min.css';
+import GraduateInfo from "../Pages/profile/GraduateInfo";
 
 
 require('../styles/styles.css');
@@ -46,14 +47,14 @@ export default class Header extends Component {
                                         to='/viewAll'>View All</Link>
                                 </li>
                                 {/*<li className="nav-item">*/}
-                                    {/*<Link*/}
-                                        {/*className="nav-link btn-outline-success"*/}
-                                        {/*to='/about'>About</Link>*/}
+                                {/*<Link*/}
+                                {/*className="nav-link btn-outline-success"*/}
+                                {/*to='/about'>About</Link>*/}
                                 {/*</li>*/}
                                 {/*<li className="nav-item">*/}
-                                    {/*<Link*/}
-                                        {/*className="nav-link btn-outline-success"*/}
-                                        {/*to='/example'>Admins</Link>*/}
+                                {/*<Link*/}
+                                {/*className="nav-link btn-outline-success"*/}
+                                {/*to='/example'>Admins</Link>*/}
                                 {/*</li>*/}
                                 <li className="nav-item">
                                     <i className='fa fa-pencil'/>
