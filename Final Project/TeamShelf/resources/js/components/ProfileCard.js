@@ -14,52 +14,47 @@ export default class ProfileCard extends Component {
     render() {
         return (
             <div>
-                <Router>
+                <div>
                     <div>
-                        <div>
-                            <div className="card" key={this.props.id}>
-                                <img
-                                    // TODO need to find a way not to input relative path
-                                    // src={require('../../../storage/app/public/images/TeamShelf.png')}
-                                    src={(this.props.user_image)}
-                                    className='profileImage'
-                                    alt='example'
-                                />
-                                <Link to={"/graduate/" + this.props.id}
-                                      className='noDecoration'>
-                                    <div>
-                                        <div>
-                                            <h1>
-                                                {this.props.first_name} {this.props.last_name}
-                                            </h1>
-                                            <p className="title">
-                                                {this.props.title}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </Link>
-                                <p>
-                                    {this.props.university}
-                                </p>
-                                <div className='socialMedia'>
-                                    {/*TODO edit the icon name*/}
-                                    <div><a
-                                        href={'http://' + this.props.linkedin}><i
-                                        className="fa fa-linkedin"/></a></div>
-                                    <div><a
-                                        href={'http://' + this.props.github}><i
-                                        className="fa fa-github"/></a></div>
+                        <div className="card" key={this.props.id}>
+                            <img
+                                // TODO need to find a way not to input relative path
+                                // src={require('../../../storage/app/public/images/TeamShelf.png')}
+                                src={(this.props.user_image)}
+                                className='profileImage'
+                                alt='example'
+                            />
+                            <div>
+                                <div>
+                                    <h1>
+                                        {this.props.first_name} {this.props.last_name}
+                                    </h1>
+                                    <p className="title">
+                                        {this.props.title}
+                                    </p>
                                 </div>
-                                <button className='contactButton whiteText'>
-                                    <a className='whiteText'
-                                       href={"mailto:" + this.props.email + "?subject=We Are" +
-                                       " interested in your Resume&body=Dear Mr. " + this.props.last_name
-                                       + ".\n We are interested in your CV"}>Contact</a>
-                                </button>
                             </div>
+                            <p>
+                                {this.props.university}
+                            </p>
+                            <div className='socialMedia'>
+                                {/*TODO edit the icon name*/}
+                                <div><a
+                                    href={'http://' + this.props.linkedin}><i
+                                    className="fa fa-linkedin"/></a></div>
+                                <div><a
+                                    href={'http://' + this.props.github}><i
+                                    className="fa fa-github"/></a></div>
+                            </div>
+                            <button className='contactButton whiteText'>
+                                <a className='whiteText'
+                                   href={"mailto:" + this.props.email + "?subject=We Are" +
+                                   " interested in your Resume&body=Dear Mr. " + this.props.last_name
+                                   + ".\n We are interested in your CV"}>Contact</a>
+                            </button>
                         </div>
                     </div>
-                </Router>
+                </div>
             </div>
         );
     }
