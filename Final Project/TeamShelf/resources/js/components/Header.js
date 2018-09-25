@@ -46,6 +46,13 @@ export default class Header extends Component {
                                         className="nav-link btn-outline-success"
                                         to='/viewAll'>View All</Link>
                                 </li>
+
+                                <li className="nav-item">
+                                    <i className='fa fa-graduation-cap'/>
+                                    <Link
+                                        className="nav-link btn-outline-success"
+                                        to='/graduateInfo'>Graduate Info</Link>
+                                </li>
                                 {/*<li className="nav-item">*/}
                                 {/*<Link*/}
                                 {/*className="nav-link btn-outline-success"*/}
@@ -87,6 +94,7 @@ export default class Header extends Component {
                     <Route exact path='/login' component={Login}/>
                     <Route exact path='/edit' component={Edit}/>
                     <Route exact path='/viewAll' component={ViewAll}/>
+                    <Route exact path='/graduateInfo' component={GraduateInfo}/>
                 </div>
             </Router>
         );
