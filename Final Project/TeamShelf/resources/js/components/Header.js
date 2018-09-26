@@ -48,22 +48,6 @@ export default class Header extends Component {
                                 </li>
 
                                 <li className="nav-item">
-                                    <i className='fa fa-graduation-cap'/>
-                                    <Link
-                                        className="nav-link btn-outline-success"
-                                        to='/graduateInfo'>Graduate Info</Link>
-                                </li>
-                                {/*<li className="nav-item">*/}
-                                {/*<Link*/}
-                                {/*className="nav-link btn-outline-success"*/}
-                                {/*to='/about'>About</Link>*/}
-                                {/*</li>*/}
-                                {/*<li className="nav-item">*/}
-                                {/*<Link*/}
-                                {/*className="nav-link btn-outline-success"*/}
-                                {/*to='/example'>Admins</Link>*/}
-                                {/*</li>*/}
-                                <li className="nav-item">
                                     <i className='fa fa-pencil'/>
                                     <Link
                                         className="nav-link btn-outline-success"
@@ -94,7 +78,10 @@ export default class Header extends Component {
                     <Route exact path='/login' component={Login}/>
                     <Route exact path='/edit' component={Edit}/>
                     <Route exact path='/viewAll' component={ViewAll}/>
-                    <Route exact path='/graduateInfo' component={GraduateInfo}/>
+                    <Route exact path='/graduate/:id'
+                           render={props => <GraduateInfo {...props}/>}
+                    />
+
                 </div>
             </Router>
         );
