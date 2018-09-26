@@ -9,8 +9,8 @@ import 'font-awesome/css/font-awesome.min.css';
 export default class Edit extends Component {
 
     constructor() {
-        //TODO change the id dynamically not statically according to the logedin user
-        axios.get('api/graduate/11').then(response => {
+        //TODO change the id dynamically not statically according to the logged user
+        axios.get('api/graduate/12').then(response => {
             // axios.get('http://localhost/Final%20Project/TeamShelf/public/api/admins').then(response => {
             this.setState({
                 dob: response.data[0].DOB,
@@ -38,6 +38,7 @@ export default class Edit extends Component {
         }).catch(errors => {
             console.log(errors.response);
         })
+
         super();
         this.state = {
             admins: [],
@@ -96,7 +97,7 @@ export default class Edit extends Component {
         this.handleSkillLevelChange = this.handleSkillLevelChange.bind(this);
     }
 
-    componentWillMount(){
+    componentWillMount() {
 
     }
 
@@ -297,8 +298,8 @@ export default class Edit extends Component {
         };
 
         event.preventDefault();
-        axios.post('/api/graduate/store', formData)
-            .then(res => res.data.response_code === 1 ? console.log('It worked') : console.log('something went wrong    z'));
+        axios.post('/api/graduate/edit', formData)
+            .then(res => res.data.response_code === 1 ? console.log('It worked') : console.log('something went'));
     }
 
     render() {
