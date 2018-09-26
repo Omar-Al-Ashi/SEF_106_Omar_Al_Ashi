@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import 'font-awesome/css/font-awesome.min.css';
-import {BrowserRouter as Router, Link, Route} from "react-router-dom";
-import GraduateInfo from "../Pages/profile/GraduateInfo";
+
 
 require('../styles/styles.css');
 
@@ -15,14 +14,14 @@ export default class ProfileCard extends Component {
         return (
             <div>
                 <div>
-                    <div>
+                    <div className='floatLeft'>
                         <div className="card" key={this.props.id}>
                             <img
                                 // TODO need to find a way not to input relative path
                                 // src={require('../../../storage/app/public/images/TeamShelf.png')}
                                 src={(this.props.user_image)}
                                 className='profileImage'
-                                alt='example'
+                                alt={this.props.first_name + " " + this.props.last_name}
                             />
                             <div>
                                 <div>
