@@ -29,36 +29,26 @@ export default class ViewAll extends Component {
 
     render() {
         return (
-            <Router>
-
-                <div>
-
-                    {this.state.graduates.map(graduate =>
-                        <div>
-                            <Route exact path='/graduate/:id'
-                                // component={GraduateInfo}
-                                   render={props => <GraduateInfo {...props}
-                                                                  id={graduate.user_id}/>}
-                            />
-                            <Link to={"/graduate/" + graduate.user_id}
-                                  className='noDecoration'>
-                                <ProfileCard
-                                    key={graduate.user_id}
-                                    id={graduate.user_id}
-                                    first_name={graduate.first_name}
-                                    last_name={graduate.last_name}
-                                    title={graduate.job_title}
-                                    university={graduate.institute_university_name}
-                                    github={graduate.github}
-                                    linkedin={graduate.linkedin}
-                                    email={graduate.email}
-                                    user_image={graduate.user_image}
-                                />
-                            </Link>
-                        </div>
-                    )}
-                </div>
-            </Router>
+            <div>
+                {this.state.graduates.map(graduate =>
+                    <Link to={"/graduate/" + graduate.user_id}
+                          className='noDecoration'>
+                        <ProfileCard
+                            key={graduate.user_id}
+                            id={graduate.user_id}
+                            first_name={graduate.first_name}
+                            last_name={graduate.last_name}
+                            title={graduate.job_title}
+                            university={graduate.institute_university_name}
+                            github={graduate.github}
+                            linkedin={graduate.linkedin}
+                            email={graduate.email}
+                            user_image={graduate.user_image}
+                        />
+                    </Link>
+                )}
+                
+            </div>
         );
     }
 }
