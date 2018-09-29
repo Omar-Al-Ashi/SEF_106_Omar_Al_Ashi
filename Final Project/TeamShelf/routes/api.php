@@ -17,6 +17,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('login', 'API\PassportController@login');
+Route::post('register', 'API\PassportController@register');
+
+Route::group(['middleware' => 'auth:api'], function(){
+    Route::post('get-details', 'API\PassportController@getDetails');
+});
+
+// TODO put them inside the middleware
 Route::resource('experiences', 'API\ExperienceDetailController');
 Route::resource('admins', 'API\AdminProfileController');
 Route::resource('companies', 'API\CompanyProfileController');
@@ -28,4 +36,6 @@ Route::get('allGraduatesWithInfo', 'API\GraduateProfileController@returnAllGradu
 Route::get('graduate/{id}', 'API\GraduateProfileController@returnSpecificGraduateInfo');
 Route::post('graduate/store', 'API\GraduateInfoController@store');
 Route::post('graduate/edit', 'API\GraduateInfoController@edit');
+
+
 
