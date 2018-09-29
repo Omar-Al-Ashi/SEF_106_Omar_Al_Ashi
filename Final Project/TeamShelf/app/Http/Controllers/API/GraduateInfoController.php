@@ -118,9 +118,70 @@ class GraduateInfoController extends Controller
 
     public function edit(Request $request)
     {
-        DB::table('graduate_profiles')
-            ->where('user_id', $request->id)
-            ->update([
+
+//        if (DB::table('graduate_profiles')->select('user_id', $request->id)->get()) {
+//        if (DB::table('graduate_profiles')->select('user_id', $request->id)->get()) {
+
+        $graduate = graduate_profile::where('user_id', $request->id)->count();
+        if ($graduate > 0) {
+            DB::table('graduate_profiles')
+                ->where('user_id', $request->id)
+                ->update([
+                    'first_name' => $request->first_name,
+                    'last_name' => $request->last_name,
+                    'residency_location' => $request->residency_location,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ]);
+
+            DB::table('education_details')
+                ->where('user_id', $request->id)
+                ->update([
+                    'major' => $request->major,
+                    'institute_university_name' => $request->institute,
+                    'starting_date' => $request->education_start_date,
+                    'ending_date' => $request->education_end_date,
+                    'grade_gpa' => $request->gpa,
+                    'description' => $request->education_description,
+                    'certificate_degree_name' => $request->certificate_name,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ]);
+
+            DB::table('experience_details')
+                ->where('user_id', $request->id)
+                ->update([
+                    'is_current_job' => $request->isCurrentJob,
+                    'starting_date' => $request->experience_start_date,
+                    'ending_date' => $request->experience_end_date,
+                    'job_title' => $request->title,
+                    'company_name' => $request->company_name,
+                    'job_location' => $request->company_location,
+                    'description' => $request->description,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ]);
+
+            DB::table('skill_sets')
+                ->where('user_id', $request->id)
+                ->update([
+                    'skill_set_name' => $request->skills,
+                    'skill_level' => $request->skill_level,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ]);
+
+            DB::table('social_media')
+                ->where('user_id', $request->id)
+                ->update([
+                    'linkedin' => $request->linkedin,
+                    'github' => $request->github,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ]);
+        } else {
+            DB::table('graduate_profiles')->insert([
+                'user_id' => $request->id,
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'residency_location' => $request->residency_location,
@@ -128,9 +189,8 @@ class GraduateInfoController extends Controller
                 'updated_at' => Carbon::now(),
             ]);
 
-        DB::table('education_details')
-            ->where('user_id', $request->id)
-            ->update([
+            DB::table('education_details')->insert([
+                'user_id' => $request->id,
                 'major' => $request->major,
                 'institute_university_name' => $request->institute,
                 'starting_date' => $request->education_start_date,
@@ -142,9 +202,8 @@ class GraduateInfoController extends Controller
                 'updated_at' => Carbon::now(),
             ]);
 
-        DB::table('experience_details')
-            ->where('user_id', $request->id)
-            ->update([
+            DB::table('experience_details')->insert([
+                'user_id' => $request->id,
                 'is_current_job' => $request->isCurrentJob,
                 'starting_date' => $request->experience_start_date,
                 'ending_date' => $request->experience_end_date,
@@ -156,23 +215,23 @@ class GraduateInfoController extends Controller
                 'updated_at' => Carbon::now(),
             ]);
 
-        DB::table('skill_sets')
-            ->where('user_id', $request->id)
-            ->update([
+            DB::table('skill_sets')->insert([
+                'user_id' => $request->id,
                 'skill_set_name' => $request->skills,
                 'skill_level' => $request->skill_level,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
 
-        DB::table('social_media')
-            ->where('user_id', $request->id)
-            ->update([
+            DB::table('social_media')->insert([
+                'user_id' => $request->id,
                 'linkedin' => $request->linkedin,
                 'github' => $request->github,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
+        }
+
         $response = array('response_message' => 'done successfully', 'response_code' => 1, 'result' => $request->all());
         return json_encode($response);
 
