@@ -42,7 +42,7 @@
     width: 33.333%;
     height: 100vh;
     float: left;
-    background-color: rosybrown;
+    /*background-color: rosybrown;*/
     border-collapse: collapse;
 }
 
@@ -50,7 +50,7 @@
     width: 33.333%;
     height: 100vh;
     float: left;
-    background-color: royalblue;
+    /*background-color: royalblue;*/
     border-collapse: collapse;
 }
 
@@ -58,8 +58,12 @@
     width: 33.333%;
     height: 100vh;
     float: right;
-    background-color: yellow;
+    /*background-color: yellow;*/
     border-collapse: collapse;
+}
+
+.background{
+    background-color: white;
 }
 
 .card {

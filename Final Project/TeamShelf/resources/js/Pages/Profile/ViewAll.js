@@ -29,7 +29,7 @@ export default class ViewAll extends Component {
 
     render() {
         return (
-            <div>
+            <div className='background'>
                 {this.state.graduates.map(graduate =>
                     <Link to={"/graduate/" + graduate.user_id}
                           className='noDecoration'>

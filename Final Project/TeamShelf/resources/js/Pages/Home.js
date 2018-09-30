@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 export default class Home extends Component {
     render() {
         return (
-            <div className='fullPage marginTop'>
+            <div className='fullPage marginTop background'>
                 <h1>
                     Welcome to TeamShelf
                 </h1>

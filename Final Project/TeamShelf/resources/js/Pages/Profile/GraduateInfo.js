@@ -88,7 +88,7 @@ export default class GraduateInfo extends Component {
     render(props) {
 
         return (
-            <div>
+            <div className='background'>
                 <div className="mainDetails">
                     <div id="headshot" className="quickFade">
                         <img src={(this.state.selectedFile)}

@@ -82,7 +82,7 @@ export default class Login extends Component {
             )
         }
         return (
-            <div>
+            <div className='background'>
                 <div className="Login">
 
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
