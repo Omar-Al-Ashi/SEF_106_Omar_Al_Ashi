@@ -68,6 +68,7 @@ export default class Edit extends Component {
                     skill_level: response.data[0].skill_level,
                     skill_set_name: response.data[0].skill_set_name,
                     selectedFile: response.data[0].user_image,
+                    residency_location: response.data[0].residency_location,
                 });
                 console.log(response)
             }).then(response => {
@@ -317,7 +318,6 @@ export default class Edit extends Component {
 
     handleFormSubmit(event) {
         let formData = {
-            //TODO I need to dynamically send the id not statically
             id: this.state.id,
             dob: this.state.dob,
             gender: this.state.gender,
@@ -353,7 +353,7 @@ export default class Edit extends Component {
 
     render() {
         return (
-            <div>
+            <div className='background'>
                 <form onSubmit={this.handleFormSubmit}>
                     <div className="left">
                         <h2>Basic Info</h2>
@@ -662,7 +662,7 @@ export default class Edit extends Component {
                                            placeholder='Skills'
                                            className='form-control'
                                            id='skills'
-                                           value={this.state.skills}
+                                           value={this.state.skill_set_name}
                                            onChange={this.handleSkillsChange}
                                            required/>
                                 </div>
