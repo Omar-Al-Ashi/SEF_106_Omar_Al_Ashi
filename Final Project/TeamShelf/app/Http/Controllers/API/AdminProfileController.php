@@ -34,7 +34,7 @@ class AdminProfileController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -45,7 +45,7 @@ class AdminProfileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\admin_profile  $admin_profile
+     * @param  \App\admin_profile $admin_profile
      * @return \Illuminate\Http\Response
      */
     public function show(admin_profile $admin_profile)
@@ -56,7 +56,7 @@ class AdminProfileController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\admin_profile  $admin_profile
+     * @param  \App\admin_profile $admin_profile
      * @return \Illuminate\Http\Response
      */
     public function edit(admin_profile $admin_profile)
@@ -67,8 +67,8 @@ class AdminProfileController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\admin_profile  $admin_profile
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\admin_profile $admin_profile
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, admin_profile $admin_profile)
@@ -79,7 +79,7 @@ class AdminProfileController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\admin_profile  $admin_profile
+     * @param  \App\admin_profile $admin_profile
      * @return \Illuminate\Http\Response
      */
     public function destroy(admin_profile $admin_profile)

@@ -34,7 +34,7 @@ class ExperienceDetailController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -45,7 +45,7 @@ class ExperienceDetailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\experience_detail  $experience_detail
+     * @param  \App\experience_detail $experience_detail
      * @return \Illuminate\Http\Response
      */
     public function show(experience_detail $experience_detail)
@@ -56,7 +56,7 @@ class ExperienceDetailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\experience_detail  $experience_detail
+     * @param  \App\experience_detail $experience_detail
      * @return \Illuminate\Http\Response
      */
     public function edit(experience_detail $experience_detail)
@@ -67,8 +67,8 @@ class ExperienceDetailController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\experience_detail  $experience_detail
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\experience_detail $experience_detail
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, experience_detail $experience_detail)
@@ -79,7 +79,7 @@ class ExperienceDetailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\experience_detail  $experience_detail
+     * @param  \App\experience_detail $experience_detail
      * @return \Illuminate\Http\Response
      */
     public function destroy(experience_detail $experience_detail)
