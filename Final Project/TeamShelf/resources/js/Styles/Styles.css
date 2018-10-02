@@ -180,6 +180,11 @@
     border-bottom: 2px solid #98ee90;
     background: #009644;
     height: 120px;
+    margin-bottom: 100px;
+}
+
+.icon{
+    font-size:24px
 }
 
 #cv {
