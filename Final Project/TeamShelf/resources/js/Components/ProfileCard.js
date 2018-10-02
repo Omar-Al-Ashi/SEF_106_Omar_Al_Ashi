@@ -21,7 +21,7 @@ export default class ProfileCard extends Component {
                                   className='noDecoration'>
                                 <img
                                     // TODO need to find a way not to input relative path
-                                    src={require('../../../storage/app/public/images/TeamShelf.png')}
+                                    src={require('../../../storage/app/public/images/'+this.props.user_image)}
                                     // src={(this.props.user_image)}
                                     className='profileImage'
                                     alt={this.props.first_name + " " + this.props.last_name}
@@ -44,10 +44,10 @@ export default class ProfileCard extends Component {
                                 {/*TODO edit the icon name*/}
                                 <div><a
                                     href={'http://' + this.props.linkedin}><i
-                                    className="fa fa-linkedin"/></a></div>
+                                    className="fa fa-linkedin icon"/></a></div>
                                 <div><a
                                     href={'http://' + this.props.github}><i
-                                    className="fa fa-github"/></a></div>
+                                    className="fa fa-github icon"/></a></div>
                             </div>
                             <button className='contactButton whiteText'>
                                 <a className='whiteText'
