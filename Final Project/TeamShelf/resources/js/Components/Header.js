@@ -1,15 +1,8 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Link, Redirect, Route} from 'react-router-dom';
-import Home from "../Pages/Home";
-import About from "../Pages/About";
-import Example from "../Pages/Example";
+import {BrowserRouter, Link} from 'react-router-dom';
 import Login from "../Pages/Login";
-import Edit from "../Pages/Profile/Edit";
-import ProfileCard from "./ProfileCard";
-import ViewAll from "../Pages/Profile/ViewAll";
 import 'font-awesome/css/font-awesome.min.css';
-import GraduateInfo from "../Pages/Profile/GraduateInfo";
-
+import Router from '../Services/Router'
 
 require('../Styles/Styles.css');
 
@@ -17,20 +10,11 @@ export default class Header extends Component {
 
     render() {
 
-        // if (sessionStorage.getItem("session") === null){
-        //     return(<Redirect to={'/login'}/> )
-        // }
-
-        // console.log('The seesion is ' + sessionStorage.getItem('session'));
         return (
-            <Router>
+            <BrowserRouter>
                 <div className='alignCenter'>
-                    {/*<Link to='/'>Home</Link>*/}
-                    {/*<Link to='/about'>About</Link>*/}
-                    {/*<Link to='/example'>Example</Link>*/}
-
                     <nav
-                        className="navbar navbar-expand-lg navbar-light  white">
+                        className="navbar navbar-expand-lg navbar-light white">
                         <Link className="navbar-brand" to='/'><img
                             // TODO need to find a way not to input relative path
                             src={require('../../../storage/app/public/images/TeamShelf.png')}
@@ -60,37 +44,17 @@ export default class Header extends Component {
                                         to='/edit'>Edit</Link>
                                 </li>
                             </ul>
-                            <form className="form-inline my-2 my-lg-0">
-                                <input className="form-control mr-sm-2"
-                                       type="search" placeholder="Search"
-                                       aria-label="Search"/>
-                                <button
-                                    className="btn btn-outline-success my-2 my-sm-0"
-                                    type="submit">Search
-                                </button>
-                            </form>
-
                             <li className="nav-item btn btn-outline-success my-2 my-sm-0">
                                 <Link
-                                    to='/login'>Login
+                                    to='/login'>
+                                    {sessionStorage.getItem("session") === null ? "Login" : "Logout"}
                                 </Link>
                             </li>
                         </div>
                     </nav>
-
-                    <Route exact path='/' component={Home}/>
-                    <Route exact path='/about' component={About}/>
-                    <Route exact path='/example' component={Example}/>
-                    <Route exact path='/login' component={Login}/>
-                    <Route exact path='/edit' component={Edit}/>
-                    <Route exact path='/viewAll' component={ViewAll}/>
-                    <Route exact path='/graduate/:id'
-                           render={props => <GraduateInfo {...props}/>}
-                    />
-
-
+                    <Router/>
                 </div>
-            </Router>
+            </BrowserRouter>
         );
     }
 }
