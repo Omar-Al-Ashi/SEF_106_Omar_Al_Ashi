@@ -20,13 +20,13 @@
     margin-bottom: 100px;
 }
 
-.center{
+.center {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
 }
 
-.marginBottom{
+.marginBottom {
     margin-bottom: 100px;
 }
 
@@ -62,7 +62,7 @@
     border-collapse: collapse;
 }
 
-.background{
+.background {
     background-color: white;
 }
 
@@ -111,7 +111,7 @@
 }
 
 .profileImage {
-    height: 200px;
+    height: 226px;
     width: 100%;
 }
 
@@ -119,6 +119,11 @@
     position: fixed;
     bottom: 0;
     width: 100%;
+    height: 50px;
+}
+
+.headerContainer {
+    margin-bottom: -150px;
 }
 
 .spaceAround {
@@ -158,8 +163,8 @@
     width: 1px
 }
 
-.loginInput{
-    width:300px
+.loginInput {
+    width: 300px
 }
 
 .main-container {
@@ -183,7 +188,6 @@
     background: #f3f3f3;
     margin: 30px auto;
 }
-
 
 #name h1 {
     font-size: 2.5em;
@@ -375,7 +379,7 @@ section:last-child {
     }
 }
 
-.floatLeft{
+.floatLeft {
     width: 300px;
     float: left;
 }
