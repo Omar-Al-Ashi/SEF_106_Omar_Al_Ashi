@@ -15,8 +15,11 @@ export default class ViewAll extends Component {
     }
 
     componentWillMount() {
+        let config = {
+            headers: {'Authorization': "Bearer " + sessionStorage.getItem('session')}
+        };
         //    TODO The URL differs from serve to apache, the first one is for serve The second one is for apache
-        axios.get('api/allGraduatesWithInfo').then(response => {
+        axios.get('api/allGraduatesWithInfo', config).then(response => {
             // axios.get('http://localhost/Final%20Project/TeamShelf/public/api/admins').then(response => {
             this.setState({
                 graduates: response.data
@@ -31,8 +34,7 @@ export default class ViewAll extends Component {
         return (
             <div className='background'>
                 {this.state.graduates.map(graduate =>
-                    <Link to={"/graduate/" + graduate.user_id}
-                          className='noDecoration'>
+
                         <ProfileCard
                             key={graduate.user_id}
                             id={graduate.user_id}
@@ -45,7 +47,7 @@ export default class ViewAll extends Component {
                             email={graduate.email}
                             user_image={graduate.user_image}
                         />
-                    </Link>
+
                 )}
                 
             </div>
