@@ -22,6 +22,8 @@ Route::post('register', 'API\PassportController@register');
 
 Route::group(['middleware' => 'auth:api'], function(){
     Route::post('get-details', 'API\PassportController@getDetails');
+    Route::get('allGraduatesWithInfo', 'API\GraduateProfileController@returnAllGraduatesWithAllInfo');
+
 });
 
 // TODO put them inside the middleware
@@ -32,7 +34,7 @@ Route::resource('educations', 'API\EducationDetailController');
 Route::resource('graduates', 'API\GraduateProfileController');
 Route::resource('skills', 'API\SkillSetController');
 Route::resource('social_medias', 'API\SocialMediaController');
-Route::get('allGraduatesWithInfo', 'API\GraduateProfileController@returnAllGraduatesWithAllInfo');
+//Route::get('allGraduatesWithInfo', 'API\GraduateProfileController@returnAllGraduatesWithAllInfo');
 Route::get('graduate/{id}', 'API\GraduateProfileController@returnSpecificGraduateInfo');
 Route::post('graduate/store', 'API\GraduateInfoController@store');
 Route::post('graduate/edit', 'API\GraduateInfoController@edit');
