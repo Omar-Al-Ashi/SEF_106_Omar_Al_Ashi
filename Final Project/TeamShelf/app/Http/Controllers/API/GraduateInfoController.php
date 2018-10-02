@@ -124,14 +124,14 @@ class GraduateInfoController extends Controller
 //        return $request->file('profile_picture');
 //        if (DB::table('graduate_profiles')->select('user_id', $request->id)->get()) {
 //        if (DB::table('graduate_profiles')->select('user_id', $request->id)->get()) {
-        $image = $request->file('profile_picture');
-//        $file_name = $request->id . "." . $image->extension();
-        $file_name = $request->id . ".png";
-        $image->move('public/images', $file_name);
-
-        DB::table('users')
-            ->where('id', $request->id)
-            ->update(['user_image' => $image]);
+//        $image = $request->file('profile_picture');
+////        $file_name = $request->id . "." . $image->extension();
+//        $file_name = $request->id . ".png";
+//        $image->move('public/images', $file_name);
+//
+//        DB::table('users')
+//            ->where('id', $request->id)
+//            ->update(['user_image' => $image]);
 
 //         Image::make('public/'.$image);
 //        Image::make($request->profile_picture);
@@ -251,4 +251,25 @@ class GraduateInfoController extends Controller
         return json_encode($response);
 
     }
+
+    public function StoreProfileImage(Request $request)
+    {
+
+        $image = $request->file('profile_picture');
+        $extension = explode(".", $request->extension);
+
+        $file_name = $request->id . ".$extension[1]";
+        $image->move('storage/images', $file_name);
+
+        DB::table('users')
+            ->where('id', $request->id)
+            ->update(['user_image' => $file_name]);
+
+        return "It Worked";
+//        return $file = Storage::url('1.png');
+
+    }
+
+
+
 }
