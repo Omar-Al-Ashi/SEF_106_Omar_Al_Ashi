@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import 'font-awesome/css/font-awesome.min.css';
+import {Link} from "react-router-dom";
 
 
 require('../Styles/Styles.css');
@@ -16,26 +17,29 @@ export default class ProfileCard extends Component {
                 <div>
                     <div className='floatLeft'>
                         <div className="card" key={this.props.id}>
-                            <img
-                                // TODO need to find a way not to input relative path
-                                // src={require('../../../storage/app/public/images/TeamShelf.png')}
-                                src={(this.props.user_image)}
-                                className='profileImage'
-                                alt={this.props.first_name + " " + this.props.last_name}
-                            />
-                            <div>
+                            <Link to={"/graduate/" + this.props.id}
+                                  className='noDecoration'>
+                                <img
+                                    // TODO need to find a way not to input relative path
+                                    src={require('../../../storage/app/public/images/TeamShelf.png')}
+                                    // src={(this.props.user_image)}
+                                    className='profileImage'
+                                    alt={this.props.first_name + " " + this.props.last_name}
+                                />
                                 <div>
-                                    <h1>
-                                        {this.props.first_name} {this.props.last_name}
-                                    </h1>
-                                    <p className="title">
-                                        {this.props.title}
-                                    </p>
+                                    <div>
+                                        <h1>
+                                            {this.props.first_name} {this.props.last_name}
+                                        </h1>
+                                        <p className="title">
+                                            {this.props.title}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <p>
-                                {this.props.university}
-                            </p>
+                                <p>
+                                    {this.props.university}
+                                </p>
+                            </Link>
                             <div className='socialMedia'>
                                 {/*TODO edit the icon name*/}
                                 <div><a
