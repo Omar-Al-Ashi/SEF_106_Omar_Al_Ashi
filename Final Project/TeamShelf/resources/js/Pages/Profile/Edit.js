@@ -157,9 +157,14 @@ export default class Edit extends Component {
     }
 
     onProfilePicChange(event) {
+        // console.log("The extensions is:" + event.target.files[0].name);
+
         this.setState({
             selectedFile: event.target.files[0]
         });
+
+        console.log("The state is "+ this.state.selectedFile);
+        // console.log("The file is "+ event.target.files[0].name);
     };
 
     fileUploadHandler() {
@@ -339,16 +344,26 @@ export default class Edit extends Component {
             company_name: this.state.company_name,
             company_location: this.state.company_location,
             description: this.state.description,
-            skills: this.state.skills,
+            skills: this.state.skill_set_name,
             skill_level: this.state.skill_level,
             linkedin: this.state.linkedin,
             github: this.state.github,
             headers: {'Authorization': "Bearer " + sessionStorage.getItem('session')}
         };
 
+        const picForm = new FormData();
+        picForm.append('profile_picture', this.state.selectedFile);
+        picForm.append('id', this.state.id);
+        picForm.append('Accept', 'image/png');
+        picForm.append('extension', this.state.selectedFile.name);
+
+
         event.preventDefault();
         axios.post('/api/graduate/edit', formData)
             .then(res => res.data.response_code === 1 ? console.log('It worked') : console.log('something went'));
+
+        axios.post('/api/graduate/profileImage', picForm)
+            .then(res => console.log(res));
     }
 
     render() {
