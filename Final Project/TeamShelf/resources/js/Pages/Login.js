@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {PostData} from "../Services/ApiRequests";
 import axios from "axios";
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
+
+require('../Styles/Styles.css');
 
 export default class Login extends Component {
 
@@ -21,8 +23,8 @@ export default class Login extends Component {
 
     handleLogout() {
         sessionStorage.removeItem('session');
-        this.state.redirectToReferrer= false;
-        return(
+        this.state.redirectToReferrer = false;
+        return (
             <div className="alert alert-success">
                 <strong> Login In</strong>
             </div>
@@ -44,7 +46,7 @@ export default class Login extends Component {
                         // Setting the token to the session key in sessionStorage
                         sessionStorage.setItem('session', responseJson.data.success.token);
                         this.setState({redirectToReferrer: true});
-                        return (<Redirect to={'/'}/>)
+                        <Redirect to='/'/>
                     }
 
                 });
@@ -72,7 +74,7 @@ export default class Login extends Component {
         if (sessionStorage.getItem('session')) {
             return (
                 <div className="alert alert-success">
-                    <strong> You are already logged in</strong>
+                    <strong> You are already logged in</strong><br/>
                     <button
                         className="nav-item btn btn-outline-success my-2 my-sm-0"
                         onClick={this.handleLogout}>
@@ -82,14 +84,17 @@ export default class Login extends Component {
             )
         }
         return (
-            <div className='background'>
+            <div className='background fullHeight loginCard'
+                 style={{height: "100vh"}}>
                 <div className="Login">
 
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         {/*Start form */}
                         <form className="center" onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                                <label htmlFor="exampleInputEmail1">Email
+                                <i
+                                    className="fa fa-key icon"/>
+                                <label htmlFor="exampleInputEmail1"> Email
                                     address</label>
                                 <input type="email"
                                        className="form-control loginInput "
@@ -101,8 +106,10 @@ export default class Login extends Component {
                                        onChange={this.handleChange}/>
                             </div>
                             <div className="form-group">
+                                <i
+                                    className="fa fa-envelope icon"/>
                                 <label
-                                    htmlFor="exampleInputPassword1">Password</label>
+                                    htmlFor="exampleInputPassword1"> Password</label>
                                 <input type="password"
                                        className="form-control loginInput "
                                        name="password" id="password"
