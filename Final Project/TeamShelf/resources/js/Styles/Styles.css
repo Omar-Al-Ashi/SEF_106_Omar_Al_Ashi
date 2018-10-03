@@ -34,6 +34,10 @@
     height: 78vh;
 }
 
+.fullHeight {
+    height: 100vh;
+}
+
 .marginTop {
     margin-top: 30px;
 }
@@ -44,6 +48,22 @@
     float: left;
     /*background-color: rosybrown;*/
     border-collapse: collapse;
+}
+
+.formSection {
+    /*background-color: #1f6fb2;*/
+    height: 100%
+}
+
+.formBox {
+    margin: auto;
+    box-shadow: 0 4px 4px 0 rgba(74, 83, 216, 0.2);
+    padding-bottom: 20px;
+}
+
+.formHeaderTitle {
+    padding-top: 50px;
+    font-family: Ubuntu, serif;
 }
 
 .middle {
@@ -63,7 +83,12 @@
 }
 
 .background {
+    /*background-color: #4C85F4;*/
     background-color: white;
+}
+
+.loginCard {
+
 }
 
 .card {
@@ -126,6 +151,10 @@
     margin-bottom: -150px;
 }
 
+.profileCardContainer {
+    margin-left: 100px;
+}
+
 .spaceAround {
     display: flex;
     justify-content: space-around;
@@ -183,8 +212,8 @@
     margin-bottom: 100px;
 }
 
-.icon{
-    font-size:24px
+.icon {
+    font-size: 24px
 }
 
 #cv {
@@ -387,4 +416,5 @@ section:last-child {
 .floatLeft {
     width: 300px;
     float: left;
+    padding-left: 10px;
 }

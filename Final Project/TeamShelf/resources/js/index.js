@@ -11,7 +11,7 @@ export default class Index extends Component {
         return (
             <ErrorBoundary>
                 <div className='background'>
-                <div className="container headerContainer" >
+                <div className="headerContainer" >
                     <Header/>
                 </div>
                 </div>
