@@ -140,12 +140,12 @@ export default class GraduateInfo extends Component {
 
                     <div id="contactDetails" className="quickFade delayFour">
                         <ul>
-                            <li>e: <a
+                            <li><strong>email: </strong> <a
                                 href={"mailto:" + this.state.email + "?subject=We Are" +
                                 " interested in your Resume&body=Dear Mr. " + this.state.last_name
                                 + ".\n We are interested in your CV"}
                                 target="_blank">{this.state.email}</a></li>
-                            <li>m: {this.state.phone}</li>
+                            <li><strong>phone: </strong>{this.state.phone}</li>
                         </ul>
                     </div>
                     <div className="clear"></div>
