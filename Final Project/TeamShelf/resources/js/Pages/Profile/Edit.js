@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
 import {RadioGroup, RadioButton} from 'react-radio-buttons';
 import axios from 'axios';
+import {
+    Input
+} from 'mdbreact';
 
 require('../../Styles/Styles.css');
 import 'font-awesome/css/font-awesome.min.css';
+import {Redirect} from "react-router-dom";
 
 
 export default class Edit extends Component {
@@ -46,7 +50,7 @@ export default class Edit extends Component {
             let config = {
                 headers: {'Authorization': "Bearer " + sessionStorage.getItem('session')}
             };
-            axios.get('api/graduate/'+ this.state.id  , config).then(response => {
+            axios.get('api/graduate/' + this.state.id, config).then(response => {
                 // console.log("The response is: " + JSON.stringify(response));
                 // axios.get('http://localhost/Final%20Project/TeamShelf/public/api/admins').then(response => {
                 this.setState({
@@ -112,44 +116,6 @@ export default class Edit extends Component {
         this.handleSkillLevelChange = this.handleSkillLevelChange.bind(this);
     }
 
-    componentWillMount() {
-        let config = {
-            headers: {'Authorization': "Bearer " + sessionStorage.getItem('session')}
-        };
-        // console.log('The id state is: ' + this.state.id);
-        //TODO change the id dynamically not statically according to the logged user
-        // axios.get('api/graduate/'+ this.state.id  , config).then(response => {
-        //     // console.log("The state is inside axios" + this.state.id);
-        //     // axios.get('http://localhost/Final%20Project/TeamShelf/public/api/admins').then(response => {
-        //     this.setState({
-        //         dob: response.data[0].DOB,
-        //         certificate_name: response.data[0].certificate_degree_name,
-        //         company_name: response.data[0].company_name,
-        //         phone: response.data[0].contact_number,
-        //         description: response.data[0].description,
-        //         first_name: response.data[0].first_name,
-        //         gender: response.data[0].gender,
-        //         github: response.data[0].github,
-        //         gpa: response.data[0].grade_gpa,
-        //         institute: response.data[0].institute_university_name,
-        //         company_location: response.data[0].job_location,
-        //         title: response.data[0].job_title,
-        //         last_name: response.data[0].last_name,
-        //         linkedin: response.data[0].linkedin,
-        //         major: response.data[0].major,
-        //         skill_level: response.data[0].skill_level,
-        //         skill_set_name: response.data[0].skill_set_name,
-        //         selectedFile: response.data[0].user_image,
-        //     });
-        //     console.log(response)
-        // }).then(response => {
-        //     console.log(response);
-        // }).catch(errors => {
-        //     console.log(errors.response);
-        // });
-
-    }
-
     onGenderChange(value) {
         this.setState({
             gender: value
@@ -163,7 +129,7 @@ export default class Edit extends Component {
             selectedFile: event.target.files[0]
         });
 
-        console.log("The state is "+ this.state.selectedFile);
+        console.log("The state is " + this.state.selectedFile);
         // console.log("The file is "+ event.target.files[0].name);
     };
 
@@ -299,7 +265,7 @@ export default class Edit extends Component {
 
     handleSkillsChange(value) {
         this.setState({
-            skills: value.target.value
+            skill_set_name: value.target.value
         });
     }
 
@@ -360,20 +326,24 @@ export default class Edit extends Component {
 
         event.preventDefault();
         axios.post('/api/graduate/edit', formData)
-            .then(res => res.data.response_code === 1 ? console.log('It worked') : console.log('something went'));
+            .then(res =>
+                res.data.response_code === 1 ? console.log('It worked') : console.log('something went'));
 
         axios.post('/api/graduate/profileImage', picForm)
-            .then(res => console.log(res));
+            .then(res => {
+                console.log("image response is "+ res);
+                 <Redirect to='/viewAll'/>
+            });
     }
 
     render() {
         return (
-            <div className='background'>
+            <div className='background alignCenter'>
                 <form onSubmit={this.handleFormSubmit}>
-                    <div className="left">
-                        <h2>Basic Info</h2>
+                    <div className=" col-sm-4 formBox">
+                        <h2 className="formHeaderTitle">Basic Info</h2>
                         <div className="centered">
-                            <div className='jumbotron'>
+                            <div className='formSection'>
                                 <div className='form-group'>
 
                                     {/*Date of Birth*/}
@@ -391,6 +361,7 @@ export default class Edit extends Component {
 
                                     {/*Gender*/}
                                     <div className='gender'>
+                                        <label>Gender</label>
                                         <RadioGroup
                                             onChange={this.onGenderChange}
                                             horizontal
@@ -475,106 +446,11 @@ export default class Edit extends Component {
                         </div>
                     </div>
 
-                    <div className="middle">
-                        <h2>Education</h2>
+
+                    <div className=" col-sm-4 formBox">
+                        <h2 className="formHeaderTitle">Experience</h2>
                         <div className="centered">
-                            <div className='jumbotron'>
-
-                                {/*Major*/}
-                                <div className='major'>
-                                    <label htmlFor="major">Major</label>
-                                    <input type='text'
-                                           placeholder='major'
-                                           className='form-control'
-                                           id='major'
-                                           value={this.state.major}
-                                           onChange={this.handleMajorChange}
-                                           required/>
-                                </div>
-
-                                {/*Institute*/}
-                                <div className='institute'>
-                                    <label htmlFor="institute">Institute</label>
-                                    <input type='text'
-                                           placeholder='Institute'
-                                           className='form-control'
-                                           id='institute'
-                                           value={this.state.institute}
-                                           onChange={this.handleInstituteChange}
-                                           required/>
-                                </div>
-
-                                {/*Education Start Date*/}
-                                <div className='education_start_date'>
-                                    <label htmlFor="education_start_date">Start
-                                        Date</label>
-                                    <input type='date'
-                                           placeholder='Start Date'
-                                           className='form-control'
-                                           id='education_start_date'
-                                           value={this.state.education_start_date}
-                                           onChange={this.handleEducationStartDateChange}
-                                           required/>
-                                </div>
-
-                                {/*Education End Date*/}
-                                <div className='education_end_date'>
-                                    <label htmlFor="education_end_date">End
-                                        Date</label>
-                                    <input type='date'
-                                           placeholder='End Date'
-                                           className='form-control'
-                                           id='education_end_date'
-                                           value={this.state.education_end_date}
-                                           onChange={this.handleEducationEndDateChange}
-                                           required/>
-                                </div>
-
-                                {/*GPA*/}
-                                <div className='gpa'>
-                                    <label htmlFor="gpa">GPA</label>
-                                    <input type='number'
-                                           placeholder='GPA'
-                                           className='form-control'
-                                           id='gpa'
-                                           value={this.state.gpa}
-                                           onChange={this.handleGPAChange}
-                                           required/>
-                                </div>
-
-                                {/*Certificate Name*/}
-                                <div className='certificate_name'>
-                                    <label htmlFor="certificate_name">Certificate
-                                        Name</label>
-                                    <input type='text'
-                                           placeholder='Certificate Name'
-                                           className='form-control'
-                                           id='certificate_name'
-                                           value={this.state.certificate_name}
-                                           onChange={this.handleCertificateNameChange}
-                                           required/>
-                                </div>
-
-                                {/*Education Description*/}
-                                <div className='education_description'>
-                                    <label
-                                        htmlFor="education_description">Description</label>
-                                    <input type='text'
-                                           placeholder='Education Description'
-                                           className='form-control'
-                                           id='education_description'
-                                           value={this.state.education_description}
-                                           onChange={this.handleEducationDescriptionChange}
-                                           required/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="right">
-                        <h2>Experience</h2>
-                        <div className="centered">
-                            <div className='jumbotron'>
+                            <div className='formSection'>
 
                                 {/*is Current Job*/}
                                 <div className='is_current_job'>
@@ -720,6 +596,101 @@ export default class Edit extends Component {
                                            id='GitHub'
                                            value={this.state.github}
                                            onChange={this.handleGithubChange}
+                                           required/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className=" col-sm-4 formBox">
+                        <h2 className="formHeaderTitle">Education</h2>
+                        <div className="centered">
+                            <div className='formSection'>
+
+                                {/*Major*/}
+                                <div className='major'>
+                                    <label htmlFor="major">Major</label>
+                                    <input type='text'
+                                           placeholder='Major'
+                                           className='form-control'
+                                           id='major'
+                                           value={this.state.major}
+                                           onChange={this.handleMajorChange}
+                                           required/>
+                                </div>
+
+                                {/*Institute*/}
+                                <div className='institute'>
+                                    <label htmlFor="institute">Institute</label>
+                                    <input type='text'
+                                           placeholder='Institute'
+                                           className='form-control'
+                                           id='institute'
+                                           value={this.state.institute}
+                                           onChange={this.handleInstituteChange}
+                                           required/>
+                                </div>
+
+                                {/*Education Start Date*/}
+                                <div className='education_start_date'>
+                                    <label htmlFor="education_start_date">Start
+                                        Date</label>
+                                    <input type='date'
+                                           placeholder='Start Date'
+                                           className='form-control'
+                                           id='education_start_date'
+                                           value={this.state.education_start_date}
+                                           onChange={this.handleEducationStartDateChange}
+                                           required/>
+                                </div>
+
+                                {/*Education End Date*/}
+                                <div className='education_end_date'>
+                                    <label htmlFor="education_end_date">End
+                                        Date</label>
+                                    <input type='date'
+                                           placeholder='End Date'
+                                           className='form-control'
+                                           id='education_end_date'
+                                           value={this.state.education_end_date}
+                                           onChange={this.handleEducationEndDateChange}
+                                           required/>
+                                </div>
+
+                                {/*GPA*/}
+                                <div className='gpa'>
+                                    <label htmlFor="gpa">GPA</label>
+                                    <input type='number'
+                                           placeholder='GPA'
+                                           className='form-control'
+                                           id='gpa'
+                                           value={this.state.gpa}
+                                           onChange={this.handleGPAChange}
+                                           required/>
+                                </div>
+
+                                {/*Certificate Name*/}
+                                <div className='certificate_name'>
+                                    <label htmlFor="certificate_name">Certificate
+                                        Name</label>
+                                    <input type='text'
+                                           placeholder='Certificate Name'
+                                           className='form-control'
+                                           id='certificate_name'
+                                           value={this.state.certificate_name}
+                                           onChange={this.handleCertificateNameChange}
+                                           required/>
+                                </div>
+
+                                {/*Education Description*/}
+                                <div className='education_description'>
+                                    <label
+                                        htmlFor="education_description">Description</label>
+                                    <input type='text'
+                                           placeholder='Education Description'
+                                           className='form-control'
+                                           id='education_description'
+                                           value={this.state.education_description}
+                                           onChange={this.handleEducationDescriptionChange}
                                            required/>
                                 </div>
                             </div>
