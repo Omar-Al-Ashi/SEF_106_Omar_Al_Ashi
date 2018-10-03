@@ -1,6 +1,20 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Link} from 'react-router-dom';
 import Login from "../Pages/Login";
+import {
+    Navbar,
+    NavbarBrand,
+    NavbarNav,
+    NavbarToggler,
+    Collapse,
+    NavItem,
+    NavLink,
+    Dropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem,
+    Button
+} from 'mdbreact';
 import 'font-awesome/css/font-awesome.min.css';
 import Router from '../Services/Router'
 
@@ -8,50 +22,64 @@ require('../Styles/Styles.css');
 
 export default class Header extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            collapse: false,
+            isWideEnough: false,
+        };
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onClick() {
+        this.setState({
+            collapse: !this.state.collapse,
+        });
+    }
+
     render() {
 
         return (
             <BrowserRouter>
-                <div className='alignCenter'>
-                    <nav
-                        className="navbar navbar-expand-lg navbar-light white">
-                        <Link className="navbar-brand" to='/'><img
-                            // TODO need to find a way not to input relative path
-                            src={require('../../../storage/app/public/images/TeamShelf.png')}
-                            style={{height: 70, width: 100}}/></Link>
+                <div className='alignCenter background navigationBar'>
 
-                        <div className="collapse navbar-collapse"
-                             id="navbarSupportedContent">
-                            <ul className="navbar-nav mr-auto">
-                                <li className="nav-item">
-                                    <i className='fa fa-home'/>
-                                    <Link
-                                        className="nav-link btn-outline-success"
-                                        to='/'>Home</Link>
-                                </li>
+                    <Navbar style={{backgroundColor: '#4C85F4'}} dark
+                            expand="md" scrolling>
+                        <NavbarBrand href="/">
+                            <img
+                                // TODO need to find a way not to input relative path*/}
+                                src={require('../../../storage/app/public/images/TeamShelf.png')}
+                                style={{height: 70, width: 100}}/>
 
-                                <li className="nav-item">
-                                    <i className='fa fa-address-card'/>
-                                    <Link
-                                        className="nav-link btn-outline-success"
-                                        to='/viewAll'>View All</Link>
-                                </li>
+                        </NavbarBrand>
+                        {!this.state.isWideEnough &&
+                        <NavbarToggler onClick={this.onClick}/>}
+                        <Collapse isOpen={this.state.collapse} navbar>
+                            <NavbarNav left>
+                                <NavItem>
+                                    <NavLink to="/">Home</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink to="/viewAll">View All</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink to="/edit">Edit</NavLink>
+                                </NavItem>
+                            </NavbarNav>
 
-                                <li className="nav-item">
-                                    <i className='fa fa-pencil'/>
-                                    <Link
-                                        className="nav-link btn-outline-success"
-                                        to='/edit'>Edit</Link>
-                                </li>
-                            </ul>
-                            <li className="nav-item btn btn-outline-success my-2 my-sm-0">
-                                <Link
-                                    to='/login'>
-                                    {sessionStorage.getItem("session") === null ? "Login" : "Logout"}
-                                </Link>
-                            </li>
-                        </div>
-                    </nav>
+                            <NavbarNav right>
+                                <NavItem>
+                                    <NavLink to="/login">
+                                        <Button
+                                            style={{backgroundColor: '#8C8C8C'}}
+                                            color="cyan">Logout</Button>
+                                    </NavLink>
+                                </NavItem>
+                            </NavbarNav>
+                        </Collapse>
+                    </Navbar>
+
+
                     <Router/>
                 </div>
             </BrowserRouter>
