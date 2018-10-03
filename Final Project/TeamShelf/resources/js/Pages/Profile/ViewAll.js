@@ -32,7 +32,7 @@ export default class ViewAll extends Component {
 
     render() {
         return (
-            <div className='background'>
+            <div className='background profileCardContainer'>
                 {this.state.graduates.map(graduate =>
 
                         <ProfileCard

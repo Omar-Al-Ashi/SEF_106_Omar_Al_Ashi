@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 import {Link} from "react-router-dom";
+import { Container, Row, Col, Card, CardBody, Avatar, Mask, Fa, View, Button} from 'mdbreact';
 
 
 require('../Styles/Styles.css');
@@ -13,7 +14,8 @@ export default class ProfileCard extends Component {
 
     render() {
         return (
-            <div>
+            <div className='background'>
+
                 <div>
                     <div className='floatLeft'>
                         <div className="card" key={this.props.id}>
@@ -44,10 +46,10 @@ export default class ProfileCard extends Component {
                                 {/*TODO edit the icon name*/}
                                 <div><a
                                     href={'http://' + this.props.linkedin}><i
-                                    className="fa fa-linkedin icon"/></a></div>
+                                    className="fa fa-linkedin icon" style={{fontSize: "20px"}}/></a></div>
                                 <div><a
                                     href={'http://' + this.props.github}><i
-                                    className="fa fa-github icon"/></a></div>
+                                    className="fa fa-github" style={{fontSize: "20px"}}/></a></div>
                             </div>
                             <button className='contactButton whiteText'>
                                 <a className='whiteText'
