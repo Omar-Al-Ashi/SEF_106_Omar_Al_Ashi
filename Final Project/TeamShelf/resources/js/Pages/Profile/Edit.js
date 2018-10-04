@@ -342,6 +342,7 @@ export default class Edit extends Component {
                 <form onSubmit={this.handleFormSubmit}>
                     <div className=" col-sm-4 formBox">
                         <h2 className="formHeaderTitle">Basic Info</h2>
+                        <hr className='hr'/>
                         <div className="centered">
                             <div className='formSection'>
                                 <div className='form-group'>
@@ -449,6 +450,7 @@ export default class Edit extends Component {
 
                     <div className=" col-sm-4 formBox">
                         <h2 className="formHeaderTitle">Experience</h2>
+                        <hr className='hr'/>
                         <div className="centered">
                             <div className='formSection'>
 
@@ -603,6 +605,7 @@ export default class Edit extends Component {
                     </div>
                     <div className=" col-sm-4 formBox">
                         <h2 className="formHeaderTitle">Education</h2>
+                        <hr className='hr'/>
                         <div className="centered">
                             <div className='formSection'>
 
