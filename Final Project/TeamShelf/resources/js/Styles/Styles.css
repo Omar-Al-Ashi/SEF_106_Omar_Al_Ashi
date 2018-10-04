@@ -102,12 +102,12 @@
     /*margin-bottom: 100px;*/
 }
 
-.resumeContainer{
+.resumeContainer {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin-top: 30px;
 }
 
-.header{
+.header {
     margin-bottom: 20px;
 }
 
@@ -129,8 +129,8 @@
     width: 100%;
     font-size: 18px;
     position: absolute;
-    right:    0;
-    bottom:   0;
+    right: 0;
+    bottom: 0;
 }
 
 .linkk {
@@ -350,8 +350,16 @@ section:last-child {
     color: #444;
 }
 
+.marginRight{
+    margin-right: 10px;
+}
+
 .keySkills ul li {
     margin-bottom: 3px;
+}
+
+.hr{
+    background: #4C85F4;
 }
 
 @media all and (min-width: 602px) and (max-width: 800px) {

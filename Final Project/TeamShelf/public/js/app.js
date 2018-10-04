@@ -18693,9 +18693,34 @@ module.exports = ReactElementValidator;
 
 /***/ }),
 /* 57 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "/images/1.png?8dd909a6b34566b8188039cf01e065ec";
+var map = {
+	"./1.png": 149,
+	"./10.png": 150,
+	"./2.jpg": 151,
+	"./3.png": 152,
+	"./7.png": 153,
+	"./8.jpg": 154,
+	"./8.png": 155,
+	"./9.png": 156,
+	"./TeamShelf.png": 58
+};
+function webpackContext(req) {
+	return __webpack_require__(webpackContextResolve(req));
+};
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) // check for number or string
+		throw new Error("Cannot find module '" + req + "'.");
+	return id;
+};
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 57;
 
 /***/ }),
 /* 58 */
@@ -18767,44 +18792,6 @@ var GraduateInfo = function (_Component) {
             linkedin: '',
             github: ''
         };
-
-        // // TODO uncomment the url when I fix the routing problem
-        // axios.get('/api' + this.props.location.pathname).then(response => {
-        //     this.setState({
-        //         dob: response.data[0].DOB,
-        //         id: response.data[0].id,
-        //         email: response.data[0].email,
-        //         certificate_name: response.data[0].certificate_degree_name,
-        //         company_name: response.data[0].company_name,
-        //         phone: response.data[0].contact_number,
-        //         education_description: response.data[0].description,
-        //         residency_location: response.data[0].residency_location,
-        //         first_name: response.data[0].first_name,
-        //         gender: response.data[0].gender,
-        //         github: response.data[0].github,
-        //         experience_starting_date: response.data[0].starting_date,
-        //         education_starting_date: response.data[0].starting_date,
-        //         experience_ending_date: response.data[0].ending_date,
-        //         education_ending_date: response.data[0].ending_date,
-        //         gpa: response.data[0].grade_gpa,
-        //         institute: response.data[0].institute_university_name,
-        //         company_location: response.data[0].job_location,
-        //         title: response.data[0].job_title,
-        //         skills: response.data[0].skill_set_name,
-        //         job_location: response.data[0].job_location,
-        //         last_name: response.data[0].last_name,
-        //         linkedin: response.data[0].linkedin,
-        //         major: response.data[0].major,
-        //         skill_level: response.data[0].skill_level,
-        //         skill_set_name: response.data[0].skill_set_name,
-        //         selectedFile: response.data[0].user_image,
-        //     });
-        //     console.log(response);
-        //     console.log("The image is:" + this.state.selectedFile);
-        // }).catch(errors => {
-        //     console.log(errors.response);
-        // })
-
         return _this;
     }
 
@@ -18852,7 +18839,7 @@ var GraduateInfo = function (_Component) {
         }
     }, {
         key: 'render',
-        value: function render(props) {
+        value: function render() {
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
@@ -18864,9 +18851,9 @@ var GraduateInfo = function (_Component) {
                         'div',
                         { id: 'headshot', className: 'quickFade' },
                         console.log('the file state is: ' + this.state.selectedFile),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', {
+                        this.state.selectedFile.trim() === "" ? 'nothing' : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', {
                             // src={require('../../../storage/app/public/images/'+this.props.user_image)}
-                            src: __webpack_require__(57),
+                            src: __webpack_require__(57)("./" + this.state.selectedFile),
                             alt: this.state.first_name + this.state.last_name })
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -19076,18 +19063,14 @@ var GraduateInfo = function (_Component) {
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
-                    null,
+                    { className: 'socialMediaContainer' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'a',
                         {
                             href: 'http://' + this.state.linkedin },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', {
-                            className: 'fa fa-linkedin fa-2x' })
-                    )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    null,
+                            className: 'fa fa-linkedin fa-2x marginRight' })
+                    ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'a',
                         {
@@ -64168,7 +64151,7 @@ exports = module.exports = __webpack_require__(48)(false);
 
 
 // module
-exports.push([module.i, ".green {\n    background-color: #18ED18;\n}\n\n.white {\n    background-color: white;\n}\n\n.black {\n    background-color: black;\n}\n\n.whiteText {\n    color: white;\n}\n\n.alignCenter {\n    text-align: center;\n    vertical-align: center;\n    margin-bottom: 100px;\n}\n\n.center {\n    display: flex;\n    flex-flow: column wrap;\n    align-items: center;\n}\n\n.marginBottom {\n    margin-bottom: 100px;\n}\n\n.fullPage {\n    height: 78vh;\n}\n\n.fullHeight {\n    height: 100vh;\n}\n\n.marginTop {\n    margin-top: 30px;\n}\n\n.left {\n    width: 33.333%;\n    height: 100vh;\n    float: left;\n    /*background-color: rosybrown;*/\n    border-collapse: collapse;\n}\n\n.formSection {\n    /*background-color: #1f6fb2;*/\n    height: 100%\n}\n\n.formBox {\n    margin: auto;\n    box-shadow: 0 4px 4px 0 rgba(74, 83, 216, 0.2);\n    padding-bottom: 20px;\n}\n\n.formHeaderTitle {\n    padding-top: 50px;\n    font-family: Ubuntu, serif;\n}\n\n.middle {\n    width: 33.333%;\n    height: 100vh;\n    float: left;\n    /*background-color: royalblue;*/\n    border-collapse: collapse;\n}\n\n.right {\n    width: 33.333%;\n    height: 100vh;\n    float: right;\n    /*background-color: yellow;*/\n    border-collapse: collapse;\n}\n\n.background {\n    /*background-color: #4C85F4;*/\n    background-color: white;\n}\n\n.loginCard {\n\n}\n\n.card {\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n    max-width: 300px;\n    margin: auto;\n    /*float: left;*/\n    height: 550px;\n    text-align: center;\n    font-family: arial, serif;\n    /*margin-bottom: 100px;*/\n}\n\n.resumeContainer{\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n    margin-top: 30px;\n}\n\n.header{\n    margin-bottom: 20px;\n}\n\n.title {\n    color: grey;\n    font-size: 18px;\n}\n\n.contactButton {\n    border: none;\n    outline: 0;\n    display: inline-block;\n    padding: 8px;\n    margin-bottom: 0px;\n    color: white;\n    background-color: #000;\n    text-align: center;\n    cursor: pointer;\n    width: 100%;\n    font-size: 18px;\n    position: absolute;\n    right:    0;\n    bottom:   0;\n}\n\n.linkk {\n    text-decoration: none;\n    font-size: 22px;\n    color: black;\n}\n\n.contactButton:hover, .linkk:hover {\n    opacity: 0.7;\n}\n\n.socialMedia {\n    margin: 24px 0;\n}\n\n.profileImage {\n    height: 226px;\n    width: 100%;\n}\n\n.footer {\n    position: fixed;\n    bottom: 0;\n    width: 100%;\n    height: 50px;\n}\n\n.headerContainer {\n    margin-bottom: -150px;\n}\n\n.profileCardContainer {\n    margin-left: 100px;\n}\n\n.spaceAround {\n    display: flex;\n    justify-content: space-around;\n}\n\n.socialMediaIcon {\n    font-size: 36px\n}\n\n.noDecoration {\n    text-decoration: none;\n}\n\n.halfLeft {\n    width: 50%;\n    height: 100vh;\n    float: left;\n    background-color: rosybrown;\n    border-collapse: collapse;\n    border-right: 6px solid blue;\n}\n\n.halfRight {\n    width: 50%;\n    height: 100vh;\n    float: right;\n    background-color: green;\n    border-collapse: collapse;\n    border-left: 6px solid blue;\n}\n\n.verticalSeperator {\n    border-left: 6px solid green;\n    height: 500px;\n    width: 1px\n}\n\n.loginInput {\n    width: 300px\n}\n\n.main-container {\n    height: 100vh;\n}\n\n.clear {\n    clear: both;\n}\n\n.mainDetails {\n    padding: 25px 35px;\n    border-bottom: 2px solid #98ee90;\n    background: #009644;\n    height: 120px;\n    margin-bottom: 100px;\n}\n\n.icon {\n    font-size: 24px\n}\n\n#cv {\n    width: 90%;\n    max-width: 800px;\n    background: #f3f3f3;\n    margin: 30px auto;\n}\n\n#name h1 {\n    font-size: 2.5em;\n    font-weight: 700;\n    font-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n    margin-bottom: -6px;\n}\n\n#name h2 {\n    font-size: 2em;\n    margin-left: 2px;\n    font-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n}\n\n#mainArea {\n    padding: 0 40px;\n}\n\n#headshot {\n    width: 12.5%;\n    float: left;\n    margin-right: 30px;\n}\n\n#headshot img {\n    width: 100%;\n    height: auto;\n    -webkit-border-radius: 50px;\n    border-radius: 50px;\n}\n\n#name {\n    float: left;\n}\n\n#contactDetails {\n    float: right;\n}\n\n#contactDetails ul {\n    list-style-type: none;\n    font-size: 0.9em;\n    margin-top: 2px;\n}\n\n#contactDetails ul li {\n    margin-bottom: 3px;\n    color: #444;\n}\n\n#contactDetails ul li a, a[href^=tel] {\n    color: #444;\n    text-decoration: none;\n    -webkit-transition: all .3s ease-in;\n    -moz-transition: all .3s ease-in;\n    -o-transition: all .3s ease-in;\n    -ms-transition: all .3s ease-in;\n    transition: all .3s ease-in;\n}\n\n#contactDetails ul li a:hover {\n    color: #cf8a05;\n}\n\nsection {\n    border-top: 1px solid #dedede;\n    padding: 20px 0 0;\n}\n\nsection:first-child {\n    border-top: 0;\n}\n\nsection:last-child {\n    padding: 20px 0 10px;\n}\n\n.sectionTitle {\n    float: left;\n    width: 25%;\n}\n\n.sectionContent {\n    float: right;\n    width: 72.5%;\n}\n\n.sectionTitle h1 {\n    font-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n    font-style: italic;\n    font-size: 1.5em;\n    color: #1ec31e;\n}\n\n.sectionContent h2 {\n    font-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n    font-size: 1.5em;\n    /*margin-bottom: -2px;*/\n}\n\n.subDetails {\n    font-size: 0.8em;\n    font-style: italic;\n    margin-bottom: 3px;\n}\n\n.keySkills {\n    list-style-type: none;\n    -moz-column-count: 3;\n    -webkit-column-count: 3;\n    column-count: 3;\n    margin-bottom: 20px;\n    font-size: 1em;\n    color: #444;\n}\n\n.keySkills ul li {\n    margin-bottom: 3px;\n}\n\n@media all and (min-width: 602px) and (max-width: 800px) {\n    #headshot {\n        display: none;\n    }\n\n    .keySkills {\n        -moz-column-count: 2;\n        -webkit-column-count: 2;\n        column-count: 2;\n    }\n}\n\n@media all and (max-width: 601px) {\n    #cv {\n        width: 95%;\n        margin: 10px auto;\n        min-width: 280px;\n    }\n\n    #headshot {\n        display: none;\n    }\n\n    #name, #contactDetails {\n        float: none;\n        width: 100%;\n        text-align: center;\n    }\n\n    .sectionTitle, .sectionContent {\n        float: none;\n        width: 100%;\n    }\n\n    .sectionTitle {\n        margin-left: -2px;\n        font-size: 1.25em;\n    }\n\n    .keySkills {\n        -moz-column-count: 2;\n        -webkit-column-count: 2;\n        column-count: 2;\n    }\n}\n\n@media all and (max-width: 480px) {\n    .mainDetails {\n        padding: 15px 15px;\n    }\n\n    section {\n        padding: 15px 0 0;\n    }\n\n    #mainArea {\n        padding: 0 25px;\n    }\n\n    .keySkills {\n        -moz-column-count: 1;\n        -webkit-column-count: 1;\n        column-count: 1;\n    }\n\n    #name h1 {\n        line-height: .8em;\n        margin-bottom: 4px;\n    }\n}\n\n.floatLeft {\n    width: 300px;\n    float: left;\n    padding-left: 10px;\n}", ""]);
+exports.push([module.i, ".green {\n    background-color: #18ED18;\n}\n\n.white {\n    background-color: white;\n}\n\n.black {\n    background-color: black;\n}\n\n.whiteText {\n    color: white;\n}\n\n.alignCenter {\n    text-align: center;\n    vertical-align: center;\n    margin-bottom: 100px;\n}\n\n.center {\n    display: flex;\n    flex-flow: column wrap;\n    align-items: center;\n}\n\n.marginBottom {\n    margin-bottom: 100px;\n}\n\n.fullPage {\n    height: 78vh;\n}\n\n.fullHeight {\n    height: 100vh;\n}\n\n.marginTop {\n    margin-top: 30px;\n}\n\n.left {\n    width: 33.333%;\n    height: 100vh;\n    float: left;\n    /*background-color: rosybrown;*/\n    border-collapse: collapse;\n}\n\n.formSection {\n    /*background-color: #1f6fb2;*/\n    height: 100%\n}\n\n.formBox {\n    margin: auto;\n    box-shadow: 0 4px 4px 0 rgba(74, 83, 216, 0.2);\n    padding-bottom: 20px;\n}\n\n.formHeaderTitle {\n    padding-top: 50px;\n    font-family: Ubuntu, serif;\n}\n\n.middle {\n    width: 33.333%;\n    height: 100vh;\n    float: left;\n    /*background-color: royalblue;*/\n    border-collapse: collapse;\n}\n\n.right {\n    width: 33.333%;\n    height: 100vh;\n    float: right;\n    /*background-color: yellow;*/\n    border-collapse: collapse;\n}\n\n.background {\n    /*background-color: #4C85F4;*/\n    background-color: white;\n}\n\n.loginCard {\n\n}\n\n.card {\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n    max-width: 300px;\n    margin: auto;\n    /*float: left;*/\n    height: 550px;\n    text-align: center;\n    font-family: arial, serif;\n    /*margin-bottom: 100px;*/\n}\n\n.resumeContainer {\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n    margin-top: 30px;\n}\n\n.header {\n    margin-bottom: 20px;\n}\n\n.title {\n    color: grey;\n    font-size: 18px;\n}\n\n.contactButton {\n    border: none;\n    outline: 0;\n    display: inline-block;\n    padding: 8px;\n    margin-bottom: 0px;\n    color: white;\n    background-color: #000;\n    text-align: center;\n    cursor: pointer;\n    width: 100%;\n    font-size: 18px;\n    position: absolute;\n    right: 0;\n    bottom: 0;\n}\n\n.linkk {\n    text-decoration: none;\n    font-size: 22px;\n    color: black;\n}\n\n.contactButton:hover, .linkk:hover {\n    opacity: 0.7;\n}\n\n.socialMedia {\n    margin: 24px 0;\n}\n\n.profileImage {\n    height: 226px;\n    width: 100%;\n}\n\n.footer {\n    position: fixed;\n    bottom: 0;\n    width: 100%;\n    height: 50px;\n}\n\n.headerContainer {\n    margin-bottom: -150px;\n}\n\n.profileCardContainer {\n    margin-left: 100px;\n}\n\n.spaceAround {\n    display: flex;\n    justify-content: space-around;\n}\n\n.socialMediaIcon {\n    font-size: 36px\n}\n\n.noDecoration {\n    text-decoration: none;\n}\n\n.halfLeft {\n    width: 50%;\n    height: 100vh;\n    float: left;\n    background-color: rosybrown;\n    border-collapse: collapse;\n    border-right: 6px solid blue;\n}\n\n.halfRight {\n    width: 50%;\n    height: 100vh;\n    float: right;\n    background-color: green;\n    border-collapse: collapse;\n    border-left: 6px solid blue;\n}\n\n.verticalSeperator {\n    border-left: 6px solid green;\n    height: 500px;\n    width: 1px\n}\n\n.loginInput {\n    width: 300px\n}\n\n.main-container {\n    height: 100vh;\n}\n\n.clear {\n    clear: both;\n}\n\n.mainDetails {\n    padding: 25px 35px;\n    border-bottom: 2px solid #98ee90;\n    background: #009644;\n    height: 120px;\n    margin-bottom: 100px;\n}\n\n.icon {\n    font-size: 24px\n}\n\n#cv {\n    width: 90%;\n    max-width: 800px;\n    background: #f3f3f3;\n    margin: 30px auto;\n}\n\n#name h1 {\n    font-size: 2.5em;\n    font-weight: 700;\n    font-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n    margin-bottom: -6px;\n}\n\n#name h2 {\n    font-size: 2em;\n    margin-left: 2px;\n    font-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n}\n\n#mainArea {\n    padding: 0 40px;\n}\n\n#headshot {\n    width: 12.5%;\n    float: left;\n    margin-right: 30px;\n}\n\n#headshot img {\n    width: 100%;\n    height: auto;\n    -webkit-border-radius: 50px;\n    border-radius: 50px;\n}\n\n#name {\n    float: left;\n}\n\n#contactDetails {\n    float: right;\n}\n\n#contactDetails ul {\n    list-style-type: none;\n    font-size: 0.9em;\n    margin-top: 2px;\n}\n\n#contactDetails ul li {\n    margin-bottom: 3px;\n    color: #444;\n}\n\n#contactDetails ul li a, a[href^=tel] {\n    color: #444;\n    text-decoration: none;\n    -webkit-transition: all .3s ease-in;\n    -moz-transition: all .3s ease-in;\n    -o-transition: all .3s ease-in;\n    -ms-transition: all .3s ease-in;\n    transition: all .3s ease-in;\n}\n\n#contactDetails ul li a:hover {\n    color: #cf8a05;\n}\n\nsection {\n    border-top: 1px solid #dedede;\n    padding: 20px 0 0;\n}\n\nsection:first-child {\n    border-top: 0;\n}\n\nsection:last-child {\n    padding: 20px 0 10px;\n}\n\n.sectionTitle {\n    float: left;\n    width: 25%;\n}\n\n.sectionContent {\n    float: right;\n    width: 72.5%;\n}\n\n.sectionTitle h1 {\n    font-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n    font-style: italic;\n    font-size: 1.5em;\n    color: #1ec31e;\n}\n\n.sectionContent h2 {\n    font-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n    font-size: 1.5em;\n    /*margin-bottom: -2px;*/\n}\n\n.subDetails {\n    font-size: 0.8em;\n    font-style: italic;\n    margin-bottom: 3px;\n}\n\n.keySkills {\n    list-style-type: none;\n    -moz-column-count: 3;\n    -webkit-column-count: 3;\n    column-count: 3;\n    margin-bottom: 20px;\n    font-size: 1em;\n    color: #444;\n}\n\n.marginRight{\n    margin-right: 10px;\n}\n\n.keySkills ul li {\n    margin-bottom: 3px;\n}\n\n.hr{\n    background: #4C85F4;\n}\n\n@media all and (min-width: 602px) and (max-width: 800px) {\n    #headshot {\n        display: none;\n    }\n\n    .keySkills {\n        -moz-column-count: 2;\n        -webkit-column-count: 2;\n        column-count: 2;\n    }\n}\n\n@media all and (max-width: 601px) {\n    #cv {\n        width: 95%;\n        margin: 10px auto;\n        min-width: 280px;\n    }\n\n    #headshot {\n        display: none;\n    }\n\n    #name, #contactDetails {\n        float: none;\n        width: 100%;\n        text-align: center;\n    }\n\n    .sectionTitle, .sectionContent {\n        float: none;\n        width: 100%;\n    }\n\n    .sectionTitle {\n        margin-left: -2px;\n        font-size: 1.25em;\n    }\n\n    .keySkills {\n        -moz-column-count: 2;\n        -webkit-column-count: 2;\n        column-count: 2;\n    }\n}\n\n@media all and (max-width: 480px) {\n    .mainDetails {\n        padding: 15px 15px;\n    }\n\n    section {\n        padding: 15px 0 0;\n    }\n\n    #mainArea {\n        padding: 0 25px;\n    }\n\n    .keySkills {\n        -moz-column-count: 1;\n        -webkit-column-count: 1;\n        column-count: 1;\n    }\n\n    #name h1 {\n        line-height: .8em;\n        margin-bottom: 4px;\n    }\n}\n\n.floatLeft {\n    width: 300px;\n    float: left;\n    padding-left: 10px;\n}", ""]);
 
 // exports
 
@@ -64437,7 +64420,7 @@ var Home = function (_Component) {
                 { className: 'fullPage marginTop background container' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'h1',
-                    null,
+                    { className: 'formHeaderTitle' },
                     'Welcome to TeamShelf'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', {
@@ -64447,6 +64430,34 @@ var Home = function (_Component) {
                     'p',
                     { className: 'marginTop' },
                     'TeamShelf is the gateway to find the right talent for the right opportunity. It is a platform for employers to find people with the right set of talents and knowledge to fill a job vacancy. It allows graduates to fill some details, and a resume will be generated for them so that employers would choose.'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'strong',
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'h2',
+                        { className: 'formHeaderTitle' },
+                        'Who Are We?'
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'p',
+                    null,
+                    'We are a team of developers who are passionate about web development and are looking to make the lookout for the right employees as easy as possible.'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'strong',
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'h2',
+                        { className: 'formHeaderTitle' },
+                        'How To Use It?'
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'p',
+                    null,
+                    'By simply logging in, editing your personal info, a resume will be generated for you so that employees would find you easier. This simplifies the process of candidates applying for jobs, as well as employers looking for the right talent for their job opening.'
                 )
             );
         }
@@ -64863,6 +64874,7 @@ var Edit = function (_Component) {
                             { className: 'formHeaderTitle' },
                             'Basic Info'
                         ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', { className: 'hr' }),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'centered' },
@@ -65007,6 +65019,7 @@ var Edit = function (_Component) {
                             { className: 'formHeaderTitle' },
                             'Experience'
                         ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', { className: 'hr' }),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'centered' },
@@ -65213,6 +65226,7 @@ var Edit = function (_Component) {
                             { className: 'formHeaderTitle' },
                             'Education'
                         ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', { className: 'hr' }),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'centered' },
@@ -68066,7 +68080,7 @@ var ProfileCard = function (_Component) {
                                     className: 'noDecoration' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', {
                                     // TODO need to find a way not to input relative path
-                                    src: __webpack_require__(149)("./" + this.props.user_image)
+                                    src: __webpack_require__(57)("./" + this.props.user_image)
                                     // src={(this.props.user_image)}
                                     , className: 'profileImage',
                                     alt: this.props.first_name + " " + this.props.last_name
@@ -68147,34 +68161,9 @@ var ProfileCard = function (_Component) {
 
 /***/ }),
 /* 149 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-var map = {
-	"./1.png": 57,
-	"./10.png": 150,
-	"./2.jpg": 151,
-	"./3.png": 152,
-	"./7.png": 153,
-	"./8.jpg": 154,
-	"./8.png": 155,
-	"./9.png": 156,
-	"./TeamShelf.png": 58
-};
-function webpackContext(req) {
-	return __webpack_require__(webpackContextResolve(req));
-};
-function webpackContextResolve(req) {
-	var id = map[req];
-	if(!(id + 1)) // check for number or string
-		throw new Error("Cannot find module '" + req + "'.");
-	return id;
-};
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 149;
+module.exports = "/images/1.png?8dd909a6b34566b8188039cf01e065ec";
 
 /***/ }),
 /* 150 */
