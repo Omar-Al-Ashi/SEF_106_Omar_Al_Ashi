@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {PostData} from "../Services/ApiRequests";
 import axios from "axios";
 import {Redirect} from "react-router-dom";
 
@@ -46,7 +45,7 @@ export default class Login extends Component {
                         // Setting the token to the session key in sessionStorage
                         sessionStorage.setItem('session', responseJson.data.success.token);
                         this.setState({redirectToReferrer: true});
-                        <Redirect to='/'/>
+                        return <Redirect to="/" />
                     }
 
                 });

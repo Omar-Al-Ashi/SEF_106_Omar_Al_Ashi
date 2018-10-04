@@ -332,7 +332,7 @@ export default class Edit extends Component {
         axios.post('/api/graduate/profileImage', picForm)
             .then(res => {
                 console.log("image response is "+ res);
-                 <Redirect to='/viewAll'/>
+
             });
     }
 

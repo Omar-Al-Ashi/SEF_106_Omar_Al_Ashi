@@ -35,21 +35,20 @@ export default class ViewAll extends Component {
             <div className='background profileCardContainer'>
                 {this.state.graduates.map(graduate =>
 
-                        <ProfileCard
-                            key={graduate.user_id}
-                            id={graduate.user_id}
-                            first_name={graduate.first_name}
-                            last_name={graduate.last_name}
-                            title={graduate.job_title}
-                            university={graduate.institute_university_name}
-                            github={graduate.github}
-                            linkedin={graduate.linkedin}
-                            email={graduate.email}
-                            user_image={graduate.user_image}
-                        />
-
+                    <ProfileCard
+                        key={graduate.user_id}
+                        id={graduate.user_id}
+                        first_name={graduate.first_name}
+                        last_name={graduate.last_name}
+                        title={graduate.job_title}
+                        university={graduate.institute_university_name}
+                        github={graduate.github}
+                        linkedin={graduate.linkedin}
+                        email={graduate.email}
+                        user_image={graduate.user_image}
+                    />
                 )}
-                
+
             </div>
         );
     }

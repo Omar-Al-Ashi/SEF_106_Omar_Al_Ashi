@@ -122,7 +122,7 @@ export default class GraduateInfo extends Component {
     render(props) {
 
         return (
-            <div className='background'>
+            <div className='background container resumeContainer'>
                 <div className="mainDetails">
                     <div id="headshot" className="quickFade">
                         {console.log('the file state is: ' + this.state.selectedFile)}
@@ -176,7 +176,7 @@ export default class GraduateInfo extends Component {
 
                         <div className="sectionContent">
                             <article>
-                                <h2>{this.state.title}</h2>
+                                <h2 className='header'>{this.state.title}</h2>
                                 <p className="subDetails">{this.state.experience_starting_date} - {this.state.experience_ending_date}</p>
                                 <p>{this.state.company_name} - {this.state.job_location}</p>
                                 <p>{this.state.description}</p>
@@ -192,7 +192,7 @@ export default class GraduateInfo extends Component {
 
                             <div className="sectionContent">
                                 <article>
-                                    <h2>{this.state.institute}</h2>
+                                    <h2 className='header'>{this.state.institute}</h2>
                                     <p className="subDetails">{this.state.certificate_name}</p>
                                     <p className="subDetails">{this.state.education_starting_date} - {this.state.education_ending_date}</p>
                                     <p/>
