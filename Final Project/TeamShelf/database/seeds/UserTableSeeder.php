@@ -9,11 +9,7 @@ class UserTableSeeder extends Seeder
 {
     public function run()
     {
-//        $user = new User;
-//        $user->name = "name";
-//        $user->email= 'admin@admin.com';
-//        $user->password= bcrypt("password");
-//        $user->save();
+
         DB::table('users')->insert([
             'id' => "1",
             'name' => "admin",

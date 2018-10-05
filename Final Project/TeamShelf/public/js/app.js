@@ -18699,6 +18699,39 @@ module.exports = ReactElementValidator;
 
 /***/ }),
 /* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./1.png": 148,
+	"./10.png": 149,
+	"./2.jpg": 150,
+	"./2.png": 151,
+	"./3.png": 152,
+	"./7.png": 153,
+	"./8.jpg": 154,
+	"./8.png": 155,
+	"./9.png": 156,
+	"./TeamShelf.png": 157,
+	"./people-shaking-hands.jpg": 50
+};
+function webpackContext(req) {
+	return __webpack_require__(webpackContextResolve(req));
+};
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) // check for number or string
+		throw new Error("Cannot find module '" + req + "'.");
+	return id;
+};
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 58;
+
+/***/ }),
+/* 59 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18822,7 +18855,7 @@ var GraduateInfo = function (_Component) {
                         console.log('the file state is: ' + this.state.selectedFile),
                         this.state.selectedFile.trim() === "" ? 'nothing' : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', {
                             // src={require('../../../storage/app/public/images/'+this.props.user_image)}
-                            src: __webpack_require__(160)("./" + this.state.selectedFile),
+                            src: __webpack_require__(58)("./" + this.state.selectedFile),
                             alt: this.state.first_name + this.state.last_name })
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -19058,17 +19091,11 @@ var GraduateInfo = function (_Component) {
 /* harmony default export */ __webpack_exports__["a"] = (GraduateInfo);
 
 /***/ }),
-/* 59 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/TeamShelf.png?548d1020459dda162c362ffaacf45b2a";
-
-/***/ }),
 /* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(61);
-module.exports = __webpack_require__(172);
+module.exports = __webpack_require__(161);
 
 
 /***/ }),
@@ -41141,8 +41168,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Components_Header__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Components_Footer__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ErrorBoundary_ErrorBoundary__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Components_Footer__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ErrorBoundary_ErrorBoundary__ = __webpack_require__(160);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -64047,7 +64074,7 @@ var Header = function (_Component) {
                             { href: '/' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', {
                                 // TODO need to find a way not to input relative path*/}
-                                src: __webpack_require__(59),
+                                src: __webpack_require__(158),
                                 style: { height: 70, width: 100 } })
                         ),
                         !this.state.isWideEnough && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_mdbreact__["NavbarToggler"], { onClick: this.onClick }),
@@ -64311,7 +64338,7 @@ module.exports = "/fonts/vendor/font-awesome/fontawesome-webfont.svg?912ec66d757
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Pages_Login__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Pages_Profile_Edit__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Pages_Profile_ViewAll__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Pages_Profile_GraduateInfo__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Pages_Profile_GraduateInfo__ = __webpack_require__(59);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65311,7 +65338,7 @@ var Edit = function (_Component) {
                                         placeholder: 'Education Description',
                                         className: 'form-control',
                                         id: 'education_description',
-                                        value: this.state.education_description,
+                                        value: this.state.description,
                                         onChange: this.handleEducationDescriptionChange,
                                         required: true })
                                 )
@@ -67916,7 +67943,7 @@ module.exports = onlyChild;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_router_dom__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__GraduateInfo__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__GraduateInfo__ = __webpack_require__(59);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -68049,7 +68076,7 @@ var ProfileCard = function (_Component) {
                                     className: 'noDecoration' },
                                 this.props.user_image.trim() === "" ? 'nothing' : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', {
                                     // TODO need to find a way not to input relative path
-                                    src: __webpack_require__(148)("./" + this.props.user_image)
+                                    src: __webpack_require__(58)("./" + this.props.user_image)
                                     // src={(this.props.user_image)}
                                     , className: 'profileImage',
                                     alt: this.props.first_name + " " + this.props.last_name
@@ -68132,192 +68159,72 @@ var ProfileCard = function (_Component) {
 
 /***/ }),
 /* 148 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-var map = {
-	"./1   .png": 149,
-	"./1.png": 150,
-	"./10.png": 151,
-	"./2.jpg": 152,
-	"./2.png": 153,
-	"./3.png": 154,
-	"./7.png": 155,
-	"./8.jpg": 156,
-	"./8.png": 157,
-	"./9.png": 158,
-	"./TeamShelf.png": 159,
-	"./people-shaking-hands.jpg": 50
-};
-function webpackContext(req) {
-	return __webpack_require__(webpackContextResolve(req));
-};
-function webpackContextResolve(req) {
-	var id = map[req];
-	if(!(id + 1)) // check for number or string
-		throw new Error("Cannot find module '" + req + "'.");
-	return id;
-};
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 148;
+module.exports = "/images/1.png?6f99ea5782a2fbb58946a65f4552e697";
 
 /***/ }),
 /* 149 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/1   .png?e5613381a646d12e4fae817203816e61";
+module.exports = "/images/10.png?a08f59f44e32ab5f5fe579b7b4088b97";
 
 /***/ }),
 /* 150 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/1.png?e5613381a646d12e4fae817203816e61";
+module.exports = "/images/2.jpg?6a24d6f7241cf19ccd45300504ce5e0f";
 
 /***/ }),
 /* 151 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/10.png?a08f59f44e32ab5f5fe579b7b4088b97";
+module.exports = "/images/2.png?a08f59f44e32ab5f5fe579b7b4088b97";
 
 /***/ }),
 /* 152 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/2.jpg?6a24d6f7241cf19ccd45300504ce5e0f";
+module.exports = "/images/3.png?d995d728def36a40a261e36bab9f9bfe";
 
 /***/ }),
 /* 153 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/2.png?a08f59f44e32ab5f5fe579b7b4088b97";
+module.exports = "/images/7.png?93f7681c698964ae6cfbfaed802a9b5c";
 
 /***/ }),
 /* 154 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/3.png?d995d728def36a40a261e36bab9f9bfe";
+module.exports = "/images/8.jpg?8e2cb36d1d1695bbea91f88e83d15ffc";
 
 /***/ }),
 /* 155 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/7.png?93f7681c698964ae6cfbfaed802a9b5c";
+module.exports = "/images/8.png?a08f59f44e32ab5f5fe579b7b4088b97";
 
 /***/ }),
 /* 156 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/8.jpg?8e2cb36d1d1695bbea91f88e83d15ffc";
+module.exports = "/images/9.png?571851b3e28fceb556f6e7ffb9778066";
 
 /***/ }),
 /* 157 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/8.png?a08f59f44e32ab5f5fe579b7b4088b97";
+module.exports = "/images/TeamShelf.png?548d1020459dda162c362ffaacf45b2a";
 
 /***/ }),
 /* 158 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/9.png?571851b3e28fceb556f6e7ffb9778066";
-
-/***/ }),
-/* 159 */
-/***/ (function(module, exports) {
-
 module.exports = "/images/TeamShelf.png?548d1020459dda162c362ffaacf45b2a";
 
 /***/ }),
-/* 160 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./1   .png": 161,
-	"./1.png": 162,
-	"./10.png": 163,
-	"./2.jpg": 164,
-	"./3.png": 165,
-	"./7.png": 166,
-	"./8.jpg": 167,
-	"./8.png": 168,
-	"./9.png": 169,
-	"./TeamShelf.png": 59
-};
-function webpackContext(req) {
-	return __webpack_require__(webpackContextResolve(req));
-};
-function webpackContextResolve(req) {
-	var id = map[req];
-	if(!(id + 1)) // check for number or string
-		throw new Error("Cannot find module '" + req + "'.");
-	return id;
-};
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 160;
-
-/***/ }),
-/* 161 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/1   .png?e5613381a646d12e4fae817203816e61";
-
-/***/ }),
-/* 162 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/1.png?e5613381a646d12e4fae817203816e61";
-
-/***/ }),
-/* 163 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/10.png?a08f59f44e32ab5f5fe579b7b4088b97";
-
-/***/ }),
-/* 164 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/2.jpg?6a24d6f7241cf19ccd45300504ce5e0f";
-
-/***/ }),
-/* 165 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/3.png?d995d728def36a40a261e36bab9f9bfe";
-
-/***/ }),
-/* 166 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/7.png?93f7681c698964ae6cfbfaed802a9b5c";
-
-/***/ }),
-/* 167 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/8.jpg?8e2cb36d1d1695bbea91f88e83d15ffc";
-
-/***/ }),
-/* 168 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/8.png?a08f59f44e32ab5f5fe579b7b4088b97";
-
-/***/ }),
-/* 169 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/9.png?571851b3e28fceb556f6e7ffb9778066";
-
-/***/ }),
-/* 170 */
+/* 159 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68371,7 +68278,7 @@ var Footer = function (_Component) {
 /* harmony default export */ __webpack_exports__["a"] = (Footer);
 
 /***/ }),
-/* 171 */
+/* 160 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68428,7 +68335,7 @@ var ErrorBoundary = function (_React$Component) {
 /* harmony default export */ __webpack_exports__["a"] = (ErrorBoundary);
 
 /***/ }),
-/* 172 */
+/* 161 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

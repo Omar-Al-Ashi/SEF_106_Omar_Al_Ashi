@@ -692,7 +692,7 @@ export default class Edit extends Component {
                                            placeholder='Education Description'
                                            className='form-control'
                                            id='education_description'
-                                           value={this.state.education_description}
+                                           value={this.state.description}
                                            onChange={this.handleEducationDescriptionChange}
                                            required/>
                                 </div>
