@@ -93,7 +93,7 @@ export default class GraduateInfo extends Component {
                         ) : (
                             <img
                                 // src={require('../../../storage/app/public/images/'+this.props.user_image)}
-                                src={require('../../../../public/images/'+ this.state.selectedFile)}
+                                src={require('../../../public/images/'+ this.state.selectedFile)}
                                 alt={this.state.first_name + this.state.last_name}/>
                         )}
                     </div>
