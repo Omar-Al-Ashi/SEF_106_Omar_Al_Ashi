@@ -18696,14 +18696,15 @@ module.exports = ReactElementValidator;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./1.png": 149,
-	"./10.png": 150,
-	"./2.jpg": 151,
-	"./3.png": 152,
-	"./7.png": 153,
-	"./8.jpg": 154,
-	"./8.png": 155,
-	"./9.png": 156,
+	"./1   .png": 149,
+	"./1.png": 150,
+	"./10.png": 151,
+	"./2.jpg": 152,
+	"./3.png": 153,
+	"./7.png": 154,
+	"./8.jpg": 155,
+	"./8.png": 156,
+	"./9.png": 157,
 	"./TeamShelf.png": 58
 };
 function webpackContext(req) {
@@ -19093,7 +19094,7 @@ var GraduateInfo = function (_Component) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(61);
-module.exports = __webpack_require__(159);
+module.exports = __webpack_require__(160);
 
 
 /***/ }),
@@ -41166,8 +41167,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Components_Header__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Components_Footer__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ErrorBoundary_ErrorBoundary__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Components_Footer__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ErrorBoundary_ErrorBoundary__ = __webpack_require__(159);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -68078,7 +68079,7 @@ var ProfileCard = function (_Component) {
                                 __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
                                 { to: "/graduate/" + this.props.id,
                                     className: 'noDecoration' },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', {
+                                this.props.user_image.trim() === "" ? 'nothing' : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', {
                                     // TODO need to find a way not to input relative path
                                     src: __webpack_require__(57)("./" + this.props.user_image)
                                     // src={(this.props.user_image)}
@@ -68122,7 +68123,8 @@ var ProfileCard = function (_Component) {
                                         {
                                             href: 'http://' + this.props.linkedin },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', {
-                                            className: 'fa fa-linkedin icon', style: { fontSize: "20px" } })
+                                            className: 'fa fa-linkedin icon',
+                                            style: { fontSize: "20px" } })
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -68133,7 +68135,8 @@ var ProfileCard = function (_Component) {
                                         {
                                             href: 'http://' + this.props.github },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', {
-                                            className: 'fa fa-github', style: { fontSize: "20px" } })
+                                            className: 'fa fa-github',
+                                            style: { fontSize: "20px" } })
                                     )
                                 )
                             ),
@@ -68163,52 +68166,58 @@ var ProfileCard = function (_Component) {
 /* 149 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/1.png?8dd909a6b34566b8188039cf01e065ec";
+module.exports = "/images/1   .png?e5613381a646d12e4fae817203816e61";
 
 /***/ }),
 /* 150 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/10.png?a08f59f44e32ab5f5fe579b7b4088b97";
+module.exports = "/images/1.png?e5613381a646d12e4fae817203816e61";
 
 /***/ }),
 /* 151 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/2.jpg?6a24d6f7241cf19ccd45300504ce5e0f";
+module.exports = "/images/10.png?a08f59f44e32ab5f5fe579b7b4088b97";
 
 /***/ }),
 /* 152 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/3.png?d995d728def36a40a261e36bab9f9bfe";
+module.exports = "/images/2.jpg?6a24d6f7241cf19ccd45300504ce5e0f";
 
 /***/ }),
 /* 153 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/7.png?93f7681c698964ae6cfbfaed802a9b5c";
+module.exports = "/images/3.png?d995d728def36a40a261e36bab9f9bfe";
 
 /***/ }),
 /* 154 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/8.jpg?8e2cb36d1d1695bbea91f88e83d15ffc";
+module.exports = "/images/7.png?93f7681c698964ae6cfbfaed802a9b5c";
 
 /***/ }),
 /* 155 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/8.png?a08f59f44e32ab5f5fe579b7b4088b97";
+module.exports = "/images/8.jpg?8e2cb36d1d1695bbea91f88e83d15ffc";
 
 /***/ }),
 /* 156 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/9.png?571851b3e28fceb556f6e7ffb9778066";
+module.exports = "/images/8.png?a08f59f44e32ab5f5fe579b7b4088b97";
 
 /***/ }),
 /* 157 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/9.png?571851b3e28fceb556f6e7ffb9778066";
+
+/***/ }),
+/* 158 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68262,7 +68271,7 @@ var Footer = function (_Component) {
 /* harmony default export */ __webpack_exports__["a"] = (Footer);
 
 /***/ }),
-/* 158 */
+/* 159 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68319,7 +68328,7 @@ var ErrorBoundary = function (_React$Component) {
 /* harmony default export */ __webpack_exports__["a"] = (ErrorBoundary);
 
 /***/ }),
-/* 159 */
+/* 160 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
