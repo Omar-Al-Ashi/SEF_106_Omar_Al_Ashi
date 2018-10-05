@@ -37,7 +37,7 @@ export default class ProfileCard extends Component {
                                 ) : (
                                     <img
                                         // TODO need to find a way not to input relative path
-                                        src={require('/images/' + this.props.user_image)}
+                                        src={require('../../../public/images/' + this.props.user_image)}
                                         // src={(this.props.user_image)}
                                         className='profileImage'
                                         alt={this.props.first_name + " " + this.props.last_name}
