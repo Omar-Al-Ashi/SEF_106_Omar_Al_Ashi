@@ -4,6 +4,7 @@ export default class Home extends Component {
     render() {
         return (
             <div className='fullPage marginTop background container'>
+
                 <h1 className='formHeaderTitle'>
                     Welcome to TeamShelf
                 </h1>

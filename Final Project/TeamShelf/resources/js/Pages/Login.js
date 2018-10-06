@@ -45,7 +45,6 @@ export default class Login extends Component {
                         // Setting the token to the session key in sessionStorage
                         sessionStorage.setItem('session', responseJson.data.success.token);
                         this.setState({redirectToReferrer: true});
-                        return <Redirect to="/" />
                     }
 
                 });
@@ -66,9 +65,12 @@ export default class Login extends Component {
 
 
     render() {
-        // if (this.state.redirectToReferrer) {
-        //     return (<Redirect to={'/'}/>)
-        // }
+
+        if(this.state.redirectToReferrer){
+            return(
+                <Redirect to='/'/>
+            )
+        }
 
         if (sessionStorage.getItem('session')) {
             return (
@@ -82,6 +84,7 @@ export default class Login extends Component {
                 </div>
             )
         }
+
         return (
             <div className='background fullHeight loginCard'
                  style={{height: "100vh"}}>
