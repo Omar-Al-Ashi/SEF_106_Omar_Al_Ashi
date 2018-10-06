@@ -84,7 +84,7 @@ export default class Header extends Component {
                             <NavbarBrand href="/">
                                 <img
                                     // TODO need to find a way not to input relative path*/}
-                                    src={require('../../../storage/app/public/images/TeamShelf.png')}
+                                    src={require('../../../public/images/TeamShelf.png')}
                                     style={{height: 70, width: 100}}/>
 
                             </NavbarBrand>
