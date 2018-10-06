@@ -16,13 +16,13 @@ class CreateExperienceDetailsTable extends Migration
         Schema::create('experience_details', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->binary('is_current_job');
-            $table->string('starting_date');
-            $table->string('ending_date');
+            $table->binary('is_current_job')->nullable();
+            $table->string('starting_date')->nullable();
+            $table->string('ending_date')->nullable();
             $table->string('job_title');
             $table->string('company_name');
             $table->string('job_location');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('user_id')->on('graduate_profiles');
         });
