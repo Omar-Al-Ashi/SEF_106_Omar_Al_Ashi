@@ -36,6 +36,7 @@ Route::resource('skills', 'API\SkillSetController');
 Route::resource('social_medias', 'API\SocialMediaController');
 //Route::get('allGraduatesWithInfo', 'API\GraduateProfileController@returnAllGraduatesWithAllInfo');
 Route::get('graduate/{id}', 'API\GraduateProfileController@returnSpecificGraduateInfo');
+Route::get('search', 'API\GraduateProfileController@search');
 Route::post('graduate/store', 'API\GraduateInfoController@store');
 Route::post('graduate/edit', 'API\GraduateInfoController@edit');
 Route::post('graduate/profileImage', 'API\GraduateInfoController@StoreProfileImage');

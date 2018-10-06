@@ -66,6 +66,10 @@
     font-family: Ubuntu, serif;
 }
 
+.searchBox {
+    padding-top: 9px;
+}
+
 .middle {
     width: 33.333%;
     height: 100vh;
@@ -350,7 +354,7 @@ section:last-child {
     color: #444;
 }
 
-.marginRight{
+.marginRight {
     margin-right: 10px;
 }
 
@@ -358,7 +362,7 @@ section:last-child {
     margin-bottom: 3px;
 }
 
-.hr{
+.hr {
     background: #4C85F4;
 }
 
