@@ -326,11 +326,11 @@ export default class Edit extends Component {
             .then(res =>
                 res.data.response_code === 1 ? console.log('It worked') : console.log('something went'));
 
-        // axios.post('/api/graduate/profileImage', picForm)
-        //     .then(res => {
-        //         console.log("image response is "+ res);
-        //
-        //     });
+        axios.post('/api/graduate/profileImage', picForm)
+            .then(res => {
+                console.log("image response is "+ res);
+
+            });
     }
 
     render() {
