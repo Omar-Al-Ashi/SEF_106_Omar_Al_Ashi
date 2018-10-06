@@ -7,8 +7,6 @@ import {
 
 require('../../Styles/Styles.css');
 import 'font-awesome/css/font-awesome.min.css';
-import {Redirect} from "react-router-dom";
-
 
 export default class Edit extends Component {
 
@@ -51,8 +49,7 @@ export default class Edit extends Component {
                 headers: {'Authorization': "Bearer " + sessionStorage.getItem('session')}
             };
             axios.get('api/graduate/' + this.state.id, config).then(response => {
-                // console.log("The response is: " + JSON.stringify(response));
-                // axios.get('http://localhost/Final%20Project/TeamShelf/public/api/admins').then(response => {
+
                 this.setState({
                     dob: response.data[0].DOB,
                     certificate_name: response.data[0].certificate_degree_name,
@@ -329,11 +326,11 @@ export default class Edit extends Component {
             .then(res =>
                 res.data.response_code === 1 ? console.log('It worked') : console.log('something went'));
 
-        axios.post('/api/graduate/profileImage', picForm)
-            .then(res => {
-                console.log("image response is "+ res);
-
-            });
+        // axios.post('/api/graduate/profileImage', picForm)
+        //     .then(res => {
+        //         console.log("image response is "+ res);
+        //
+        //     });
     }
 
     render() {
@@ -357,7 +354,7 @@ export default class Edit extends Component {
                                                id='date_of_birth'
                                                value={this.state.dob}
                                                onChange={this.handleDOBChange}
-                                               required/>
+                                               />
                                     </div>
 
                                     {/*Gender*/}
@@ -401,9 +398,6 @@ export default class Edit extends Component {
                                     <input type="file"
                                            onChange={this.onProfilePicChange}
                                            required/>
-                                    {/*<button*/}
-                                    {/*onClick={this.fileUploadHandler}>Upload!*/}
-                                    {/*</button>*/}
                                 </div>
 
                                 {/*First Name*/}
@@ -481,7 +475,7 @@ export default class Edit extends Component {
                                            id='experience_start_date'
                                            value={this.state.experience_start_date}
                                            onChange={this.handleExperienceStartDateChange}
-                                           required/>
+                                           />
                                 </div>
 
                                 {/*Experience End Date*/}
@@ -494,7 +488,7 @@ export default class Edit extends Component {
                                            id='experience_end_date'
                                            value={this.state.experience_end_date}
                                            onChange={this.handleExperienceEndDateChange}
-                                           required/>
+                                           />
                                 </div>
 
                                 {/*Title*/}
@@ -545,7 +539,7 @@ export default class Edit extends Component {
                                            id='description'
                                            value={this.state.description}
                                            onChange={this.handleDescriptionChange}
-                                           required/>
+                                           />
                                 </div>
 
                                 {/*Skills*/}
@@ -643,7 +637,7 @@ export default class Edit extends Component {
                                            id='education_start_date'
                                            value={this.state.education_start_date}
                                            onChange={this.handleEducationStartDateChange}
-                                           required/>
+                                           />
                                 </div>
 
                                 {/*Education End Date*/}
@@ -656,7 +650,7 @@ export default class Edit extends Component {
                                            id='education_end_date'
                                            value={this.state.education_end_date}
                                            onChange={this.handleEducationEndDateChange}
-                                           required/>
+                                           />
                                 </div>
 
                                 {/*GPA*/}
@@ -694,7 +688,7 @@ export default class Edit extends Component {
                                            id='education_description'
                                            value={this.state.description}
                                            onChange={this.handleEducationDescriptionChange}
-                                           required/>
+                                           />
                                 </div>
                             </div>
                         </div>
