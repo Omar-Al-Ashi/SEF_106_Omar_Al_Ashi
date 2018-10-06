@@ -259,7 +259,7 @@ class GraduateInfoController extends Controller
         $extension = explode(".", $request->extension);
 
         $file_name = $request->id . ".$extension[1]";
-        $image->move('public/images', $file_name);
+        $image->move('images', $file_name);
 
         DB::table('users')
             ->where('id', $request->id)
