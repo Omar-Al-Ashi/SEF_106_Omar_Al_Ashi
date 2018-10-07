@@ -48,12 +48,7 @@ export default class Login extends Component {
                     }
 
                 });
-
         }
-
-        // Handle form submit
-        // axios.post('/api/login', formData)
-        //     .then(res => console.log(res));
     }
 
     handleChange(evt) {
@@ -66,8 +61,8 @@ export default class Login extends Component {
 
     render() {
 
-        if(this.state.redirectToReferrer){
-            return(
+        if (this.state.redirectToReferrer) {
+            return (
                 <Redirect to='/'/>
             )
         }

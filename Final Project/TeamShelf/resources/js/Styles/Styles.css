@@ -66,8 +66,24 @@
     font-family: Ubuntu, serif;
 }
 
+.btnsContainer {
+    margin: auto;
+}
+
+.submitButton {
+    background: #5096FF;
+}
+
 .searchBox {
     padding-top: 9px;
+}
+
+.nextButton {
+    background: #E0E0E0;
+    width: 200px;
+    padding: 16px;
+    text-align: center;
+    margin: 32px auto 0;
 }
 
 .middle {

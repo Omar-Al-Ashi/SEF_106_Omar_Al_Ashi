@@ -18471,10 +18471,6 @@ var Login = function (_Component) {
                     }
                 });
             }
-
-            // Handle form submit
-            // axios.post('/api/login', formData)
-            //     .then(res => console.log(res));
         }
     }, {
         key: "handleChange",
@@ -66443,7 +66439,7 @@ exports = module.exports = __webpack_require__(56)(false);
 
 
 // module
-exports.push([module.i, ".green {\n    background-color: #18ED18;\n}\n\n.white {\n    background-color: white;\n}\n\n.black {\n    background-color: black;\n}\n\n.whiteText {\n    color: white;\n}\n\n.alignCenter {\n    text-align: center;\n    vertical-align: center;\n    margin-bottom: 100px;\n}\n\n.center {\n    display: flex;\n    flex-flow: column wrap;\n    align-items: center;\n}\n\n.marginBottom {\n    margin-bottom: 100px;\n}\n\n.fullPage {\n    height: 78vh;\n}\n\n.fullHeight {\n    height: 100vh;\n}\n\n.marginTop {\n    margin-top: 30px;\n}\n\n.left {\n    width: 33.333%;\n    height: 100vh;\n    float: left;\n    /*background-color: rosybrown;*/\n    border-collapse: collapse;\n}\n\n.formSection {\n    /*background-color: #1f6fb2;*/\n    height: 100%\n}\n\n.formBox {\n    margin: auto;\n    box-shadow: 0 4px 4px 0 rgba(74, 83, 216, 0.2);\n    padding-bottom: 20px;\n}\n\n.formHeaderTitle {\n    padding-top: 50px;\n    font-family: Ubuntu, serif;\n}\n\n.searchBox {\n    padding-top: 9px;\n}\n\n.middle {\n    width: 33.333%;\n    height: 100vh;\n    float: left;\n    /*background-color: royalblue;*/\n    border-collapse: collapse;\n}\n\n.right {\n    width: 33.333%;\n    height: 100vh;\n    float: right;\n    /*background-color: yellow;*/\n    border-collapse: collapse;\n}\n\n.background {\n    /*background-color: #4C85F4;*/\n    background-color: white;\n}\n\n.loginCard {\n\n}\n\n.card {\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n    max-width: 300px;\n    margin: auto;\n    /*float: left;*/\n    height: 550px;\n    text-align: center;\n    font-family: arial, serif;\n    /*margin-bottom: 100px;*/\n}\n\n.resumeContainer {\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n    margin-top: 30px;\n}\n\n.header {\n    margin-bottom: 20px;\n}\n\n.title {\n    color: grey;\n    font-size: 18px;\n}\n\n.contactButton {\n    border: none;\n    outline: 0;\n    display: inline-block;\n    padding: 8px;\n    margin-bottom: 0px;\n    color: white;\n    background-color: #000;\n    text-align: center;\n    cursor: pointer;\n    width: 100%;\n    font-size: 18px;\n    position: absolute;\n    right: 0;\n    bottom: 0;\n}\n\n.linkk {\n    text-decoration: none;\n    font-size: 22px;\n    color: black;\n}\n\n.contactButton:hover, .linkk:hover {\n    opacity: 0.7;\n}\n\n.socialMedia {\n    margin: 24px 0;\n}\n\n.profileImage {\n    height: 226px;\n    width: 100%;\n}\n\n.footer {\n    position: fixed;\n    bottom: 0;\n    width: 100%;\n    height: 50px;\n}\n\n.headerContainer {\n    margin-bottom: -150px;\n}\n\n.profileCardContainer {\n    margin-left: 100px;\n}\n\n.spaceAround {\n    display: flex;\n    justify-content: space-around;\n}\n\n.socialMediaIcon {\n    font-size: 36px\n}\n\n.noDecoration {\n    text-decoration: none;\n}\n\n.halfLeft {\n    width: 50%;\n    height: 100vh;\n    float: left;\n    background-color: rosybrown;\n    border-collapse: collapse;\n    border-right: 6px solid blue;\n}\n\n.halfRight {\n    width: 50%;\n    height: 100vh;\n    float: right;\n    background-color: green;\n    border-collapse: collapse;\n    border-left: 6px solid blue;\n}\n\n.verticalSeperator {\n    border-left: 6px solid green;\n    height: 500px;\n    width: 1px\n}\n\n.loginInput {\n    width: 300px\n}\n\n.main-container {\n    height: 100vh;\n}\n\n.clear {\n    clear: both;\n}\n\n.mainDetails {\n    padding: 25px 35px;\n    border-bottom: 2px solid #98ee90;\n    background: #009644;\n    height: 120px;\n    margin-bottom: 100px;\n}\n\n.icon {\n    font-size: 24px\n}\n\n#cv {\n    width: 90%;\n    max-width: 800px;\n    background: #f3f3f3;\n    margin: 30px auto;\n}\n\n#name h1 {\n    font-size: 2.5em;\n    font-weight: 700;\n    font-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n    margin-bottom: -6px;\n}\n\n#name h2 {\n    font-size: 2em;\n    margin-left: 2px;\n    font-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n}\n\n#mainArea {\n    padding: 0 40px;\n}\n\n#headshot {\n    width: 12.5%;\n    float: left;\n    margin-right: 30px;\n}\n\n#headshot img {\n    width: 100%;\n    height: auto;\n    -webkit-border-radius: 50px;\n    border-radius: 50px;\n}\n\n#name {\n    float: left;\n}\n\n#contactDetails {\n    float: right;\n}\n\n#contactDetails ul {\n    list-style-type: none;\n    font-size: 0.9em;\n    margin-top: 2px;\n}\n\n#contactDetails ul li {\n    margin-bottom: 3px;\n    color: #444;\n}\n\n#contactDetails ul li a, a[href^=tel] {\n    color: #444;\n    text-decoration: none;\n    -webkit-transition: all .3s ease-in;\n    -moz-transition: all .3s ease-in;\n    -o-transition: all .3s ease-in;\n    -ms-transition: all .3s ease-in;\n    transition: all .3s ease-in;\n}\n\n#contactDetails ul li a:hover {\n    color: #cf8a05;\n}\n\nsection {\n    border-top: 1px solid #dedede;\n    padding: 20px 0 0;\n}\n\nsection:first-child {\n    border-top: 0;\n}\n\nsection:last-child {\n    padding: 20px 0 10px;\n}\n\n.sectionTitle {\n    float: left;\n    width: 25%;\n}\n\n.sectionContent {\n    float: right;\n    width: 72.5%;\n}\n\n.sectionTitle h1 {\n    font-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n    font-style: italic;\n    font-size: 1.5em;\n    color: #1ec31e;\n}\n\n.sectionContent h2 {\n    font-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n    font-size: 1.5em;\n    /*margin-bottom: -2px;*/\n}\n\n.subDetails {\n    font-size: 0.8em;\n    font-style: italic;\n    margin-bottom: 3px;\n}\n\n.keySkills {\n    list-style-type: none;\n    -moz-column-count: 3;\n    -webkit-column-count: 3;\n    column-count: 3;\n    margin-bottom: 20px;\n    font-size: 1em;\n    color: #444;\n}\n\n.marginRight {\n    margin-right: 10px;\n}\n\n.keySkills ul li {\n    margin-bottom: 3px;\n}\n\n.hr {\n    background: #4C85F4;\n}\n\n@media all and (min-width: 602px) and (max-width: 800px) {\n    #headshot {\n        display: none;\n    }\n\n    .keySkills {\n        -moz-column-count: 2;\n        -webkit-column-count: 2;\n        column-count: 2;\n    }\n}\n\n@media all and (max-width: 601px) {\n    #cv {\n        width: 95%;\n        margin: 10px auto;\n        min-width: 280px;\n    }\n\n    #headshot {\n        display: none;\n    }\n\n    #name, #contactDetails {\n        float: none;\n        width: 100%;\n        text-align: center;\n    }\n\n    .sectionTitle, .sectionContent {\n        float: none;\n        width: 100%;\n    }\n\n    .sectionTitle {\n        margin-left: -2px;\n        font-size: 1.25em;\n    }\n\n    .keySkills {\n        -moz-column-count: 2;\n        -webkit-column-count: 2;\n        column-count: 2;\n    }\n}\n\n@media all and (max-width: 480px) {\n    .mainDetails {\n        padding: 15px 15px;\n    }\n\n    section {\n        padding: 15px 0 0;\n    }\n\n    #mainArea {\n        padding: 0 25px;\n    }\n\n    .keySkills {\n        -moz-column-count: 1;\n        -webkit-column-count: 1;\n        column-count: 1;\n    }\n\n    #name h1 {\n        line-height: .8em;\n        margin-bottom: 4px;\n    }\n}\n\n.floatLeft {\n    width: 300px;\n    float: left;\n    padding-left: 10px;\n}", ""]);
+exports.push([module.i, ".green {\n    background-color: #18ED18;\n}\n\n.white {\n    background-color: white;\n}\n\n.black {\n    background-color: black;\n}\n\n.whiteText {\n    color: white;\n}\n\n.alignCenter {\n    text-align: center;\n    vertical-align: center;\n    margin-bottom: 100px;\n}\n\n.center {\n    display: flex;\n    flex-flow: column wrap;\n    align-items: center;\n}\n\n.marginBottom {\n    margin-bottom: 100px;\n}\n\n.fullPage {\n    height: 78vh;\n}\n\n.fullHeight {\n    height: 100vh;\n}\n\n.marginTop {\n    margin-top: 30px;\n}\n\n.left {\n    width: 33.333%;\n    height: 100vh;\n    float: left;\n    /*background-color: rosybrown;*/\n    border-collapse: collapse;\n}\n\n.formSection {\n    /*background-color: #1f6fb2;*/\n    height: 100%\n}\n\n.formBox {\n    margin: auto;\n    box-shadow: 0 4px 4px 0 rgba(74, 83, 216, 0.2);\n    padding-bottom: 20px;\n}\n\n.formHeaderTitle {\n    padding-top: 50px;\n    font-family: Ubuntu, serif;\n}\n\n.btnsContainer {\n    margin: auto;\n}\n\n.submitButton {\n    background: #5096FF;\n}\n\n.searchBox {\n    padding-top: 9px;\n}\n\n.nextButton {\n    background: #E0E0E0;\n    width: 200px;\n    padding: 16px;\n    text-align: center;\n    margin: 32px auto 0;\n}\n\n.middle {\n    width: 33.333%;\n    height: 100vh;\n    float: left;\n    /*background-color: royalblue;*/\n    border-collapse: collapse;\n}\n\n.right {\n    width: 33.333%;\n    height: 100vh;\n    float: right;\n    /*background-color: yellow;*/\n    border-collapse: collapse;\n}\n\n.background {\n    /*background-color: #4C85F4;*/\n    background-color: white;\n}\n\n.loginCard {\n\n}\n\n.card {\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n    max-width: 300px;\n    margin: auto;\n    /*float: left;*/\n    height: 550px;\n    text-align: center;\n    font-family: arial, serif;\n    /*margin-bottom: 100px;*/\n}\n\n.resumeContainer {\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n    margin-top: 30px;\n}\n\n.header {\n    margin-bottom: 20px;\n}\n\n.title {\n    color: grey;\n    font-size: 18px;\n}\n\n.contactButton {\n    border: none;\n    outline: 0;\n    display: inline-block;\n    padding: 8px;\n    margin-bottom: 0px;\n    color: white;\n    background-color: #000;\n    text-align: center;\n    cursor: pointer;\n    width: 100%;\n    font-size: 18px;\n    position: absolute;\n    right: 0;\n    bottom: 0;\n}\n\n.linkk {\n    text-decoration: none;\n    font-size: 22px;\n    color: black;\n}\n\n.contactButton:hover, .linkk:hover {\n    opacity: 0.7;\n}\n\n.socialMedia {\n    margin: 24px 0;\n}\n\n.profileImage {\n    height: 226px;\n    width: 100%;\n}\n\n.footer {\n    position: fixed;\n    bottom: 0;\n    width: 100%;\n    height: 50px;\n}\n\n.headerContainer {\n    margin-bottom: -150px;\n}\n\n.profileCardContainer {\n    margin-left: 100px;\n}\n\n.spaceAround {\n    display: flex;\n    justify-content: space-around;\n}\n\n.socialMediaIcon {\n    font-size: 36px\n}\n\n.noDecoration {\n    text-decoration: none;\n}\n\n.halfLeft {\n    width: 50%;\n    height: 100vh;\n    float: left;\n    background-color: rosybrown;\n    border-collapse: collapse;\n    border-right: 6px solid blue;\n}\n\n.halfRight {\n    width: 50%;\n    height: 100vh;\n    float: right;\n    background-color: green;\n    border-collapse: collapse;\n    border-left: 6px solid blue;\n}\n\n.verticalSeperator {\n    border-left: 6px solid green;\n    height: 500px;\n    width: 1px\n}\n\n.loginInput {\n    width: 300px\n}\n\n.main-container {\n    height: 100vh;\n}\n\n.clear {\n    clear: both;\n}\n\n.mainDetails {\n    padding: 25px 35px;\n    border-bottom: 2px solid #98ee90;\n    background: #009644;\n    height: 120px;\n    margin-bottom: 100px;\n}\n\n.icon {\n    font-size: 24px\n}\n\n#cv {\n    width: 90%;\n    max-width: 800px;\n    background: #f3f3f3;\n    margin: 30px auto;\n}\n\n#name h1 {\n    font-size: 2.5em;\n    font-weight: 700;\n    font-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n    margin-bottom: -6px;\n}\n\n#name h2 {\n    font-size: 2em;\n    margin-left: 2px;\n    font-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n}\n\n#mainArea {\n    padding: 0 40px;\n}\n\n#headshot {\n    width: 12.5%;\n    float: left;\n    margin-right: 30px;\n}\n\n#headshot img {\n    width: 100%;\n    height: auto;\n    -webkit-border-radius: 50px;\n    border-radius: 50px;\n}\n\n#name {\n    float: left;\n}\n\n#contactDetails {\n    float: right;\n}\n\n#contactDetails ul {\n    list-style-type: none;\n    font-size: 0.9em;\n    margin-top: 2px;\n}\n\n#contactDetails ul li {\n    margin-bottom: 3px;\n    color: #444;\n}\n\n#contactDetails ul li a, a[href^=tel] {\n    color: #444;\n    text-decoration: none;\n    -webkit-transition: all .3s ease-in;\n    -moz-transition: all .3s ease-in;\n    -o-transition: all .3s ease-in;\n    -ms-transition: all .3s ease-in;\n    transition: all .3s ease-in;\n}\n\n#contactDetails ul li a:hover {\n    color: #cf8a05;\n}\n\nsection {\n    border-top: 1px solid #dedede;\n    padding: 20px 0 0;\n}\n\nsection:first-child {\n    border-top: 0;\n}\n\nsection:last-child {\n    padding: 20px 0 10px;\n}\n\n.sectionTitle {\n    float: left;\n    width: 25%;\n}\n\n.sectionContent {\n    float: right;\n    width: 72.5%;\n}\n\n.sectionTitle h1 {\n    font-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n    font-style: italic;\n    font-size: 1.5em;\n    color: #1ec31e;\n}\n\n.sectionContent h2 {\n    font-family: 'Rokkitt', Helvetica, Arial, sans-serif;\n    font-size: 1.5em;\n    /*margin-bottom: -2px;*/\n}\n\n.subDetails {\n    font-size: 0.8em;\n    font-style: italic;\n    margin-bottom: 3px;\n}\n\n.keySkills {\n    list-style-type: none;\n    -moz-column-count: 3;\n    -webkit-column-count: 3;\n    column-count: 3;\n    margin-bottom: 20px;\n    font-size: 1em;\n    color: #444;\n}\n\n.marginRight {\n    margin-right: 10px;\n}\n\n.keySkills ul li {\n    margin-bottom: 3px;\n}\n\n.hr {\n    background: #4C85F4;\n}\n\n@media all and (min-width: 602px) and (max-width: 800px) {\n    #headshot {\n        display: none;\n    }\n\n    .keySkills {\n        -moz-column-count: 2;\n        -webkit-column-count: 2;\n        column-count: 2;\n    }\n}\n\n@media all and (max-width: 601px) {\n    #cv {\n        width: 95%;\n        margin: 10px auto;\n        min-width: 280px;\n    }\n\n    #headshot {\n        display: none;\n    }\n\n    #name, #contactDetails {\n        float: none;\n        width: 100%;\n        text-align: center;\n    }\n\n    .sectionTitle, .sectionContent {\n        float: none;\n        width: 100%;\n    }\n\n    .sectionTitle {\n        margin-left: -2px;\n        font-size: 1.25em;\n    }\n\n    .keySkills {\n        -moz-column-count: 2;\n        -webkit-column-count: 2;\n        column-count: 2;\n    }\n}\n\n@media all and (max-width: 480px) {\n    .mainDetails {\n        padding: 15px 15px;\n    }\n\n    section {\n        padding: 15px 0 0;\n    }\n\n    #mainArea {\n        padding: 0 25px;\n    }\n\n    .keySkills {\n        -moz-column-count: 1;\n        -webkit-column-count: 1;\n        column-count: 1;\n    }\n\n    #name h1 {\n        line-height: .8em;\n        margin-bottom: 4px;\n    }\n}\n\n.floatLeft {\n    width: 300px;\n    float: left;\n    padding-left: 10px;\n}", ""]);
 
 // exports
 
@@ -66800,8 +66796,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-__webpack_require__(16);
 
+__webpack_require__(16);
 
 var Edit = function (_Component) {
     _inherits(Edit, _Component);
@@ -66812,48 +66808,378 @@ var Edit = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Edit.__proto__ || Object.getPrototypeOf(Edit)).call(this));
 
         _this.state = {
+            id: '',
+            dob: '',
+            certificate_name: '',
+            company_name: '',
+            phone: '',
+            description: '',
+            first_name: '',
+            gender: '',
+            github: '',
+            gpa: '',
+            institute: '',
+            company_location: '',
+            title: '',
+            last_name: '',
+            linkedin: '',
+            major: '',
+            skill_level: '',
+            skill_set_name: '',
+            selectedFile: '',
+
             page: 1,
             steps: [{
                 title: 'Personal Profile',
-                href: 'http://example1.com',
-                phone: "",
-
                 onClick: function onClick(e) {
                     e.preventDefault();
-                    console.log('onClick', 1);
                     _this.setState({
                         page: 1
                     });
                 }
             }, {
                 title: 'Experience',
-                href: 'http://example2.com',
                 onClick: function onClick(e) {
                     e.preventDefault();
-                    console.log('onClick', 2);
                     _this.setState({
                         page: 2
                     });
                 }
             }, {
                 title: 'Education',
-                href: 'http://example4.com',
                 onClick: function onClick(e) {
                     e.preventDefault();
-                    console.log('onClick', 4);
                     _this.setState({
-                        page: 4
+                        page: 3
                     });
                 }
             }],
             currentStep: 0
         };
+
+        var config = {
+            headers: { 'Authorization': "Bearer " + sessionStorage.getItem('session') }
+        };
+
+        __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('api/get-details', "nothing", config).then(function (response) {
+            _this.setState({
+                id: response.data.success.id
+            });
+            console.log('the id is ' + _this.state.id);
+
+            var config = {
+                headers: { 'Authorization': "Bearer " + sessionStorage.getItem('session') }
+            };
+            __WEBPACK_IMPORTED_MODULE_2_axios___default.a.get('api/graduate/' + _this.state.id, config).then(function (response) {
+
+                _this.setState({
+                    dob: response.data[0].DOB,
+                    certificate_name: response.data[0].certificate_degree_name,
+                    company_name: response.data[0].company_name,
+                    phone: response.data[0].contact_number,
+                    description: response.data[0].description,
+                    first_name: response.data[0].first_name,
+                    gender: response.data[0].gender,
+                    github: response.data[0].github,
+                    gpa: response.data[0].grade_gpa,
+                    institute: response.data[0].institute_university_name,
+                    company_location: response.data[0].job_location,
+                    title: response.data[0].job_title,
+                    last_name: response.data[0].last_name,
+                    linkedin: response.data[0].linkedin,
+                    major: response.data[0].major,
+                    skill_level: response.data[0].skill_level,
+                    skill_set_name: response.data[0].skill_set_name,
+                    selectedFile: response.data[0].user_image,
+                    residency_location: response.data[0].residency_location
+                });
+                console.log(response);
+            }).then(function (response) {
+                console.log(response);
+            }).catch(function (errors) {
+                console.log(errors.response);
+            });
+        }).catch(function (errors) {
+            console.log(errors.response);
+        });
+
+        _this.onGenderChange = _this.onGenderChange.bind(_this);
+        _this.onProfilePicChange = _this.onProfilePicChange.bind(_this);
+        _this.fileUploadHandler = _this.fileUploadHandler.bind(_this);
+        _this.handleIsCurrentJobChange = _this.handleIsCurrentJobChange.bind(_this);
+        _this.handleFormSubmit = _this.handleFormSubmit.bind(_this);
+        _this.handleDOBChange = _this.handleDOBChange.bind(_this);
+        _this.handlePhoneChange = _this.handlePhoneChange.bind(_this);
+        _this.handleFirstNameChange = _this.handleFirstNameChange.bind(_this);
+        _this.handleLastNameChange = _this.handleLastNameChange.bind(_this);
+        _this.handleResidencyLocationChange = _this.handleResidencyLocationChange.bind(_this);
+        _this.handleMajorChange = _this.handleMajorChange.bind(_this);
+        _this.handleInstituteChange = _this.handleInstituteChange.bind(_this);
+        _this.handleEducationStartDateChange = _this.handleEducationStartDateChange.bind(_this);
+        _this.handleEducationEndDateChange = _this.handleEducationEndDateChange.bind(_this);
+        _this.handleGPAChange = _this.handleGPAChange.bind(_this);
+        _this.handleCertificateNameChange = _this.handleCertificateNameChange.bind(_this);
+        _this.handleExperienceStartDateChange = _this.handleExperienceStartDateChange.bind(_this);
+        _this.handleExperienceEndDateChange = _this.handleExperienceEndDateChange.bind(_this);
+        _this.handleTitleChange = _this.handleTitleChange.bind(_this);
+        _this.handleCompanyNameChange = _this.handleCompanyNameChange.bind(_this);
+        _this.handleCompanyLocationChange = _this.handleCompanyLocationChange.bind(_this);
+        _this.handleDescriptionChange = _this.handleDescriptionChange.bind(_this);
+        _this.handleSkillsChange = _this.handleSkillsChange.bind(_this);
+        _this.handleLinkedinChange = _this.handleLinkedinChange.bind(_this);
+        _this.handleGithubChange = _this.handleGithubChange.bind(_this);
+        _this.handleEducationDescriptionChange = _this.handleEducationDescriptionChange.bind(_this);
+        _this.handleSkillLevelChange = _this.handleSkillLevelChange.bind(_this);
+
         _this.onClickNext = _this.onClickNext.bind(_this);
-        _this.handlePageChange = _this.handlePageChange.bind(_this);
+        // this.handlePageChange = this.handlePageChange.bind(this);
         return _this;
     }
 
     _createClass(Edit, [{
+        key: 'onGenderChange',
+        value: function onGenderChange(value) {
+            this.setState({
+                gender: value
+            });
+        }
+    }, {
+        key: 'onProfilePicChange',
+        value: function onProfilePicChange(event) {
+            // console.log("The extensions is:" + event.target.files[0].name);
+
+            this.setState({
+                selectedFile: event.target.files[0]
+            });
+
+            console.log("The state is " + this.state.selectedFile);
+            // console.log("The file is "+ event.target.files[0].name);
+        }
+    }, {
+        key: 'fileUploadHandler',
+        value: function fileUploadHandler() {
+            //TODO I think I should set the image state
+            var formData = new FormData();
+            formData.append('image', this.state.selectedFile, this.state.selectedFile.name);
+            // TODO change the post request URL
+            __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('my-domain.com/file-upload', formData, {
+                onUploadProgress: function onUploadProgress(progressEvent) {
+                    //This is showing the percentage uploaded
+                    console.log('Upload progress' + Math.round(progressEvent.loaded / progressEvent.total * 100 + '%'));
+                }
+            }).then(function (res) {
+                console.log(res.data);
+            });
+        }
+    }, {
+        key: 'handleIsCurrentJobChange',
+        value: function handleIsCurrentJobChange(value) {
+            this.setState({
+                isCurrentJob: value
+            });
+        }
+    }, {
+        key: 'handleDOBChange',
+        value: function handleDOBChange(value) {
+            this.setState({
+                dob: value.target.value
+            });
+        }
+    }, {
+        key: 'handlePhoneChange',
+        value: function handlePhoneChange(value) {
+            this.setState({
+                phone: value.target.value
+            });
+        }
+    }, {
+        key: 'handleFirstNameChange',
+        value: function handleFirstNameChange(value) {
+            this.setState({
+                first_name: value.target.value
+            });
+        }
+    }, {
+        key: 'handleLastNameChange',
+        value: function handleLastNameChange(value) {
+            this.setState({
+                last_name: value.target.value
+            });
+        }
+    }, {
+        key: 'handleResidencyLocationChange',
+        value: function handleResidencyLocationChange(value) {
+            this.setState({
+                residency_location: value.target.value
+            });
+        }
+    }, {
+        key: 'handleMajorChange',
+        value: function handleMajorChange(value) {
+            this.setState({
+                major: value.target.value
+            });
+        }
+    }, {
+        key: 'handleInstituteChange',
+        value: function handleInstituteChange(value) {
+            this.setState({
+                institute: value.target.value
+            });
+        }
+    }, {
+        key: 'handleEducationStartDateChange',
+        value: function handleEducationStartDateChange(value) {
+            this.setState({
+                education_start_date: value.target.value
+            });
+        }
+    }, {
+        key: 'handleEducationEndDateChange',
+        value: function handleEducationEndDateChange(value) {
+            this.setState({
+                education_end_date: value.target.value
+            });
+        }
+    }, {
+        key: 'handleGPAChange',
+        value: function handleGPAChange(value) {
+            this.setState({
+                gpa: value.target.value
+            });
+        }
+    }, {
+        key: 'handleCertificateNameChange',
+        value: function handleCertificateNameChange(value) {
+            this.setState({
+                certificate_name: value.target.value
+            });
+        }
+    }, {
+        key: 'handleEducationDescriptionChange',
+        value: function handleEducationDescriptionChange(value) {
+            this.setState({
+                education_description: value.target.value
+            });
+        }
+    }, {
+        key: 'handleExperienceStartDateChange',
+        value: function handleExperienceStartDateChange(value) {
+            this.setState({
+                experience_start_date: value.target.value
+            });
+        }
+    }, {
+        key: 'handleExperienceEndDateChange',
+        value: function handleExperienceEndDateChange(value) {
+            this.setState({
+                experience_end_date: value.target.value
+            });
+        }
+    }, {
+        key: 'handleTitleChange',
+        value: function handleTitleChange(value) {
+            this.setState({
+                title: value.target.value
+            });
+        }
+    }, {
+        key: 'handleCompanyNameChange',
+        value: function handleCompanyNameChange(value) {
+            this.setState({
+                company_name: value.target.value
+            });
+        }
+    }, {
+        key: 'handleCompanyLocationChange',
+        value: function handleCompanyLocationChange(value) {
+            this.setState({
+                company_location: value.target.value
+            });
+        }
+    }, {
+        key: 'handleDescriptionChange',
+        value: function handleDescriptionChange(value) {
+            this.setState({
+                description: value.target.value
+            });
+        }
+    }, {
+        key: 'handleSkillsChange',
+        value: function handleSkillsChange(value) {
+            this.setState({
+                skill_set_name: value.target.value
+            });
+        }
+    }, {
+        key: 'handleSkillLevelChange',
+        value: function handleSkillLevelChange(value) {
+            this.setState({
+                skill_level: value.target.value
+            });
+        }
+    }, {
+        key: 'handleLinkedinChange',
+        value: function handleLinkedinChange(value) {
+            this.setState({
+                linkedin: value.target.value
+            });
+        }
+    }, {
+        key: 'handleGithubChange',
+        value: function handleGithubChange(value) {
+            this.setState({
+                github: value.target.value
+            });
+        }
+    }, {
+        key: 'handleFormSubmit',
+        value: function handleFormSubmit(event) {
+            var formData = {
+                id: this.state.id,
+                dob: this.state.dob,
+                gender: this.state.gender,
+                phone: this.state.phone,
+                first_name: this.state.first_name,
+                last_name: this.state.last_name,
+                residency_location: this.state.residency_location,
+                major: this.state.major,
+                institute: this.state.institute,
+                education_start_date: this.state.education_start_date,
+                education_end_date: this.state.education_end_date,
+                gpa: this.state.gpa,
+                certificate_name: this.state.certificate_name,
+                education_description: this.state.education_description,
+                isCurrentJob: this.state.isCurrentJob,
+                experience_start_date: this.state.experience_start_date,
+                experience_end_date: this.state.experience_end_date,
+                title: this.state.title,
+                company_name: this.state.company_name,
+                company_location: this.state.company_location,
+                description: this.state.description,
+                skills: this.state.skill_set_name,
+                skill_level: this.state.skill_level,
+                linkedin: this.state.linkedin,
+                github: this.state.github,
+                headers: { 'Authorization': "Bearer " + sessionStorage.getItem('session') }
+            };
+
+            var picForm = new FormData();
+            picForm.append('profile_picture', this.state.selectedFile);
+            picForm.append('id', this.state.id);
+            picForm.append('Accept', 'image/png');
+            picForm.append('extension', this.state.selectedFile.name);
+
+            event.preventDefault();
+            __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('/api/graduate/edit', formData).then(function (res) {
+                return res.data.response_code === 1 ? console.log('It worked') : console.log('something went');
+            });
+
+            __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('/api/graduate/profileImage', picForm).then(function (res) {
+                console.log("image response is " + res);
+            });
+        }
+    }, {
         key: 'onClickNext',
         value: function onClickNext() {
             var _state = this.state,
@@ -66872,61 +67198,538 @@ var Edit = function (_Component) {
             console.log("The dob state is " + value.target.name);
         }
     }, {
-        key: 'handlePageChange',
-        value: function handlePageChange() {
-            if (this.state.page === 1) {
-                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    null,
-                    'Page 1'
-                );
-            } else {
-                if (this.state.page === 2) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        null,
-                        'page 2'
-                    );
-                }
-            }
-        }
-    }, {
         key: 'render',
         value: function render() {
-            var _state2 = this.state,
-                steps = _state2.steps,
-                currentStep = _state2.currentStep;
-
-            var buttonStyle = {
-                background: '#E0E0E0',
-                width: 200,
-                padding: 16,
-                textAlign: 'center',
-                margin: '0 auto',
-                marginTop: 32
-            };
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_react_stepper_horizontal___default.a, { steps: steps, activeStep: currentStep }),
-                this.state.page === 1 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    null,
-                    'Page 1'
-                ) : this.state.page === 2 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    null,
-                    'Page 2'
-                ) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    null,
-                    'Page 3'
-                ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
-                    { style: buttonStyle, onClick: this.onClickNext },
-                    'Next'
+                    { className: 'background alignCenter' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'form',
+                        { onSubmit: this.handleFormSubmit },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_react_stepper_horizontal___default.a, { steps: this.state.steps,
+                            activeStep: this.state.currentStep }),
+                        this.state.page === 1 ?
+                        // Basic Info
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: ' col-sm-4 formBox' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'h2',
+                                { className: 'formHeaderTitle' },
+                                'Basic Info'
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', { className: 'hr' }),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: 'centered' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'formSection' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'form-group' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'div',
+                                            { className: 'date_of_birth' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'label',
+                                                { htmlFor: 'date_of_birth' },
+                                                'Date of Birth'
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'date',
+                                                placeholder: 'Date of Birth',
+                                                className: 'form-control',
+                                                id: 'date_of_birth',
+                                                value: this.state.dob,
+                                                onChange: this.handleDOBChange
+                                            })
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'div',
+                                            { className: 'gender' },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'label',
+                                                null,
+                                                'Gender'
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                __WEBPACK_IMPORTED_MODULE_1_react_radio_buttons__["RadioGroup"],
+                                                {
+                                                    onChange: this.onGenderChange,
+                                                    horizontal: true,
+                                                    selectedvalue: "Male" },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    __WEBPACK_IMPORTED_MODULE_1_react_radio_buttons__["RadioButton"],
+                                                    { value: 'Male' },
+                                                    'Male'
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    __WEBPACK_IMPORTED_MODULE_1_react_radio_buttons__["RadioButton"],
+                                                    { value: 'Female' },
+                                                    'Female'
+                                                ),
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    __WEBPACK_IMPORTED_MODULE_1_react_radio_buttons__["RadioButton"],
+                                                    { value: 'Other' },
+                                                    'Other'
+                                                )
+                                            )
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'phone' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { htmlFor: 'phone' },
+                                            'Phone'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'phone',
+                                            placeholder: 'Phone',
+                                            className: 'form-control',
+                                            id: 'phone',
+                                            value: this.state.phone,
+                                            onChange: this.handlePhoneChange,
+                                            required: true })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'profile_pic' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { htmlFor: 'profile_pic' },
+                                            'Profile Picture'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'file',
+                                            onChange: this.onProfilePicChange,
+                                            required: true })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'first_name' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { htmlFor: 'first_name' },
+                                            'First Name'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text',
+                                            placeholder: 'First Name',
+                                            className: 'form-control',
+                                            id: 'first_name',
+                                            value: this.state.first_name,
+                                            onChange: this.handleFirstNameChange,
+                                            required: true })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'last_name' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { htmlFor: 'last_name' },
+                                            'Last Name'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text',
+                                            placeholder: 'Last Name',
+                                            className: 'form-control',
+                                            id: 'last_name',
+                                            value: this.state.last_name,
+                                            onChange: this.handleLastNameChange,
+                                            required: true })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'residency_location' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { htmlFor: 'residency_location' },
+                                            'Residency Location'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text',
+                                            placeholder: 'Residency Location',
+                                            className: 'form-control',
+                                            id: 'residency_location',
+                                            value: this.state.residency_location,
+                                            onChange: this.handleResidencyLocationChange,
+                                            required: true })
+                                    )
+                                )
+                            )
+                        ) : this.state.page === 2 ?
+                        // Experience
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: ' col-sm-4 formBox' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'h2',
+                                { className: 'formHeaderTitle' },
+                                'Experience'
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', { className: 'hr' }),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: 'centered' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'formSection' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'is_current_job' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { htmlFor: 'is_current_job' },
+                                            'Current Job'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            __WEBPACK_IMPORTED_MODULE_1_react_radio_buttons__["RadioGroup"],
+                                            {
+                                                onChange: this.handleIsCurrentJobChange,
+                                                horizontal: true,
+                                                selectedvalue: "1" },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                __WEBPACK_IMPORTED_MODULE_1_react_radio_buttons__["RadioButton"],
+                                                { value: '1' },
+                                                'Yes'
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                __WEBPACK_IMPORTED_MODULE_1_react_radio_buttons__["RadioButton"],
+                                                { value: '0' },
+                                                'No'
+                                            )
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        {
+                                            className: 'experience_start_date' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            {
+                                                htmlFor: 'experience_start_date' },
+                                            'Start Date'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'date',
+                                            placeholder: 'Start Date',
+                                            className: 'form-control',
+                                            id: 'experience_start_date',
+                                            value: this.state.experience_start_date,
+                                            onChange: this.handleExperienceStartDateChange
+                                        })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        {
+                                            className: 'experience_end_date' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            {
+                                                htmlFor: 'experience_end_date' },
+                                            'End Date'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'date',
+                                            placeholder: 'End Date',
+                                            className: 'form-control',
+                                            id: 'experience_end_date',
+                                            value: this.state.experience_end_date,
+                                            onChange: this.handleExperienceEndDateChange
+                                        })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        null,
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            {
+                                                htmlFor: 'title' },
+                                            'Title'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text',
+                                            placeholder: 'Title',
+                                            className: 'form-control',
+                                            id: 'title',
+                                            value: this.state.title,
+                                            onChange: this.handleTitleChange,
+                                            required: true })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'company_name' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { htmlFor: 'company_name' },
+                                            'Company Name'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text',
+                                            placeholder: 'Company Name',
+                                            className: 'form-control',
+                                            id: 'company_name',
+                                            value: this.state.company_name,
+                                            onChange: this.handleCompanyNameChange,
+                                            required: true })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'company_lcoation' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            {
+                                                htmlFor: 'company_lcoation' },
+                                            'Company Location'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text',
+                                            placeholder: 'Company Location',
+                                            className: 'form-control',
+                                            id: 'company_lcoation',
+                                            value: this.state.company_location,
+                                            onChange: this.handleCompanyLocationChange,
+                                            required: true })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'description' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            {
+                                                htmlFor: 'description' },
+                                            'Description'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text',
+                                            placeholder: 'Description',
+                                            className: 'form-control',
+                                            id: 'description',
+                                            value: this.state.description,
+                                            onChange: this.handleDescriptionChange
+                                        })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'skills' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            {
+                                                htmlFor: 'skills' },
+                                            'Skills'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text',
+                                            placeholder: 'Skills',
+                                            className: 'form-control',
+                                            id: 'skills',
+                                            value: this.state.skill_set_name,
+                                            onChange: this.handleSkillsChange,
+                                            required: true })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'skill_level' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { htmlFor: 'skill_level' },
+                                            'Skill Level'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text',
+                                            placeholder: 'Skill Level',
+                                            className: 'form-control',
+                                            id: 'skill_level',
+                                            value: this.state.skill_level,
+                                            onChange: this.handleSkillLevelChange,
+                                            required: true })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'linkedIn' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'div',
+                                            null,
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', {
+                                                className: 'fa fa-linkedin socialMediaIcon' })
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text',
+                                            placeholder: 'LinkedIn',
+                                            className: 'form-control',
+                                            id: 'linkedIn',
+                                            value: this.state.linkedin,
+                                            onChange: this.handleLinkedinChange,
+                                            required: true })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'GitHub' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'div',
+                                            null,
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', {
+                                                className: 'fa fa-github socialMediaIcon' })
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text',
+                                            placeholder: 'GitHub',
+                                            className: 'form-control',
+                                            id: 'GitHub',
+                                            value: this.state.github,
+                                            onChange: this.handleGithubChange,
+                                            required: true })
+                                    )
+                                )
+                            )
+                        ) :
+                        // Education
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: ' col-sm-4 formBox' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'h2',
+                                { className: 'formHeaderTitle' },
+                                'Education'
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', { className: 'hr' }),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: 'centered' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'formSection' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'major' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            {
+                                                htmlFor: 'major' },
+                                            'Major'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text',
+                                            placeholder: 'Major',
+                                            className: 'form-control',
+                                            id: 'major',
+                                            value: this.state.major,
+                                            onChange: this.handleMajorChange,
+                                            required: true })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'institute' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            {
+                                                htmlFor: 'institute' },
+                                            'Institute'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text',
+                                            placeholder: 'Institute',
+                                            className: 'form-control',
+                                            id: 'institute',
+                                            value: this.state.institute,
+                                            onChange: this.handleInstituteChange,
+                                            required: true })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        {
+                                            className: 'education_start_date' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            {
+                                                htmlFor: 'education_start_date' },
+                                            'Start Date'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'date',
+                                            placeholder: 'Start Date',
+                                            className: 'form-control',
+                                            id: 'education_start_date',
+                                            value: this.state.education_start_date,
+                                            onChange: this.handleEducationStartDateChange
+                                        })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'education_end_date' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            {
+                                                htmlFor: 'education_end_date' },
+                                            'End Date'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'date',
+                                            placeholder: 'End Date',
+                                            className: 'form-control',
+                                            id: 'education_end_date',
+                                            value: this.state.education_end_date,
+                                            onChange: this.handleEducationEndDateChange
+                                        })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'gpa' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            { htmlFor: 'gpa' },
+                                            'GPA'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'number',
+                                            placeholder: 'GPA',
+                                            className: 'form-control',
+                                            id: 'gpa',
+                                            value: this.state.gpa,
+                                            onChange: this.handleGPAChange,
+                                            required: true })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'certificate_name' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            {
+                                                htmlFor: 'certificate_name' },
+                                            'Certificate Name'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text',
+                                            placeholder: 'Certificate Name',
+                                            className: 'form-control',
+                                            id: 'certificate_name',
+                                            value: this.state.certificate_name,
+                                            onChange: this.handleCertificateNameChange,
+                                            required: true })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        {
+                                            className: 'education_description' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'label',
+                                            {
+                                                htmlFor: 'education_description' },
+                                            'Description'
+                                        ),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text',
+                                            placeholder: 'Education Description',
+                                            className: 'form-control',
+                                            id: 'education_description',
+                                            value: this.state.description,
+                                            onChange: this.handleEducationDescriptionChange
+                                        })
+                                    )
+                                )
+                            )
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: 'btnsContainer' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: 'nextButton',
+                                    onClick: this.onClickNext },
+                                'Next'
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'button',
+                                { type: 'submit', value: 'Submit',
+                                    className: 'btn submitButton' },
+                                'Submit'
+                            )
+                        )
+                    )
                 )
             );
         }
