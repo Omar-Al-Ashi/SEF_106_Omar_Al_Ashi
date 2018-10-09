@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import axios from "axios";
 import 'font-awesome/css/font-awesome.min.css';
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 export default class GraduateInfo extends Component {
     constructor(props) {
@@ -39,8 +41,10 @@ export default class GraduateInfo extends Component {
             linkedin: '',
             github: '',
         };
-    }
 
+        this.printDocument = this.printDocument.bind(this);
+
+    }
 
     componentWillMount() {
         // TODO uncomment the url when I fix the routing problem
@@ -81,106 +85,130 @@ export default class GraduateInfo extends Component {
         })
     }
 
+    printDocument() {
+        const input = document.getElementById('divToPrint');
+        html2canvas(input)
+            .then((canvas) => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF('l', 'mm', [255, 210]);
+                pdf.addImage(imgData, 'JPEG', 0, 0);
+                // pdf.output('dataurlnewwindow');
+                pdf.save("CV_" + this.state.first_name + "_" + this.state.last_name + ".pdf");
+            })
+        ;
+    }
+
     render() {
 
         return (
-            <div className='background container resumeContainer'>
-                <div className="mainDetails">
-                    <div id="headshot" className="quickFade">
-                        {console.log('the file state is: ' + this.state.selectedFile)}
-                        {this.state.selectedFile.trim() === "" ? (
-                            'nothing'
-                        ) : (
-                            <img
-                                // src={require('../../../storage/app/public/images/'+this.props.user_image)}
-                                src={require('../../../../public/images/'+ this.state.selectedFile)}
-                                alt={this.state.first_name + this.state.last_name}/>
-                        )}
-                    </div>
-
-                    <div id="name">
-                        <h1 className="quickFade delayTwo">{this.state.first_name + " " + this.state.last_name}</h1>
-                        <h2 className="quickFade delayThree">{this.state.title}</h2>
-                    </div>
-
-                    <div id="contactDetails" className="quickFade delayFour">
-                        <ul>
-                            <li><strong>email: </strong> <a
-                                href={"mailto:" + this.state.email + "?subject=We Are" +
-                                " interested in your Resume&body=Dear Mr. " + this.state.last_name
-                                + ".\n We are interested in your CV"}
-                                target="_blank">{this.state.email}</a></li>
-                            <li><strong>phone: </strong>{this.state.phone}</li>
-                        </ul>
-                    </div>
-                    <div className="clear"></div>
-                </div>
-
-                <div id="mainArea" className="quickFade delayFive">
-                    <section>
-                        <article>
-                            <div className="sectionTitle">
-                                <h1>Personal Profile</h1>
-                            </div>
-
-
-                            <div className="sectionContent">
-                                <p><strong>Gender: </strong> {this.state.gender}
-                                </p>
-                                <p><strong>Date of birth: </strong> {this.state.dob}</p>
-                                <p><strong>Residency
-                                    Location: </strong>{this.state.residency_location}</p>
-                            </div>
-                        </article>
-                        <div className="clear"></div>
-                    </section>
-
-                    <section>
-                        <div className="sectionTitle">
-                            <h1>Work Experience</h1>
+            <div>
+                <div className='background container resumeContainer'
+                     id="divToPrint">
+                    <div className="mainDetails">
+                        <div id="headshot" className="quickFade">
+                            {console.log('the file state is: ' + this.state.selectedFile)}
+                            {this.state.selectedFile.trim() === "" ? (
+                                'nothing'
+                            ) : (
+                                <img
+                                    // src={require('../../../storage/app/public/images/'+this.props.user_image)}
+                                    src={require('../../../../public/images/' + this.state.selectedFile)}
+                                    alt={this.state.first_name + this.state.last_name}/>
+                            )}
                         </div>
 
-                        <div className="sectionContent">
+                        <div id="name">
+                            <h1 className="quickFade delayTwo">{this.state.first_name + " " + this.state.last_name}</h1>
+                            <h2 className="quickFade delayThree">{this.state.title}</h2>
+                        </div>
+
+                        <div id="contactDetails"
+                             className="quickFade delayFour">
+                            <ul>
+                                <li><strong>email: </strong> <a
+                                    href={"mailto:" + this.state.email + "?subject=We Are" +
+                                    " interested in your Resume&body=Dear Mr. " + this.state.last_name
+                                    + ".\n We are interested in your CV"}
+                                    target="_blank">{this.state.email}</a></li>
+                                <li><strong>phone: </strong>{this.state.phone}
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="clear"></div>
+                    </div>
+
+                    <div id="mainArea" className="quickFade delayFive">
+                        <section>
                             <article>
-                                <h2 className='header'>{this.state.title}</h2>
-                                <p className="subDetails">{this.state.experience_starting_date} - {this.state.experience_ending_date}</p>
-                                <p>{this.state.company_name} - {this.state.job_location}</p>
-                                <p>{this.state.description}</p>
-                                <p>{this.state.skills}</p>
+                                <div className="sectionTitle">
+                                    <h1>Personal Profile</h1>
+                                </div>
+
+
+                                <div className="sectionContent">
+                                    <p>
+                                        <strong>Gender: </strong> {this.state.gender}
+                                    </p>
+                                    <p><strong>Date of
+                                        birth: </strong> {this.state.dob}</p>
+                                    <p><strong>Residency
+                                        Location: </strong>{this.state.residency_location}
+                                    </p>
+                                </div>
                             </article>
-                        </div>
-                        <div className="clear"></div>
+                            <div className="clear"></div>
+                        </section>
 
                         <section>
                             <div className="sectionTitle">
-                                <h1>Education</h1>
+                                <h1>Work Experience</h1>
                             </div>
 
                             <div className="sectionContent">
                                 <article>
-                                    <h2 className='header'>{this.state.institute}</h2>
-                                    <p className="subDetails">{this.state.certificate_name}</p>
-                                    <p className="subDetails">{this.state.education_starting_date} - {this.state.education_ending_date}</p>
-                                    <p/>
-                                    <p>{this.state.education_description}</p>
+                                    <h2 className='header'>{this.state.title}</h2>
+                                    <p className="subDetails">{this.state.experience_starting_date} - {this.state.experience_ending_date}</p>
+                                    <p>{this.state.company_name} - {this.state.job_location}</p>
+                                    <p>{this.state.description}</p>
+                                    <p>{this.state.skills}</p>
                                 </article>
-
-
                             </div>
                             <div className="clear"></div>
+
+                            <section>
+                                <div className="sectionTitle">
+                                    <h1>Education</h1>
+                                </div>
+
+                                <div className="sectionContent">
+                                    <article>
+                                        <h2 className='header'>{this.state.institute}</h2>
+                                        <p className="subDetails">{this.state.certificate_name}</p>
+                                        <p className="subDetails">{this.state.education_starting_date} - {this.state.education_ending_date}</p>
+                                        <p/>
+                                        <p>{this.state.education_description}</p>
+                                    </article>
+
+
+                                </div>
+                                <div className="clear"></div>
+                            </section>
                         </section>
-                    </section>
+                    </div>
+                    <div className='socialMediaContainer'>
+                        <a
+                            href={'http://' + this.state.linkedin}><i
+                            className="fa fa-linkedin fa-2x marginRight"/>
+                        </a>
+                        <a
+                            href={'http://' + this.state.github}><i
+                            className="fa fa-github fa-2x"/>
+                        </a>
+                    </div>
                 </div>
-                <div className='socialMediaContainer'>
-                    <a
-                        href={'http://' + this.state.linkedin}><i
-                        className="fa fa-linkedin fa-2x marginRight"/>
-                    </a>
-                    <a
-                        href={'http://' + this.state.github}><i
-                        className="fa fa-github fa-2x"/>
-                    </a>
-                </div>
+                <button onClick={this.printDocument}
+                        className="btn marginTop">Print resume as PDF
+                </button>
             </div>
         );
     }
