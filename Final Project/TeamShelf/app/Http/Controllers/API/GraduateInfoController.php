@@ -1,25 +1,16 @@
-<?php /** @noinspection SqlDialectInspection */
+<?php
 
 //changed the namespace
 namespace App\Http\Controllers\API;
 
 use App\graduate_profile;
 // Added the bellow usages to add the data to the tables
-use App\education_detail;
-use App\experience_detail;
-use App\skill_set;
-use App\social_media;
-use App\user;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 // Added this
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Validator;
-use Intervention\Image\ImageManagerStatic as Image;
+
 
 class GraduateInfoController extends Controller
 {
@@ -33,7 +24,7 @@ class GraduateInfoController extends Controller
     public function store(Request $request)
     {
 
-        //validation
+        // TODO add validation
         $validationArray = [
             $request->id => 'required',
             $request->first_name => 'required',
@@ -120,22 +111,6 @@ class GraduateInfoController extends Controller
 
     public function edit(Request $request)
     {
-
-//        return $request->file('profile_picture');
-//        if (DB::table('graduate_profiles')->select('user_id', $request->id)->get()) {
-//        if (DB::table('graduate_profiles')->select('user_id', $request->id)->get()) {
-//        $image = $request->file('profile_picture');
-////        $file_name = $request->id . "." . $image->extension();
-//        $file_name = $request->id . ".png";
-//        $image->move('public/images', $file_name);
-//
-//        DB::table('users')
-//            ->where('id', $request->id)
-//            ->update(['user_image' => $image]);
-
-//         Image::make('public/'.$image);
-//        Image::make($request->profile_picture);
-
 
         $graduate = graduate_profile::where('user_id', $request->id)->count();
         if ($graduate > 0) {
@@ -266,10 +241,5 @@ class GraduateInfoController extends Controller
             ->update(['user_image' => $file_name]);
 
         return "It Worked";
-//        return $file = Storage::url('1.png');
-
     }
-
-
-
 }
