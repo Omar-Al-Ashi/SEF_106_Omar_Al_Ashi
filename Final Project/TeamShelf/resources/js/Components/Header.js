@@ -59,13 +59,6 @@ export default class Header extends Component {
 
     render() {
 
-        // if (this.state.redirect) {
-        //     return (
-        //         <BrowserRouter>
-        //             <Redirect to='/search' name='Omar'/>
-        //         </BrowserRouter>);
-        // }
-
         return (
             <BrowserRouter>
                 <div>
@@ -116,9 +109,10 @@ export default class Header extends Component {
                                                 name="search"
                                                 value={this.state.search}
                                                 onChange={this.handleSearchChange}/>
-                                            <button type="submit"
-                                                    value="Submit">Submit
-                                            </button>
+                                            <Button type="submit"
+                                                    value="Submit"
+                                            className='btn Ripple-parent gray'>Search
+                                            </Button>
 
                                         </form>
                                     </NavItem>
@@ -127,10 +121,8 @@ export default class Header extends Component {
                                         <NavLink to="/login">
                                             {sessionStorage.getItem('session') ?
                                                 <Button
-                                                    style={{backgroundColor: '#8C8C8C'}}
                                                     color="cyan">Logout</Button> :
                                                 <Button
-                                                    style={{backgroundColor: '#8C8C8C'}}
                                                     color="cyan">Login</Button>}
                                         </NavLink>
                                     </NavItem>
