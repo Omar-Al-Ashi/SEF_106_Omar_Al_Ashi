@@ -66,8 +66,8 @@ export default class Header extends Component {
 
                         <Redirect to={{
                             pathname: '/search',
-                            state: { for: this.state.search }
-                        }} />
+                            state: {for: this.state.search}
+                        }}/>
                         : <div></div>}
                     <div className='alignCenter background navigationBar'>
 
@@ -111,7 +111,7 @@ export default class Header extends Component {
                                                 onChange={this.handleSearchChange}/>
                                             <Button type="submit"
                                                     value="Submit"
-                                            className='btn Ripple-parent gray'>Search
+                                                    className='btn Ripple-parent gray'>Search
                                             </Button>
 
                                         </form>
