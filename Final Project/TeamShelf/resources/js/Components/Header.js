@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Link, Redirect} from 'react-router-dom';
-import Login from "../Pages/Login";
 import {
     Navbar,
     NavbarBrand,
