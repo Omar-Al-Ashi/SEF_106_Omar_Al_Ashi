@@ -31,6 +31,8 @@ export default class Edit extends Component {
             skill_level: '',
             skill_set_name: '',
             selectedFile: '',
+            residency_location: '',
+            experience_start_date: '',
 
             page: 1,
             steps: [{
@@ -99,48 +101,23 @@ export default class Edit extends Component {
                     selectedFile: response.data[0].user_image,
                     residency_location: response.data[0].residency_location,
                 });
-                console.log(response)
+                // console.log(response)
             }).then(response => {
                 console.log(response);
             }).catch(errors => {
                 console.log(errors.response);
             });
 
-
         }).catch(errors => {
             console.log(errors.response);
         });
 
+        this.handleFieldChange = this.handleFieldChange.bind(this);
         this.onGenderChange = this.onGenderChange.bind(this);
         this.onProfilePicChange = this.onProfilePicChange.bind(this);
-        this.fileUploadHandler = this.fileUploadHandler.bind(this);
         this.handleIsCurrentJobChange = this.handleIsCurrentJobChange.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
-        this.handleDOBChange = this.handleDOBChange.bind(this);
-        this.handlePhoneChange = this.handlePhoneChange.bind(this);
-        this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
-        this.handleLastNameChange = this.handleLastNameChange.bind(this);
-        this.handleResidencyLocationChange = this.handleResidencyLocationChange.bind(this);
-        this.handleMajorChange = this.handleMajorChange.bind(this);
-        this.handleInstituteChange = this.handleInstituteChange.bind(this);
-        this.handleEducationStartDateChange = this.handleEducationStartDateChange.bind(this);
-        this.handleEducationEndDateChange = this.handleEducationEndDateChange.bind(this);
-        this.handleGPAChange = this.handleGPAChange.bind(this);
-        this.handleCertificateNameChange = this.handleCertificateNameChange.bind(this);
-        this.handleExperienceStartDateChange = this.handleExperienceStartDateChange.bind(this);
-        this.handleExperienceEndDateChange = this.handleExperienceEndDateChange.bind(this);
-        this.handleTitleChange = this.handleTitleChange.bind(this);
-        this.handleCompanyNameChange = this.handleCompanyNameChange.bind(this);
-        this.handleCompanyLocationChange = this.handleCompanyLocationChange.bind(this);
-        this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-        this.handleSkillsChange = this.handleSkillsChange.bind(this);
-        this.handleLinkedinChange = this.handleLinkedinChange.bind(this);
-        this.handleGithubChange = this.handleGithubChange.bind(this);
-        this.handleEducationDescriptionChange = this.handleEducationDescriptionChange.bind(this);
-        this.handleSkillLevelChange = this.handleSkillLevelChange.bind(this);
-
         this.onClickNext = this.onClickNext.bind(this);
-        // this.handlePageChange = this.handlePageChange.bind(this);
     }
 
     onGenderChange(value) {
@@ -150,30 +127,17 @@ export default class Edit extends Component {
     }
 
     onProfilePicChange(event) {
-        // console.log("The extensions is:" + event.target.files[0].name);
-
         this.setState({
             selectedFile: event.target.files[0]
         });
-
         console.log("The state is " + this.state.selectedFile);
-        // console.log("The file is "+ event.target.files[0].name);
     };
 
-    fileUploadHandler() {
-        //TODO I think I should set the image state
-        const formData = new FormData();
-        formData.append('image', this.state.selectedFile, this.state.selectedFile.name);
-        // TODO change the post request URL
-        axios.post('my-domain.com/file-upload', formData, {
-            onUploadProgress: progressEvent => {
-                //This is showing the percentage uploaded
-                console.log('Upload progress' + Math.round(progressEvent.loaded / progressEvent.total * 100 + '%'));
-            }
-        })
-            .then(res => {
-                console.log(res.data);
-            })
+    handleFieldChange(value) {
+        this.setState({
+            [value.target.name]: value.target.value
+        });
+        console.log("The field changed is " + [value.target.name] + " and the value is " + value.target.value);
     }
 
     handleIsCurrentJobChange(value) {
@@ -182,135 +146,9 @@ export default class Edit extends Component {
         });
     }
 
-    handleDOBChange(value) {
-        this.setState({
-            dob: value.target.value
-        });
-    }
-
-    handlePhoneChange(value) {
-        this.setState({
-            phone: value.target.value
-        });
-    }
-
-    handleFirstNameChange(value) {
-        this.setState({
-            first_name: value.target.value
-        });
-    }
-
-    handleLastNameChange(value) {
-        this.setState({
-            last_name: value.target.value
-        });
-    }
-
     handleResidencyLocationChange(value) {
         this.setState({
             residency_location: value.target.value
-        });
-    }
-
-    handleMajorChange(value) {
-        this.setState({
-            major: value.target.value
-        });
-    }
-
-    handleInstituteChange(value) {
-        this.setState({
-            institute: value.target.value
-        });
-    }
-
-    handleEducationStartDateChange(value) {
-        this.setState({
-            education_start_date: value.target.value
-        });
-    }
-
-    handleEducationEndDateChange(value) {
-        this.setState({
-            education_end_date: value.target.value
-        });
-    }
-
-    handleGPAChange(value) {
-        this.setState({
-            gpa: value.target.value
-        });
-    }
-
-    handleCertificateNameChange(value) {
-        this.setState({
-            certificate_name: value.target.value
-        });
-    }
-
-    handleEducationDescriptionChange(value) {
-        this.setState({
-            education_description: value.target.value
-        });
-    }
-
-    handleExperienceStartDateChange(value) {
-        this.setState({
-            experience_start_date: value.target.value
-        });
-    }
-
-    handleExperienceEndDateChange(value) {
-        this.setState({
-            experience_end_date: value.target.value
-        });
-    }
-
-    handleTitleChange(value) {
-        this.setState({
-            title: value.target.value
-        });
-    }
-
-    handleCompanyNameChange(value) {
-        this.setState({
-            company_name: value.target.value
-        });
-    }
-
-    handleCompanyLocationChange(value) {
-        this.setState({
-            company_location: value.target.value
-        });
-    }
-
-    handleDescriptionChange(value) {
-        this.setState({
-            description: value.target.value
-        });
-    }
-
-    handleSkillsChange(value) {
-        this.setState({
-            skill_set_name: value.target.value
-        });
-    }
-
-    handleSkillLevelChange(value) {
-        this.setState({
-            skill_level: value.target.value
-        });
-    }
-
-    handleLinkedinChange(value) {
-        this.setState({
-            linkedin: value.target.value
-        });
-    }
-
-    handleGithubChange(value) {
-        this.setState({
-            github: value.target.value
         });
     }
 
@@ -350,7 +188,6 @@ export default class Edit extends Component {
         picForm.append('Accept', 'image/png');
         picForm.append('extension', this.state.selectedFile.name);
 
-
         event.preventDefault();
         axios.post('/api/graduate/edit', formData)
             .then(res =>
@@ -364,7 +201,7 @@ export default class Edit extends Component {
     }
 
     onClickNext() {
-        const {steps, currentStep} = this.state;
+        const {currentStep} = this.state;
         this.setState({
             currentStep: currentStep + 1,
             page: this.state.page + 1
@@ -377,7 +214,6 @@ export default class Edit extends Component {
         });
         console.log("The dob state is " + value.target.name)
     }
-
 
     render() {
 
@@ -402,11 +238,12 @@ export default class Edit extends Component {
                                                     of
                                                     Birth</label>
                                                 <input type='date'
+                                                       name='dob'
                                                        placeholder='Date of Birth'
                                                        className='form-control'
                                                        id='date_of_birth'
                                                        value={this.state.dob}
-                                                       onChange={this.handleDOBChange}
+                                                       onChange={this.handleFieldChange}
                                                 />
                                             </div>
 
@@ -437,8 +274,9 @@ export default class Edit extends Component {
                                                    placeholder='Phone'
                                                    className='form-control'
                                                    id='phone'
+                                                   name="phone"
                                                    value={this.state.phone}
-                                                   onChange={this.handlePhoneChange}
+                                                   onChange={this.handleFieldChange}
                                                    required/>
                                         </div>
 
@@ -450,7 +288,8 @@ export default class Edit extends Component {
                                                 Picture</label>
                                             <input type="file"
                                                    onChange={this.onProfilePicChange}
-                                                   required/>
+                                                   required
+                                                   name='selectedFile'/>
                                         </div>
 
                                         {/*First Name*/}
@@ -462,7 +301,8 @@ export default class Edit extends Component {
                                                    className='form-control'
                                                    id='first_name'
                                                    value={this.state.first_name}
-                                                   onChange={this.handleFirstNameChange}
+                                                   onChange={this.handleFieldChange}
+                                                   name='first_name'
                                                    required/>
                                         </div>
 
@@ -475,7 +315,8 @@ export default class Edit extends Component {
                                                    className='form-control'
                                                    id='last_name'
                                                    value={this.state.last_name}
-                                                   onChange={this.handleLastNameChange}
+                                                   onChange={this.handleFieldChange}
+                                                   name='last_name'
                                                    required/>
                                         </div>
 
@@ -488,7 +329,8 @@ export default class Edit extends Component {
                                                    className='form-control'
                                                    id='residency_location'
                                                    value={this.state.residency_location}
-                                                   onChange={this.handleResidencyLocationChange}
+                                                   onChange={this.handleFieldChange}
+                                                   name='residency_location'
                                                    required/>
                                         </div>
                                     </div>
@@ -531,7 +373,8 @@ export default class Edit extends Component {
                                                        className='form-control'
                                                        id='experience_start_date'
                                                        value={this.state.experience_start_date}
-                                                       onChange={this.handleExperienceStartDateChange}
+                                                       name='experience_start_date'
+                                                       onChange={this.handleFieldChange}
                                                 />
                                             </div>
 
@@ -546,7 +389,8 @@ export default class Edit extends Component {
                                                        className='form-control'
                                                        id='experience_end_date'
                                                        value={this.state.experience_end_date}
-                                                       onChange={this.handleExperienceEndDateChange}
+                                                       onChange={this.handleFieldChange}
+                                                       name='experience_end_date'
                                                 />
                                             </div>
 
@@ -559,7 +403,8 @@ export default class Edit extends Component {
                                                        className='form-control'
                                                        id='title'
                                                        value={this.state.title}
-                                                       onChange={this.handleTitleChange}
+                                                       onChange={this.handleFieldChange}
+                                                       name='title'
                                                        required/>
                                             </div>
 
@@ -572,7 +417,8 @@ export default class Edit extends Component {
                                                        className='form-control'
                                                        id='company_name'
                                                        value={this.state.company_name}
-                                                       onChange={this.handleCompanyNameChange}
+                                                       onChange={this.handleFieldChange}
+                                                       name='company_name'
                                                        required/>
                                             </div>
 
@@ -586,7 +432,8 @@ export default class Edit extends Component {
                                                        className='form-control'
                                                        id='company_lcoation'
                                                        value={this.state.company_location}
-                                                       onChange={this.handleCompanyLocationChange}
+                                                       onChange={this.handleFieldChange}
+                                                       name='company_location'
                                                        required/>
                                             </div>
 
@@ -599,7 +446,8 @@ export default class Edit extends Component {
                                                        className='form-control'
                                                        id='description'
                                                        value={this.state.description}
-                                                       onChange={this.handleDescriptionChange}
+                                                       onChange={this.handleFieldChange}
+                                                       name='description'
                                                 />
                                             </div>
 
@@ -612,7 +460,8 @@ export default class Edit extends Component {
                                                        className='form-control'
                                                        id='skills'
                                                        value={this.state.skill_set_name}
-                                                       onChange={this.handleSkillsChange}
+                                                       onChange={this.handleFieldChange}
+                                                       name='skill_set_name'
                                                        required/>
                                             </div>
 
@@ -625,7 +474,8 @@ export default class Edit extends Component {
                                                        className='form-control'
                                                        id='skill_level'
                                                        value={this.state.skill_level}
-                                                       onChange={this.handleSkillLevelChange}
+                                                       onChange={this.handleFieldChange}
+                                                       name='skill_level'
                                                        required/>
                                             </div>
 
@@ -639,7 +489,8 @@ export default class Edit extends Component {
                                                        className='form-control'
                                                        id='linkedIn'
                                                        value={this.state.linkedin}
-                                                       onChange={this.handleLinkedinChange}
+                                                       onChange={this.handleFieldChange}
+                                                       name='linkedin'
                                                        required/>
                                             </div>
 
@@ -653,7 +504,8 @@ export default class Edit extends Component {
                                                        className='form-control'
                                                        id='GitHub'
                                                        value={this.state.github}
-                                                       onChange={this.handleGithubChange}
+                                                       onChange={this.handleFieldChange}
+                                                       name='github'
                                                        required/>
                                             </div>
                                         </div>
@@ -676,7 +528,8 @@ export default class Edit extends Component {
                                                        className='form-control'
                                                        id='major'
                                                        value={this.state.major}
-                                                       onChange={this.handleMajorChange}
+                                                       onChange={this.handleFieldChange}
+                                                       name='major'
                                                        required/>
                                             </div>
 
@@ -689,7 +542,8 @@ export default class Edit extends Component {
                                                        className='form-control'
                                                        id='institute'
                                                        value={this.state.institute}
-                                                       onChange={this.handleInstituteChange}
+                                                       onChange={this.handleFieldChange}
+                                                       name='institute'
                                                        required/>
                                             </div>
 
@@ -704,7 +558,8 @@ export default class Edit extends Component {
                                                        className='form-control'
                                                        id='education_start_date'
                                                        value={this.state.education_start_date}
-                                                       onChange={this.handleEducationStartDateChange}
+                                                       onChange={this.handleFieldChange}
+                                                       name='education_start_date'
                                                 />
                                             </div>
 
@@ -718,7 +573,8 @@ export default class Edit extends Component {
                                                        className='form-control'
                                                        id='education_end_date'
                                                        value={this.state.education_end_date}
-                                                       onChange={this.handleEducationEndDateChange}
+                                                       onChange={this.handleFieldChange}
+                                                       name='education_end_date'
                                                 />
                                             </div>
 
@@ -730,7 +586,8 @@ export default class Edit extends Component {
                                                        className='form-control'
                                                        id='gpa'
                                                        value={this.state.gpa}
-                                                       onChange={this.handleGPAChange}
+                                                       onChange={this.handleFieldChange}
+                                                       name='gpa'
                                                        required/>
                                             </div>
 
@@ -744,7 +601,8 @@ export default class Edit extends Component {
                                                        className='form-control'
                                                        id='certificate_name'
                                                        value={this.state.certificate_name}
-                                                       onChange={this.handleCertificateNameChange}
+                                                       onChange={this.handleFieldChange}
+                                                       name='certificate_name'
                                                        required/>
                                             </div>
 
@@ -758,7 +616,8 @@ export default class Edit extends Component {
                                                        className='form-control'
                                                        id='education_description'
                                                        value={this.state.description}
-                                                       onChange={this.handleEducationDescriptionChange}
+                                                       onChange={this.handleFieldChange}
+                                                       name='description'
                                                 />
                                             </div>
                                         </div>
