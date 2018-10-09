@@ -47,7 +47,6 @@ export default class GraduateInfo extends Component {
     }
 
     componentWillMount() {
-        // TODO uncomment the url when I fix the routing problem
         axios.get('/api' + this.props.location.pathname).then(response => {
             this.setState({
                 dob: response.data[0].DOB,

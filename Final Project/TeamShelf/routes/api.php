@@ -26,7 +26,6 @@ Route::group(['middleware' => 'auth:api'], function(){
 
 });
 
-// TODO put them inside the middleware
 Route::resource('experiences', 'API\ExperienceDetailController');
 Route::resource('admins', 'API\AdminProfileController');
 Route::resource('companies', 'API\CompanyProfileController');
@@ -34,7 +33,6 @@ Route::resource('educations', 'API\EducationDetailController');
 Route::resource('graduates', 'API\GraduateProfileController');
 Route::resource('skills', 'API\SkillSetController');
 Route::resource('social_medias', 'API\SocialMediaController');
-//Route::get('allGraduatesWithInfo', 'API\GraduateProfileController@returnAllGraduatesWithAllInfo');
 Route::get('graduate/{id}', 'API\GraduateProfileController@returnSpecificGraduateInfo');
 Route::get('search', 'API\GraduateProfileController@search');
 Route::post('graduate/store', 'API\GraduateInfoController@store');
