@@ -1,11 +1,3 @@
-.green {
-    background-color: #009644;
-}
-
-.white {
-    background-color: white;
-}
-
 .black {
     background-color: black;
 }
@@ -30,10 +22,6 @@
     align-items: center;
 }
 
-.marginBottom {
-    margin-bottom: 100px;
-}
-
 .fullPage {
     height: 78vh;
 }
@@ -50,16 +38,7 @@
     height: 130vh;
 }
 
-.left {
-    width: 33.333%;
-    height: 100vh;
-    float: left;
-    /*background-color: rosybrown;*/
-    border-collapse: collapse;
-}
-
 .formSection {
-    /*background-color: #1f6fb2;*/
     height: 100%
 }
 
@@ -94,40 +73,17 @@
     margin: 32px auto 0;
 }
 
-.middle {
-    width: 33.333%;
-    height: 100vh;
-    float: left;
-    /*background-color: royalblue;*/
-    border-collapse: collapse;
-}
-
-.right {
-    width: 33.333%;
-    height: 100vh;
-    float: right;
-    /*background-color: yellow;*/
-    border-collapse: collapse;
-}
-
 .background {
-    /*background-color: #4C85F4;*/
     background-color: white;
-}
-
-.loginCard {
-
 }
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
     margin: auto;
-    /*float: left;*/
     height: 550px;
     text-align: center;
     font-family: arial, serif;
-    /*margin-bottom: 100px;*/
 }
 
 .resumeContainer {
@@ -161,13 +117,7 @@
     bottom: 0;
 }
 
-.linkk {
-    text-decoration: none;
-    font-size: 22px;
-    color: black;
-}
-
-.contactButton:hover, .linkk:hover {
+.contactButton:hover{
     opacity: 0.7;
 }
 
@@ -195,11 +145,6 @@
     margin-left: 100px;
 }
 
-.spaceAround {
-    display: flex;
-    justify-content: space-around;
-}
-
 .socialMediaIcon {
     font-size: 36px
 }
@@ -208,36 +153,8 @@
     text-decoration: none;
 }
 
-.halfLeft {
-    width: 50%;
-    height: 100vh;
-    float: left;
-    background-color: rosybrown;
-    border-collapse: collapse;
-    border-right: 6px solid blue;
-}
-
-.halfRight {
-    width: 50%;
-    height: 100vh;
-    float: right;
-    background-color: green;
-    border-collapse: collapse;
-    border-left: 6px solid blue;
-}
-
-.verticalSeperator {
-    border-left: 6px solid green;
-    height: 500px;
-    width: 1px
-}
-
 .loginInput {
     width: 300px
-}
-
-.main-container {
-    height: 100vh;
 }
 
 .clear {
@@ -254,13 +171,6 @@
 
 .icon {
     font-size: 24px
-}
-
-#cv {
-    width: 90%;
-    max-width: 800px;
-    background: #f3f3f3;
-    margin: 30px auto;
 }
 
 #name h1 {
@@ -359,7 +269,6 @@ section:last-child {
 .sectionContent h2 {
     font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
     font-size: 1.5em;
-    /*margin-bottom: -2px;*/
 }
 
 .subDetails {
@@ -380,10 +289,6 @@ section:last-child {
 
 .marginRight {
     margin-right: 10px;
-}
-
-.keySkills ul li {
-    margin-bottom: 3px;
 }
 
 .hr {

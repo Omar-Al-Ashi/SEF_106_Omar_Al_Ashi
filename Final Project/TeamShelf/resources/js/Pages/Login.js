@@ -81,7 +81,7 @@ export default class Login extends Component {
         }
 
         return (
-            <div className='background fullHeight loginCard'
+            <div className='background fullHeight'
                  style={{height: "100vh"}}>
                 <div className="Login">
 
