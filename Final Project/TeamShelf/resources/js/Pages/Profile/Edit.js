@@ -4,6 +4,7 @@ import axios from 'axios';
 import {Input} from 'mdbreact';
 import Stepper from 'react-stepper-horizontal';
 import 'font-awesome/css/font-awesome.min.css';
+import {Button} from "mdbreact";
 
 require('../../Styles/Styles.css');
 
@@ -625,12 +626,13 @@ export default class Edit extends Component {
                                 </div>
                         }
                         <div className='btnsContainer'>
-                            <div className='nextButton'
+                            <Button className='nextButton'
                                  onClick={this.onClickNext}>Next
-                            </div>
-                            <button type="submit" value="Submit"
+                            </Button>
+                            <br/>
+                            <Button type="submit" value="Submit"
                                     className='btn submitButton'>Submit
-                            </button>
+                            </Button>
                         </div>
 
                     </form>
