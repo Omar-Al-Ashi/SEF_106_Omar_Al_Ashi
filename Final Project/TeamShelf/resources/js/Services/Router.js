@@ -7,7 +7,6 @@ import ViewAll from "../Pages/Profile/ViewAll";
 import GraduateInfo from "../Pages/Profile/GraduateInfo";
 import Search from "../Pages/Search";
 
-
 export default class Router extends Component {
     render() {
         return (
@@ -20,7 +19,6 @@ export default class Router extends Component {
                     <Route exact path='/graduate/:id'
                            render={props => <GraduateInfo {...props}/>}
                     />
-
                     <Route exact path='/search' component={Search}/>
                 </Switch>
 
